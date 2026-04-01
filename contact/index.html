@@ -10,13 +10,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
-
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
   <link rel="canonical" href="https://www.svalinhq.com/contact" />
 </head>
-<body>
+<body class="demo-page">
 
   <!-- Navigation -->
   <nav class="nav" id="nav">
@@ -37,35 +35,29 @@
     </div>
   </nav>
 
-  <main class="info-page">
+  <div class="demo-page__content">
     <div class="container">
-      <div class="info-page__content">
-        <h1 class="info-page__title">Contact Us</h1>
-        <p class="info-page__meta">We'd love to hear from you. Reach out through any of the channels below.</p>
-
-        <div class="contact__grid">
-          <div class="contact__card">
-            <div class="contact__card-icon">
-              <i class="ph ph-envelope-simple" style="font-size: 24px;"></i>
-            </div>
-            <h2 class="contact__card-title">Get in Touch</h2>
-            <p class="contact__card-text">
-              <a href="mailto:hello@svalinhq.com">hello@svalinhq.com</a>
-            </p>
-          </div>
-          <div class="contact__card">
-            <div class="contact__card-icon">
-              <i class="ph ph-chat-circle-dots" style="font-size: 24px;"></i>
-            </div>
-            <h2 class="contact__card-title">Request a Demo</h2>
-            <p class="contact__card-text">
-              <a href="/demo">Fill out our demo form</a>
-            </p>
-          </div>
+      <div class="demo-page__wrapper">
+        <h1 class="demo-page__title">Contact Us</h1>
+        <p class="demo-page__subtitle">
+          Have a question about Svalin? Fill in the form below and we'll get back to you.
+        </p>
+        <div class="demo-page__iframe-wrapper">
+          <iframe
+            src="https://tally.so/embed/7RvxM2?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            title="Contact Form"
+            loading="lazy"
+            width="100%"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+          >
+            Loading form...
+          </iframe>
         </div>
       </div>
     </div>
-  </main>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
@@ -80,6 +72,7 @@
     </div>
   </footer>
 
+  <script src="https://tally.so/widgets/embed.js"></script>
   <script src="/js/main.js"></script>
 </body>
 </html>
