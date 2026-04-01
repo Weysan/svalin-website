@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — Svalin | AI Governance Platform</title>
+  <meta name="description" content="Frequently asked questions about Svalin, the AI governance platform. Learn about data security, supported clients, setup time, and more." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TG3V0DWW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1TG3V0DWW3');
+  </script>
+
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://www.svalinhq.com/faq" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand">
+        <img src="/assets/logo.svg" alt="Svalin logo" class="nav__logo" />
+        <span class="nav__wordmark">Svalin</span>
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="/" class="nav__link">Home</a>
+        <a href="/contact" class="nav__link">Contact</a>
+        <a href="/demo" class="nav__cta">Request a Demo</a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="info-page">
+    <div class="container">
+      <div class="info-page__content" style="max-width: 760px;">
+        <h1 class="info-page__title">Frequently Asked Questions</h1>
+        <p class="info-page__meta">Everything you need to know about Svalin.</p>
+
+        <div class="faq__list" style="margin-top: var(--space-2xl);">
+
+          <!-- Security & Data -->
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              How is the data stored and secured?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>All data is fully encrypted and stored on European servers. Encryption keys are hosted with a separate European cloud provider and are never shared with our hosting platform, ensuring complete separation of concerns. Data can only be decrypted by authorised users through the platform, with separate keys per organisation.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              Where is the data hosted?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>All data is hosted on EU-based servers, fully compliant with GDPR requirements. Encryption keys are managed by a separate European cloud provider, ensuring that no single vendor has access to both your data and the keys to decrypt it.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              Does Svalin access AI conversation content?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>No. AI conversation content and filesystem information are never accessible to the Svalin agent. Only the input and output of MCP server tool calls are stored and logged. Your teams' prompts, responses, and local files remain completely private.</p>
+            </div>
+          </div>
+
+          <!-- Product -->
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              How is Svalin different from existing AI monitoring tools?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Unlike traditional monitoring or MDM tools, Svalin is purpose-built for AI governance. It monitors and enforces policies across every MCP server, regardless of which AI client is used or whether the MCP server runs locally or remotely via API. This gives you a single governance layer across your entire AI stack.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              Which AI clients are supported?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Svalin works with any client that supports MCP servers, including terminal-based tools and desktop applications. As the MCP ecosystem grows, Svalin automatically supports new clients without any additional configuration.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              What happens if Svalin goes down?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Zero impact on your teams. Local agents simply log information and never interfere with actual tool calls. Your teams continue working uninterrupted — no blocking dependency, no downtime risk.</p>
+            </div>
+          </div>
+
+          <!-- Setup -->
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              How long does it take to set up?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Days, not months. Deployment time depends on your client setup (via MDM or other distribution methods), but you can start defining policies and rolling out local agents to your teams right away.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              Can policies be customised per team or department?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Yes. Svalin supports granular policy configuration, allowing you to define different rules for different teams, departments, or use cases within your organisation.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="text-align: center; margin-top: var(--space-2xl);">
+          <p style="color: var(--svalin-muted); margin-bottom: var(--space-md);">Still have questions?</p>
+          <a href="/contact" class="btn btn--primary">Contact Us</a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border-top: none; padding-top: 0;">
+        <span>&copy; 2026 Svalin. All rights reserved.</span>
+        <div>
+          <a href="/privacy" class="footer__link" style="margin-right: 1rem;">Privacy Policy</a>
+          <a href="/terms" class="footer__link">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

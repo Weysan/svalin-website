@@ -84,6 +84,26 @@
     });
   }
 
+  // --- FAQ accordion ---
+  document.querySelectorAll('.faq__question').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq__item');
+      var isOpen = item.classList.contains('open');
+
+      // Close all items in the same list
+      item.parentElement.querySelectorAll('.faq__item').forEach(function (el) {
+        el.classList.remove('open');
+        el.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle the clicked one
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
   // --- Smooth scroll for anchor links ---
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
