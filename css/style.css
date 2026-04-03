@@ -803,6 +803,217 @@ h1, h2, h3, h4 {
   color: var(--svalin-muted);
 }
 
+/* --- Compliance Pages --- */
+.compliance-hub__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+}
+
+.compliance-hub__card {
+  padding: var(--space-2xl);
+  background: var(--svalin-surface);
+  border: 1px solid var(--svalin-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.compliance-hub__card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  color: inherit;
+}
+
+.compliance-hub__card-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.75rem;
+  font-size: var(--text-meta);
+  font-weight: 700;
+  border-radius: var(--radius);
+  margin-bottom: var(--space-md);
+}
+
+.compliance-hub__card-title {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+}
+
+.compliance-hub__card-desc {
+  font-size: var(--text-body);
+  color: var(--svalin-muted);
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+}
+
+.compliance-hub__card-link {
+  font-size: var(--text-ui);
+  font-weight: 600;
+  color: var(--env-accent);
+}
+
+/* Compliance detail page */
+.compliance-detail {
+  padding: calc(var(--nav-height) + var(--space-3xl)) 0 var(--space-5xl);
+}
+
+.compliance-detail__header {
+  max-width: 720px;
+  margin: 0 auto var(--space-3xl);
+}
+
+.compliance-detail__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-size: var(--text-meta);
+  font-weight: 700;
+  border-radius: var(--radius);
+  margin-bottom: var(--space-md);
+}
+
+.compliance-detail__title {
+  font-size: var(--text-h1);
+  font-weight: 600;
+  letter-spacing: var(--tracking-h1);
+  margin-bottom: var(--space-sm);
+}
+
+.compliance-detail__subtitle {
+  font-size: var(--text-lg);
+  color: var(--svalin-muted);
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+
+.compliance-detail__meta {
+  font-size: var(--text-ui);
+  color: var(--svalin-muted);
+}
+
+.compliance-detail__controls {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.control-card {
+  border: 1px solid var(--svalin-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--svalin-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.control-card__header {
+  padding: var(--space-lg) var(--space-xl);
+  background: var(--env-bg);
+  border-bottom: 1px solid var(--svalin-border);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.control-card__ref {
+  font-size: var(--text-ui);
+  font-weight: 700;
+  color: var(--env-accent);
+  white-space: nowrap;
+}
+
+.control-card__name {
+  font-size: var(--text-body);
+  font-weight: 600;
+}
+
+.control-card__body {
+  padding: var(--space-xl);
+}
+
+.control-card__section-label {
+  font-size: var(--text-meta);
+  font-weight: 500;
+  letter-spacing: var(--tracking-overline);
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+}
+
+.control-card__section-label--requires {
+  color: var(--svalin-muted);
+}
+
+.control-card__section-label--svalin {
+  color: var(--color-success);
+}
+
+.control-card__text {
+  font-size: var(--text-body);
+  color: var(--svalin-muted);
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+}
+
+.control-card__text:last-child {
+  margin-bottom: 0;
+}
+
+.control-card__divider {
+  height: 1px;
+  background: var(--svalin-border);
+  margin: 0 var(--space-xl);
+}
+
+/* Compliance back nav + breadcrumb */
+.compliance-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--text-ui);
+  font-weight: 500;
+  color: var(--env-accent);
+  margin-bottom: var(--space-xl);
+}
+
+.compliance-detail__back:hover {
+  color: var(--svalin-navy);
+}
+
+/* Compliance CTA at bottom of detail pages */
+.compliance-detail__cta {
+  max-width: 720px;
+  margin: var(--space-3xl) auto 0;
+  text-align: center;
+  padding: var(--space-2xl);
+  background: var(--env-bg);
+  border-radius: var(--radius-xl);
+}
+
+.compliance-detail__cta-title {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+}
+
+.compliance-detail__cta-text {
+  font-size: var(--text-body);
+  color: var(--svalin-muted);
+  margin-bottom: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .compliance-hub__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* --- FAQ --- */
 .faq__list {
   max-width: 720px;

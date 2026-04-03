@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOC 2 AI Compliance — How Svalin Supports Trust Services Criteria for AI</title>
+  <meta name="description" content="Meet SOC 2 Type II requirements for AI tool governance with Svalin. Access control evidence (CC6.1), data restriction (CC6.6), anomaly monitoring (CC7.2), and vendor risk management (CC9.2) for AI systems." />
+  <meta name="keywords" content="SOC 2 AI compliance, SOC 2 Type II AI tools, CC6.1 AI access control, CC6.6 data restriction AI, CC7.2 AI monitoring, CC9.2 AI vendor risk, SOC 2 audit AI governance, trust services criteria AI, AICPA AI compliance" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SOC 2 AI Compliance — How Svalin Supports Trust Services Criteria for AI" />
+  <meta property="og:description" content="Meet SOC 2 Type II requirements for AI tool governance with Svalin." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TG3V0DWW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1TG3V0DWW3');
+  </script>
+
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://www.svalinhq.com/compliance/soc-2" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand">
+        <img src="/assets/logo.svg" alt="Svalin logo" class="nav__logo" />
+        <span class="nav__wordmark">Svalin</span>
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="/" class="nav__link">Home</a>
+        <a href="/faq" class="nav__link">FAQ</a>
+        <a href="/demo" class="nav__cta">Request a Demo</a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="compliance-detail">
+    <div class="container">
+
+      <a href="/compliance" class="compliance-detail__back">&larr; Back to Compliance</a>
+
+      <div class="compliance-detail__header">
+        <div class="compliance-hub__card-badge" style="background: #f0fdf4; color: #15803d;">SOC 2</div>
+        <h1 class="compliance-detail__title">SOC 2 Type II</h1>
+        <p class="compliance-detail__subtitle">
+          Audit standard covering security, availability, processing integrity, confidentiality, and privacy. SOC 2 Type II auditors are increasingly asking about AI tool governance as part of logical access and change management controls.
+        </p>
+        <p class="compliance-detail__meta">AICPA Trust Services Criteria</p>
+      </div>
+
+      <div class="compliance-detail__controls">
+
+        <div class="control-card fade-up">
+          <div class="control-card__header">
+            <span class="control-card__ref">CC6.1</span>
+            <span class="control-card__name">Logical access security — identification and authentication</span>
+          </div>
+          <div class="control-card__body">
+            <span class="control-card__section-label--requires">What it requires</span>
+            <p class="control-card__text">
+              Implement logical access security over protected information assets, including controls over access to AI tools and their data.
+            </p>
+            <div class="control-card__divider"></div>
+            <span class="control-card__section-label--svalin">How Svalin addresses it</span>
+            <p class="control-card__text">
+              MCP server and user management layer provides a central registry of which users and agents have access to which AI tool connections. Produces the access control evidence SOC 2 auditors require.
+            </p>
+          </div>
+        </div>
+
+        <div class="control-card fade-up">
+          <div class="control-card__header">
+            <span class="control-card__ref">CC6.6</span>
+            <span class="control-card__name">Logical access — restriction of access to information assets</span>
+          </div>
+          <div class="control-card__body">
+            <span class="control-card__section-label--requires">What it requires</span>
+            <p class="control-card__text">
+              Logical access to information assets is restricted through access control software, including AI systems and the data they can access.
+            </p>
+            <div class="control-card__divider"></div>
+            <span class="control-card__section-label--svalin">How Svalin addresses it</span>
+            <p class="control-card__text">
+              Policy engine restricts what data categories can flow through MCP server connections to external AI models. Administrators can define approved configurations and block unapproved connections.
+            </p>
+          </div>
+        </div>
+
+        <div class="control-card fade-up">
+          <div class="control-card__header">
+            <span class="control-card__ref">CC7.2</span>
+            <span class="control-card__name">System monitoring — anomalies and security events</span>
+          </div>
+          <div class="control-card__body">
+            <span class="control-card__section-label--requires">What it requires</span>
+            <p class="control-card__text">
+              Monitor system components for anomalies indicative of malicious acts, natural disasters, and errors.
+            </p>
+            <div class="control-card__divider"></div>
+            <span class="control-card__section-label--svalin">How Svalin addresses it</span>
+            <p class="control-card__text">
+              Real-time dashboard monitors AI tool and MCP server activity for anomalous patterns — unusual data volumes, unexpected data categories, out-of-hours activity, unapproved connections. Generates security events that feed into SIEM systems.
+            </p>
+          </div>
+        </div>
+
+        <div class="control-card fade-up">
+          <div class="control-card__header">
+            <span class="control-card__ref">CC9.2</span>
+            <span class="control-card__name">Risk mitigation — vendor and business partner risk</span>
+          </div>
+          <div class="control-card__body">
+            <span class="control-card__section-label--requires">What it requires</span>
+            <p class="control-card__text">
+              Assess and manage risks associated with vendors and business partners, including third-party AI providers.
+            </p>
+            <div class="control-card__divider"></div>
+            <span class="control-card__section-label--svalin">How Svalin addresses it</span>
+            <p class="control-card__text">
+              Provides continuous evidence of what data each AI vendor receives, enabling ongoing risk assessment beyond point-in-time questionnaires. Satisfies ongoing monitoring requirements for AI provider relationships.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="compliance-detail__cta fade-up">
+        <h2 class="compliance-detail__cta-title">Pass your next SOC 2 audit with AI governance covered</h2>
+        <p class="compliance-detail__cta-text">See how Svalin provides the evidence your auditors need.</p>
+        <a href="/demo" class="btn btn--primary">Request a Demo</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border-top: none; padding-top: 0;">
+        <span>&copy; 2026 Svalin. All rights reserved.</span>
+        <div>
+          <a href="/privacy" class="footer__link" style="margin-right: 1rem;">Privacy Policy</a>
+          <a href="/terms" class="footer__link">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

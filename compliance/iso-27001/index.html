@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ISO 27001 AI Compliance — How Svalin Addresses Information Security Controls</title>
+  <meta name="description" content="Learn how Svalin helps organisations meet ISO/IEC 27001:2022 requirements for AI tool governance. Covers cloud services security (A.5.23), data leakage prevention (A.8.12), supplier relationships (A.5.19), and data masking (A.8.11)." />
+  <meta name="keywords" content="ISO 27001 AI compliance, ISO 27001 2022 AI tools, A.5.23 cloud services AI, A.8.12 data leakage prevention AI, AI supplier security, ISO 27001 audit trail, information security AI governance, MCP server security" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="ISO 27001 AI Compliance — How Svalin Addresses Information Security Controls" />
+  <meta property="og:description" content="Learn how Svalin helps organisations meet ISO/IEC 27001:2022 requirements for AI tool governance." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TG3V0DWW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1TG3V0DWW3');
+  </script>
+
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://www.svalinhq.com/compliance/iso-27001" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand">
+        <img src="/assets/logo.svg" alt="Svalin logo" class="nav__logo" />
+        <span class="nav__wordmark">Svalin</span>
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="/" class="nav__link">Home</a>
+        <a href="/faq" class="nav__link">FAQ</a>
+        <a href="/demo" class="nav__cta">Request a Demo</a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="compliance-detail">
+    <div class="container">
+
+      <a href="/compliance" class="compliance-detail__back">&larr; Back to Compliance</a>
+
+      <div class="compliance-detail__header">
+        <div class="compliance-hub__card-badge" style="background: var(--env-accent-subtle); color: var(--env-accent);">ISO</div>
+        <h1 class="compliance-detail__title">ISO/IEC 27001:2022</h1>
+        <p class="compliance-detail__subtitle">
+          Information security management system. The 2022 revision introduced controls for cloud services, data leakage prevention, and threat intelligence — all directly impacted by unmonitored AI tool usage.
+        </p>
+        <p class="compliance-detail__meta">Current version — transition deadline October 2025</p>
+      </div>
+
+      <div class="compliance-detail__controls">
+
+        <div class="control-card fade-up">
+          <div class="control-card__header">
+            <span class="control-card__ref">A.5.23</span>
+            <span class="control-card__name">Information security for use of cloud services</span>
+          </div>
+          <div class="control-card__body">
+            <span class="control-card__section-label--requires">What it requires</span>
+            <p class="control-card__text">
+              Organisations must define and implement controls for the acquisition, use, management, and exit from cloud services, including documenting data transfers to cloud providers.
+            </p>
+            <div class="control-card__divider"></div>
+            <span class="control-card__section-label--svalin">How Svalin addresses it</span>
+            <p class="control-card__text">
+              Captures every API call made to external AI providers (Anthropic, Google, OpenAI) including data transferred. Produces audit-ready logs of cloud service usage that satisfy A.5.23 evidence requirements.
+            </p>
+          </div>
+        </div>
+
+        <div class="control-card fade-up">
+          <div class="control-card__header">
+            <span class="control-card__ref">A.8.12</span>
+            <span class="control-card__name">Data leakage prevention</span>
+          </div>
+          <div class="control-card__body">
+            <span class="control-card__section-label--requires">What it requires</span>
+            <p class="control-card__text">
+              DLP measures must be applied to systems, networks, and devices that process, store, or transmit sensitive information. Organisations must detect and prevent unauthorised disclosure.
+            </p>
+            <div class="control-card__divider"></div>
+            <span class="control-card__section-label--svalin">How Svalin addresses it</span>
+            <p class="control-card__text">
+              Policy engine acts as a DLP enforcement point for AI tool data flows — detecting sensitive data categories (PII, credentials, health data, confidential IP) in MCP server calls and blocking or alerting in real time.
+            </p>
+          </div>
+        </div>
+
+        <div class="control-card fade-up">
+          <div class="control-card__header">
+            <span class="control-card__ref">A.5.19</span>
+            <span class="control-card__name">Information security in supplier relationships</span>
+          </div>
+          <div class="control-card__body">
+            <span class="control-card__section-label--requires">What it requires</span>
+            <p class="control-card__text">
+              Security requirements for accessing organisational assets must be agreed with suppliers and documented, including third-party AI providers processing organisational data.
+            </p>
+            <div class="control-card__divider"></div>
+            <span class="control-card__section-label--svalin">How Svalin addresses it</span>
+            <p class="control-card__text">
+              Provides continuous evidence of what data was shared with each AI provider — Anthropic, Google, OpenAI — at what time, by which user, and under which policy. Turns a static contractual control into a live operational one.
+            </p>
+          </div>
+        </div>
+
+        <div class="control-card fade-up">
+          <div class="control-card__header">
+            <span class="control-card__ref">A.8.11</span>
+            <span class="control-card__name">Data masking</span>
+          </div>
+          <div class="control-card__body">
+            <span class="control-card__section-label--requires">What it requires</span>
+            <p class="control-card__text">
+              Data masking, pseudonymisation, or anonymisation must be applied to sensitive data in processing or transfer where appropriate, based on access control policy.
+            </p>
+            <div class="control-card__divider"></div>
+            <span class="control-card__section-label--svalin">How Svalin addresses it</span>
+            <p class="control-card__text">
+              Detects sensitive data categories in MCP server payloads before they reach external models. Policy engine can warn or block calls where unmasked PII or confidential data is detected. Audit trail shows which calls were governed.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="compliance-detail__cta fade-up">
+        <h2 class="compliance-detail__cta-title">Strengthen your ISO 27001 posture for AI</h2>
+        <p class="compliance-detail__cta-text">See how Svalin provides the evidence your auditors need for AI tool governance.</p>
+        <a href="/demo" class="btn btn--primary">Request a Demo</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border-top: none; padding-top: 0;">
+        <span>&copy; 2026 Svalin. All rights reserved.</span>
+        <div>
+          <a href="/privacy" class="footer__link" style="margin-right: 1rem;">Privacy Policy</a>
+          <a href="/terms" class="footer__link">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
