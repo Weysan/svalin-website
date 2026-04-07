@@ -108,7 +108,7 @@
               <div class="why-now__icon" style="background: var(--svalin-navy); color: var(--svalin-amber);"><i class="ph ph-shield-check" style="font-size: 20px;"></i></div>
               <div>
                 <p class="regulation-card__title">Svalin</p>
-                <p class="regulation-card__desc">Machine-level agent captures every MCP server call before it leaves the device</p>
+                <p class="regulation-card__desc">Machine-level agent captures every AI tool data transfer before it leaves the device</p>
               </div>
             </div>
           </div>
@@ -127,7 +127,7 @@
           <div class="hiw-step fade-up">
             <div class="hiw-step__number">1</div>
             <p class="hiw-step__title">See everything — including what bypasses the network</p>
-            <p class="hiw-step__desc">Svalin's agent operates at the machine level, capturing every MCP server tool call before it reaches an external AI provider. Covers what API gateways, proxies, and MDM tools all miss — local AI agent data flows to Jira, BigQuery, Google Drive, databases, code repositories, and internal APIs.</p>
+            <p class="hiw-step__desc">Svalin's agent operates at the machine level, capturing every AI tool data transfer before it reaches an external AI provider. Covers what API gateways, proxies, and MDM tools all miss — local AI agent access to Jira, BigQuery, Google Drive, databases, code repositories, and internal APIs.</p>
           </div>
           <div class="hiw-step fade-up">
             <div class="hiw-step__number">2</div>
@@ -148,8 +148,44 @@
       </div>
     </section>
 
-    <!-- Coverage -->
+    <!-- AI Clients -->
     <section class="section">
+      <div class="container">
+        <div class="section__header fade-up">
+          <p class="section__overline">Supported AI Tools</p>
+          <h2 class="section__title">Works with the AI tools your team already uses</h2>
+          <p class="section__subtitle">
+            Svalin supports all major AI coding assistants and chat tools — no changes required to how your team works.
+          </p>
+        </div>
+        <div class="audience__grid stagger" style="grid-template-columns: repeat(4, 1fr);">
+          <div class="audience-card fade-up">
+            <div class="audience-card__icon"><i class="ph ph-robot" style="font-size: 24px;"></i></div>
+            <h3 class="audience-card__title">Claude</h3>
+            <p class="audience-card__desc">Anthropic's AI assistant and coding tool. Used by engineers and analysts, Claude can connect to Jira, databases, Google Drive, and internal APIs to provide context-aware assistance.</p>
+          </div>
+          <div class="audience-card fade-up">
+            <div class="audience-card__icon"><i class="ph ph-code" style="font-size: 24px;"></i></div>
+            <h3 class="audience-card__title">Cursor</h3>
+            <p class="audience-card__desc">The dominant AI coding editor. Cursor automatically reads codebases, queries connected databases, and accesses project tools — making it one of the highest-risk data flows to govern.</p>
+          </div>
+          <div class="audience-card fade-up">
+            <div class="audience-card__icon"><i class="ph ph-chat-circle-dots" style="font-size: 24px;"></i></div>
+            <h3 class="audience-card__title">ChatGPT / OpenAI</h3>
+            <p class="audience-card__desc">ChatGPT and OpenAI API integrations widely used for writing, coding, and data analysis. When connected to internal data sources, every access is captured and governed by Svalin.</p>
+          </div>
+          <div class="audience-card fade-up">
+            <div class="audience-card__icon"><i class="ph ph-sparkle" style="font-size: 24px;"></i></div>
+            <h3 class="audience-card__title">Gemini</h3>
+            <p class="audience-card__desc">Google's AI assistant integrated across Workspace. Gemini can access Google Drive, documents, and other connected data sources — all visible and controllable through Svalin.</p>
+          </div>
+        </div>
+        <p style="text-align: center; margin-top: var(--space-xl); font-size: var(--text-ui); color: var(--svalin-muted);" class="fade-up">Any AI tool that supports connected data sources is covered. The list above represents the most widely deployed in enterprise environments today.</p>
+      </div>
+    </section>
+
+    <!-- Coverage -->
+    <section class="section section--alt">
       <div class="container">
         <div class="section__header fade-up">
           <p class="section__overline">Coverage</p>
@@ -191,7 +227,7 @@
           </div>
         </div>
         <div style="text-align: center; margin-top: var(--space-2xl);" class="fade-up">
-          <a href="/integrations" class="btn btn--secondary">View all integrations &rarr;</a>
+          <a href="/compliance" class="btn btn--secondary">See compliance coverage &rarr;</a>
         </div>
       </div>
     </section>
