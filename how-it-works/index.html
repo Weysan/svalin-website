@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Svalin Works — AI Governance at the Machine Level</title>
+  <meta name="description" content="Svalin captures AI data flows at the machine level, covering MCP server connections to Jira, BigQuery, Google Drive, databases, and more. See everything your AI tools are sending — including what bypasses the network." />
+  <meta name="keywords" content="how AI governance works, AI data flow monitoring, MCP server security, AI observability, local AI agent monitoring, AI tool data exfiltration prevention, Claude governance, ChatGPT data monitoring" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="How Svalin Works — AI Governance at the Machine Level" />
+  <meta property="og:description" content="Svalin captures AI data flows at the machine level, covering connections to Jira, BigQuery, Google Drive, and more." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TG3V0DWW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1TG3V0DWW3');
+  </script>
+
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://www.svalinhq.com/how-it-works" />
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand">
+        <img src="/assets/logo.svg" alt="Svalin logo" class="nav__logo" />
+        <span class="nav__wordmark">Svalin</span>
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="/" class="nav__link">Home</a>
+        <a href="/compliance" class="nav__link">Compliance</a>
+        <a href="/faq" class="nav__link">FAQ</a>
+        <a href="/demo" class="nav__cta">Request a Demo</a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="hero" style="padding-bottom: var(--space-3xl);">
+      <div class="container">
+        <div class="hero__badge fade-up">
+          <span class="hero__badge-dot"></span>
+          Technical Overview
+        </div>
+        <h1 class="hero__title fade-up" style="font-size: var(--text-h1);">How Svalin works</h1>
+        <p class="hero__subtitle fade-up">
+          Most AI governance tools operate at the network layer — and miss local AI agents entirely. Svalin operates at the machine level, capturing data flows at the source before they leave the device.
+        </p>
+      </div>
+    </section>
+
+    <!-- The invisible problem -->
+    <section class="section">
+      <div class="container">
+        <div class="why-now__grid">
+          <div class="why-now__content fade-up">
+            <p class="section__overline">The Invisible Problem</p>
+            <h2 class="section__title">Local AI tools bypass every network control</h2>
+            <p class="why-now__text">
+              Engineers increasingly use AI tools that run directly on their local machine and connect directly to internal systems — code repositories, databases, file systems — without routing through any corporate network control point.
+            </p>
+            <p class="why-now__text">
+              API gateways, network proxies, and MDM tools all operate at the network or device management layer. They cannot see what a locally-running AI process sends to an external provider. Even a strict usage policy cannot be enforced or verified without a tool that operates at the machine level.
+            </p>
+            <div class="example-callout">
+              <p class="example-callout__label">A typical example</p>
+              <p class="example-callout__text">A developer asks their AI assistant to optimise a database query. Without anyone realising it, the AI tool reads internal files, queries database schemas, and pulls relevant Jira tickets — then bundles everything and sends it to an external AI provider's servers. The developer sees a helpful answer. No one sees what left the building.</p>
+            </div>
+          </div>
+          <div class="why-now__visual fade-up">
+            <div class="regulation-card">
+              <div class="why-now__icon"><i class="ph ph-warning-circle" style="font-size: 20px;"></i></div>
+              <div>
+                <p class="regulation-card__title">API gateway</p>
+                <p class="regulation-card__desc">Blind to local AI tools that bypass the network perimeter entirely</p>
+              </div>
+            </div>
+            <div class="regulation-card">
+              <div class="why-now__icon"><i class="ph ph-arrows-split" style="font-size: 20px;"></i></div>
+              <div>
+                <p class="regulation-card__title">Network proxy</p>
+                <p class="regulation-card__desc">Local AI processes communicate directly — no proxy in the path</p>
+              </div>
+            </div>
+            <div class="regulation-card">
+              <div class="why-now__icon"><i class="ph ph-device-mobile" style="font-size: 20px;"></i></div>
+              <div>
+                <p class="regulation-card__title">MDM / device management</p>
+                <p class="regulation-card__desc">Sees which AI apps are installed — not what they send or access</p>
+              </div>
+            </div>
+            <div class="regulation-card" style="background: var(--env-accent-subtle); border-color: rgba(74,144,184,0.3);">
+              <div class="why-now__icon" style="background: var(--svalin-navy); color: var(--svalin-amber);"><i class="ph ph-shield-check" style="font-size: 20px;"></i></div>
+              <div>
+                <p class="regulation-card__title">Svalin</p>
+                <p class="regulation-card__desc">Machine-level agent captures every MCP server call before it leaves the device</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Four steps -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__header fade-up">
+          <p class="section__overline">The Process</p>
+          <h2 class="section__title">Four steps from invisible risk to full control</h2>
+        </div>
+        <div class="how-it-works__steps stagger">
+          <div class="hiw-step fade-up">
+            <div class="hiw-step__number">1</div>
+            <p class="hiw-step__title">See everything — including what bypasses the network</p>
+            <p class="hiw-step__desc">Svalin's agent operates at the machine level, capturing every MCP server tool call before it reaches an external AI provider. Covers what API gateways, proxies, and MDM tools all miss — local AI agent data flows to Jira, BigQuery, Google Drive, databases, code repositories, and internal APIs.</p>
+          </div>
+          <div class="hiw-step fade-up">
+            <div class="hiw-step__number">2</div>
+            <p class="hiw-step__title">Set the rules, enforce them automatically</p>
+            <p class="hiw-step__desc">Define which data categories — PII, credentials, financial data, health data, confidential IP — can flow through which AI tool connections. The policy engine warns or blocks in real time, without interrupting your team's workflow. Policies are version-controlled with a full change history.</p>
+          </div>
+          <div class="hiw-step fade-up">
+            <div class="hiw-step__number">3</div>
+            <p class="hiw-step__title">Prove compliance when asked</p>
+            <p class="hiw-step__desc">Export structured audit reports mapped to GDPR, EU AI Act, SOC 2, ISO 27001, ISO 42001, or NIST AI RMF. Every policy decision and governance action is logged with full context — user, data categories, AI provider, timestamp, policy applied.</p>
+          </div>
+          <div class="hiw-step fade-up">
+            <div class="hiw-step__number">4</div>
+            <p class="hiw-step__title">Zero disruption for your team</p>
+            <p class="hiw-step__desc">The local agent never interferes with AI tool calls. Employees keep working at full speed. If Svalin goes down, nothing changes for end users — the agent simply stops logging. There is no inline blocking that could cause downtime.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coverage -->
+    <section class="section">
+      <div class="container">
+        <div class="section__header fade-up">
+          <p class="section__overline">Coverage</p>
+          <h2 class="section__title">What Svalin covers today</h2>
+          <p class="section__subtitle">
+            Svalin focuses on the highest-risk surface — the custom data source connections that give AI tools access to your internal systems.
+          </p>
+        </div>
+        <div class="features__grid stagger">
+          <div class="feature-card fade-up">
+            <div class="feature-card__icon"><i class="ph ph-ticket" style="font-size: 24px;"></i></div>
+            <h3 class="feature-card__title">Project tools</h3>
+            <p class="feature-card__desc">Jira tickets, project metadata, sprint data, and issue content accessed through AI tool connections.</p>
+          </div>
+          <div class="feature-card fade-up">
+            <div class="feature-card__icon"><i class="ph ph-database" style="font-size: 24px;"></i></div>
+            <h3 class="feature-card__title">Databases &amp; data warehouses</h3>
+            <p class="feature-card__desc">BigQuery, PostgreSQL, MySQL, and other databases queried through AI tool integrations — schemas, query results, and table data.</p>
+          </div>
+          <div class="feature-card fade-up">
+            <div class="feature-card__icon"><i class="ph ph-files" style="font-size: 24px;"></i></div>
+            <h3 class="feature-card__title">Documents &amp; file systems</h3>
+            <p class="feature-card__desc">Google Drive, local file systems, and document stores accessed as context for AI tool requests.</p>
+          </div>
+          <div class="feature-card fade-up">
+            <div class="feature-card__icon"><i class="ph ph-code" style="font-size: 24px;"></i></div>
+            <h3 class="feature-card__title">Code repositories</h3>
+            <p class="feature-card__desc">GitHub, GitLab, and other code repositories accessed by AI coding assistants as context for code generation and review.</p>
+          </div>
+          <div class="feature-card fade-up">
+            <div class="feature-card__icon"><i class="ph ph-plugs" style="font-size: 24px;"></i></div>
+            <h3 class="feature-card__title">Internal APIs &amp; services</h3>
+            <p class="feature-card__desc">Custom internal APIs and services connected to AI tools — the data accessed and sent to AI providers is captured and governed.</p>
+          </div>
+          <div class="feature-card fade-up">
+            <div class="feature-card__icon"><i class="ph ph-robot" style="font-size: 24px;"></i></div>
+            <h3 class="feature-card__title">AI providers</h3>
+            <p class="feature-card__desc">Full visibility into which AI providers receive your data — Anthropic (Claude), OpenAI (ChatGPT), Google (Gemini) — and exactly what was sent.</p>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: var(--space-2xl);" class="fade-up">
+          <a href="/integrations" class="btn btn--secondary">View all integrations &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Limitations -->
+    <section class="section section--alt">
+      <div class="container">
+        <div style="max-width: 720px; margin: 0 auto;" class="fade-up">
+          <p class="section__overline">Current Limitations</p>
+          <h2 class="section__title" style="margin-bottom: var(--space-md);">A note on scope</h2>
+          <div class="example-callout" style="background: var(--color-warning-bg); border-color: rgba(146, 64, 14, 0.2); border-left-color: var(--color-warning);">
+            <p class="example-callout__label" style="color: var(--color-warning);">Important to know</p>
+            <p class="example-callout__text">Svalin captures data flows through custom connections that engineers configure — the connections to Jira, BigQuery, Google Drive, and similar tools described above. Built-in capabilities of AI tools themselves — such as Claude's native web browsing or built-in code execution — are not currently observable, as AI providers do not expose that data externally. This is an industry-wide limitation today, not specific to Svalin. The custom connection layer we monitor is where the majority of sensitive organisational data flows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section--navy">
+      <div class="container">
+        <div class="cta-banner fade-up">
+          <h2 class="cta-banner__title">See what is leaving your organisation</h2>
+          <p class="cta-banner__text">
+            We are working with a small number of organisations to provide early access. Request a demo to see what your AI tools are actually sending outside your organisation.
+          </p>
+          <a href="/demo" class="btn btn--primary btn--large">Request a Demo</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border-top: none; padding-top: 0;">
+        <span>&copy; 2026 Svalin. All rights reserved.</span>
+        <div>
+          <a href="/privacy" class="footer__link" style="margin-right: 1rem;">Privacy Policy</a>
+          <a href="/terms" class="footer__link">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

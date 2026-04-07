@@ -74,10 +74,10 @@
       </a>
 
       <div class="nav__links" id="navLinks">
+        <a href="#how-it-works" class="nav__link">How It Works</a>
         <a href="#features" class="nav__link">Features</a>
         <a href="#compliance" class="nav__link">Compliance</a>
-        <a href="#audience" class="nav__link">Who It's For</a>
-        <a href="#faq" class="nav__link">FAQ</a>
+        <a href="/faq" class="nav__link">FAQ</a>
         <a href="/demo" class="nav__cta">Request a Demo</a>
       </div>
 
@@ -96,17 +96,17 @@
       <div class="container">
         <div class="hero__badge fade-up">
           <span class="hero__badge-dot"></span>
-          AI Governance Platform
+          Now in Early Access
         </div>
         <h1 class="hero__title fade-up">
-          Govern your AI usage with <em>confidence</em>
+          Your team is using AI every day.<br>Do you know what data they're <em>sharing</em>?
         </h1>
         <p class="hero__subtitle fade-up">
-          Full audit trails, real-time observability, and policy enforcement across every AI model your organisation uses.
+          Modern AI tools automatically read Jira tickets, query databases, and pull from Google Drive — then send all of it to external servers. Svalin gives you complete visibility and control.
         </p>
         <div class="hero__actions fade-up">
           <a href="/demo" class="btn btn--primary btn--large">Request a Demo</a>
-          <a href="#why-now" class="btn btn--secondary btn--large">Learn More</a>
+          <a href="#how-it-works" class="btn btn--secondary btn--large">How It Works</a>
         </div>
       </div>
     </section>
@@ -118,8 +118,12 @@
           <div class="why-now__content fade-up">
             <p class="section__overline">Why Now</p>
             <h2 class="section__title">AI is everywhere.<br>Governance isn't.</h2>
+            <div class="example-callout">
+              <p class="example-callout__label">A typical example</p>
+              <p class="example-callout__text">A developer asks their AI assistant to optimise a database query. Without anyone realising it, the AI tool reads internal files, queries database schemas, and pulls relevant Jira tickets — then bundles everything and sends it to an external AI provider's servers. The developer sees a helpful answer. No one sees what left the building.</p>
+            </div>
             <p class="why-now__text">
-              Organisations are adopting AI tools faster than they can govern them. The EU AI Act is now in effect, ISO 42001 sets the bar for AI management systems, and regulators worldwide are demanding transparency. Without a governance layer, every AI interaction is an untracked risk.
+              Engineers, product teams, and analysts use AI tools every day. What most don't realise: modern AI assistants automatically reach into connected systems — reading files, querying databases, pulling from Jira and Google Drive — and send all of that context to external servers before a single response is generated.
             </p>
             <div class="why-now__list">
               <div class="why-now__item">
@@ -127,8 +131,8 @@
                   <i class="ph ph-warning-circle" style="font-size: 20px;"></i>
                 </div>
                 <div>
-                  <p class="why-now__item-title">No visibility</p>
-                  <p class="why-now__item-desc">Most organisations have no idea what data flows to AI models or what tools are being used.</p>
+                  <p class="why-now__item-title">Sensitive data leaving undetected</p>
+                  <p class="why-now__item-desc">Customer records, financial data, Jira tickets, and internal documents may be leaving your organisation with no log and no audit trail.</p>
                 </div>
               </div>
               <div class="why-now__item">
@@ -136,8 +140,8 @@
                   <i class="ph ph-scales" style="font-size: 20px;"></i>
                 </div>
                 <div>
-                  <p class="why-now__item-title">Regulatory pressure</p>
-                  <p class="why-now__item-desc">The EU AI Act, SOC 2, and ISO 42001 require documented AI risk management and audit trails.</p>
+                  <p class="why-now__item-title">Regulatory exposure</p>
+                  <p class="why-now__item-desc">GDPR, the EU AI Act, and SOC 2 require you to know what data is processed and transferred. Regulators are asking specifically about AI tool usage.</p>
                 </div>
               </div>
               <div class="why-now__item">
@@ -145,8 +149,8 @@
                   <i class="ph ph-shield-warning" style="font-size: 20px;"></i>
                 </div>
                 <div>
-                  <p class="why-now__item-title">Security blind spots</p>
-                  <p class="why-now__item-desc">AI tools with access to sensitive data operate without the same controls as traditional software.</p>
+                  <p class="why-now__item-title">No visibility means no control</p>
+                  <p class="why-now__item-desc">Security and compliance teams cannot govern what they cannot see. Existing tools were not designed for AI data flows and are blind to them.</p>
                 </div>
               </div>
             </div>
@@ -185,8 +189,61 @@
       </div>
     </section>
 
+    <!-- Blind Spot -->
+    <section class="section section--alt" id="blind-spot">
+      <div class="container">
+        <div class="section__header fade-up">
+          <p class="section__overline">The Gap</p>
+          <h2 class="section__title">Why existing security tools miss this</h2>
+          <p class="section__subtitle">
+            You already have security tools in place. But they all share a fundamental blind spot when it comes to local AI tool usage.
+          </p>
+        </div>
+        <div class="fade-up">
+          <div class="blind-spot__table-wrapper">
+            <table class="blind-spot__table">
+              <thead>
+                <tr>
+                  <th>Tool</th>
+                  <th>What it sees</th>
+                  <th>The blind spot</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>API gateway</td>
+                  <td>API calls through your network perimeter</td>
+                  <td>Local AI tools bypass the gateway entirely</td>
+                </tr>
+                <tr>
+                  <td>Network proxy</td>
+                  <td>Web traffic through the corporate network</td>
+                  <td>Local AI processes communicate directly — no proxy</td>
+                </tr>
+                <tr>
+                  <td>Usage policy</td>
+                  <td>What employees are told to do</td>
+                  <td>Cannot detect whether policy is actually followed</td>
+                </tr>
+                <tr>
+                  <td>MDM</td>
+                  <td>Which AI apps are installed on devices</td>
+                  <td>What those apps do and what data they send</td>
+                </tr>
+                <tr class="blind-spot__row--svalin">
+                  <td>Svalin</td>
+                  <td>Every MCP server tool call at the machine level — Jira, BigQuery, Google Drive, databases, file systems, internal APIs</td>
+                  <td><a href="/how-it-works">See full coverage details &rarr;</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Features -->
-    <section class="section section--alt" id="features">
+    <section class="section" id="features">
       <div class="container">
         <div class="section__header fade-up">
           <p class="section__overline">Features</p>
@@ -213,6 +270,15 @@
             <p class="feature-card__desc">
               Real-time monitoring of AI tool usage across your organisation. See which models are accessed, which tools are invoked, and what data is exchanged.
             </p>
+            <div class="integration-tags">
+              <span class="integration-tag">Jira</span>
+              <span class="integration-tag">BigQuery</span>
+              <span class="integration-tag">Google Drive</span>
+              <span class="integration-tag">GitHub</span>
+              <span class="integration-tag">Databases</span>
+              <span class="integration-tag">File systems</span>
+              <span class="integration-tag">Internal APIs</span>
+            </div>
           </div>
           <div class="feature-card fade-up">
             <div class="feature-card__icon">
@@ -232,6 +298,44 @@
               Works across Claude, GPT, Gemini, and any model accessible via MCP. One governance layer for your entire AI stack.
             </p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section section--alt" id="how-it-works">
+      <div class="container">
+        <div class="section__header fade-up">
+          <p class="section__overline">How It Works</p>
+          <h2 class="section__title">Four steps from invisible risk to full control</h2>
+          <p class="section__subtitle">
+            Svalin operates at the machine level — capturing data flows before they leave the device, without routing through your network.
+          </p>
+        </div>
+        <div class="how-it-works__steps stagger">
+          <div class="hiw-step fade-up">
+            <div class="hiw-step__number">1</div>
+            <p class="hiw-step__title">See everything — including what bypasses the network</p>
+            <p class="hiw-step__desc">Svalin's agent captures every MCP server tool call at the machine level, including flows that bypass API gateways and network proxies entirely.</p>
+          </div>
+          <div class="hiw-step fade-up">
+            <div class="hiw-step__number">2</div>
+            <p class="hiw-step__title">Set the rules, enforce them automatically</p>
+            <p class="hiw-step__desc">Define which data categories can flow through which AI tool connections. The policy engine warns or blocks in real time — without interrupting your team's workflow.</p>
+          </div>
+          <div class="hiw-step fade-up">
+            <div class="hiw-step__number">3</div>
+            <p class="hiw-step__title">Prove compliance when asked</p>
+            <p class="hiw-step__desc">Export structured audit reports for GDPR, EU AI Act, SOC 2, ISO 27001, ISO 42001, or NIST AI RMF. Every governance decision is logged with full context.</p>
+          </div>
+          <div class="hiw-step fade-up">
+            <div class="hiw-step__number">4</div>
+            <p class="hiw-step__title">Zero disruption for your team</p>
+            <p class="hiw-step__desc">The local agent never interferes with AI tool calls. Employees keep working at full speed. If Svalin goes down, nothing changes for end users.</p>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: var(--space-2xl);" class="fade-up">
+          <a href="/how-it-works" class="btn btn--secondary">Full technical details &rarr;</a>
         </div>
       </div>
     </section>
@@ -369,9 +473,9 @@
     <section class="section section--navy">
       <div class="container">
         <div class="cta-banner fade-up">
-          <h2 class="cta-banner__title">Ready to govern your AI?</h2>
+          <h2 class="cta-banner__title">See what is leaving your organisation</h2>
           <p class="cta-banner__text">
-            See how Svalin gives you complete visibility and control over AI usage across your organisation.
+            We are working with a small number of organisations to provide early access. Request a demo to see what your AI tools are actually sending outside your organisation.
           </p>
           <a href="/demo" class="btn btn--primary btn--large">Request a Demo</a>
         </div>
@@ -395,6 +499,8 @@
           <div>
             <p class="footer__col-title">Product</p>
             <div class="footer__col-links">
+              <a href="/how-it-works" class="footer__link">How It Works</a>
+              <a href="/integrations" class="footer__link">Integrations</a>
               <a href="#features" class="footer__link">Features</a>
               <a href="/compliance" class="footer__link">Compliance</a>
               <a href="/faq" class="footer__link">FAQ</a>

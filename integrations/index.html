@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Svalin Integrations — Govern AI Access to Jira, BigQuery, Google Drive and More</title>
+  <meta name="description" content="Svalin monitors AI data flows from Jira, BigQuery, Google Drive, GitHub, databases, file systems, and internal APIs. See exactly what your AI tools are sending to external providers." />
+  <meta name="keywords" content="AI governance integrations, Jira AI security, BigQuery AI data governance, Google Drive AI monitoring, GitHub AI governance, AI data flow visibility, MCP server integrations, Claude data monitoring, ChatGPT data monitoring, AI tool data leakage" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Svalin Integrations — AI Data Governance for Your Entire Stack" />
+  <meta property="og:description" content="Monitor AI data flows from Jira, BigQuery, Google Drive, GitHub, databases, and more. Full visibility into what your AI tools are sending." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TG3V0DWW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1TG3V0DWW3');
+  </script>
+
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://www.svalinhq.com/integrations" />
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand">
+        <img src="/assets/logo.svg" alt="Svalin logo" class="nav__logo" />
+        <span class="nav__wordmark">Svalin</span>
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="/" class="nav__link">Home</a>
+        <a href="/compliance" class="nav__link">Compliance</a>
+        <a href="/faq" class="nav__link">FAQ</a>
+        <a href="/demo" class="nav__cta">Request a Demo</a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="hero" style="padding-bottom: var(--space-3xl);">
+      <div class="container">
+        <div class="hero__badge fade-up">
+          <span class="hero__badge-dot"></span>
+          Integrations
+        </div>
+        <h1 class="hero__title fade-up" style="font-size: var(--text-h1);">Govern AI access across your entire stack</h1>
+        <p class="hero__subtitle fade-up">
+          Svalin monitors the data flows between your AI tools and the internal systems they connect to — Jira, BigQuery, Google Drive, code repositories, databases, and more.
+        </p>
+      </div>
+    </section>
+
+    <!-- Data source integrations -->
+    <section class="section">
+      <div class="container">
+        <div class="section__header fade-up">
+          <p class="section__overline">Data Sources</p>
+          <h2 class="section__title">Every high-risk AI connection, monitored</h2>
+          <p class="section__subtitle">
+            These are the connections that move the most sensitive organisational data to external AI providers — often without anyone realising it.
+          </p>
+        </div>
+        <div class="features__grid stagger">
+          <div class="feature-card fade-up">
+            <div class="feature-card__icon"><i class="ph ph-ticket" style="font-size: 24px;"></i></div>
+            <h3 class="feature-card__title">Jira &amp; project tools</h3>
+            <p class="feature-card__desc">When AI tools access Jira for context — tickets, sprint data, project metadata — that information gets bundled into requests sent to external AI providers. Svalin captures exactly which Jira data was accessed and when.</p>
+          </div>
+          <div class="feature-card fade-up">
+            <div class="feature-card__icon"><i class="ph ph-database" style="font-size: 24px;"></i></div>
+            <h3 class="feature-card__title">BigQuery &amp; databases</h3>
+            <p class="feature-card__desc">Database schemas, query results, and table data accessed by AI coding assistants represent some of the highest-risk data flows. Svalin logs what was queried, what was returned, and what was sent to the AI provider.</p>
+          </div>
+          <div class="feature-card fade-up">
+            <div class="feature-card__icon"><i class="ph ph-files" style="font-size: 24px;"></i></div>
+            <h3 class="feature-card__title">Google Drive &amp; documents</h3>
+            <p class="feature-card__desc">Documents, spreadsheets, and files accessed through Google Drive connections to AI tools — including sensitive internal documents that should not be leaving your organisation.</p>
+          </div>
+          <div class="feature-card fade-up">
+            <div class="feature-card__icon"><i class="ph ph-git-branch" style="font-size: 24px;"></i></div>
+            <h3 class="feature-card__title">GitHub &amp; code repositories</h3>
+            <p class="feature-card__desc">AI coding assistants reading your codebase for context send proprietary code to external AI providers. Svalin makes that flow visible and governable — capturing what code was accessed and what was sent.</p>
+          </div>
+          <div class="feature-card fade-up">
+            <div class="feature-card__icon"><i class="ph ph-hard-drives" style="font-size: 24px;"></i></div>
+            <h3 class="feature-card__title">Local file systems</h3>
+            <p class="feature-card__desc">File system access is the most direct path for sensitive documents to reach external AI providers. Svalin captures file system MCP server calls including file paths and content categories accessed.</p>
+          </div>
+          <div class="feature-card fade-up">
+            <div class="feature-card__icon"><i class="ph ph-plugs-connected" style="font-size: 24px;"></i></div>
+            <h3 class="feature-card__title">Internal APIs &amp; services</h3>
+            <p class="feature-card__desc">Custom internal APIs connected to AI tools — CRM data, ERP systems, internal services — monitored at the MCP server layer so every data access is logged regardless of what the API returns.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Providers -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__header fade-up">
+          <p class="section__overline">AI Providers</p>
+          <h2 class="section__title">Full coverage across all major AI providers</h2>
+          <p class="section__subtitle">
+            Svalin works with any AI model accessible via MCP — one governance layer for your entire AI stack.
+          </p>
+        </div>
+        <div class="audience__grid stagger">
+          <div class="audience-card fade-up">
+            <div class="audience-card__icon"><i class="ph ph-robot" style="font-size: 24px;"></i></div>
+            <h3 class="audience-card__title">Anthropic Claude</h3>
+            <p class="audience-card__desc">All Claude models including Claude Code and API integrations. Full visibility into what organisational data Claude accesses through connected MCP servers.</p>
+          </div>
+          <div class="audience-card fade-up">
+            <div class="audience-card__icon"><i class="ph ph-chat-circle-dots" style="font-size: 24px;"></i></div>
+            <h3 class="audience-card__title">OpenAI / ChatGPT</h3>
+            <p class="audience-card__desc">ChatGPT, GPT-4, and OpenAI API integrations. Monitor what internal data reaches OpenAI's servers through employee AI tool usage and developer integrations.</p>
+          </div>
+          <div class="audience-card fade-up">
+            <div class="audience-card__icon"><i class="ph ph-sparkle" style="font-size: 24px;"></i></div>
+            <h3 class="audience-card__title">Google Gemini</h3>
+            <p class="audience-card__desc">Gemini models and Google AI integrations. Complete data flow visibility for organisations using Google's AI tools alongside internal systems.</p>
+          </div>
+        </div>
+        <p style="text-align: center; margin-top: var(--space-xl); font-size: var(--text-ui); color: var(--svalin-muted);" class="fade-up">Any model accessible via MCP is supported — the list above covers the most widely used in enterprise environments today.</p>
+      </div>
+    </section>
+
+    <!-- How integrations work -->
+    <section class="section">
+      <div class="container">
+        <div style="max-width: 720px; margin: 0 auto;" class="fade-up">
+          <p class="section__overline">Technical Note</p>
+          <h2 class="section__title" style="margin-bottom: var(--space-md);">How integrations work</h2>
+          <p style="font-size: var(--text-body); color: var(--svalin-muted); line-height: 1.7; margin-bottom: var(--space-md);">Svalin monitors data flows at the MCP (Model Context Protocol) layer — the protocol that connects AI tools to external data sources. When an AI tool makes a tool call to a connected system (Jira, BigQuery, Google Drive, etc.), that call passes through the MCP layer. Svalin's agent captures these calls at the machine level, before the data reaches the AI provider.</p>
+          <p style="font-size: var(--text-body); color: var(--svalin-muted); line-height: 1.7; margin-bottom: var(--space-lg);">This means no changes are required to your existing integrations, cloud configuration, or network setup. The agent installs on developer machines and immediately begins capturing data flows from all configured MCP server connections.</p>
+          <a href="/how-it-works" class="btn btn--secondary">Full technical overview &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section--navy">
+      <div class="container">
+        <div class="cta-banner fade-up">
+          <h2 class="cta-banner__title">See what your AI tools are sending</h2>
+          <p class="cta-banner__text">
+            Request a demo to see Svalin capturing live data flows from your AI tools — Jira, databases, Google Drive, and more.
+          </p>
+          <a href="/demo" class="btn btn--primary btn--large">Request a Demo</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border-top: none; padding-top: 0;">
+        <span>&copy; 2026 Svalin. All rights reserved.</span>
+        <div>
+          <a href="/privacy" class="footer__link" style="margin-right: 1rem;">Privacy Policy</a>
+          <a href="/terms" class="footer__link">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

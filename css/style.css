@@ -1358,3 +1358,189 @@ h1, h2, h3, h4 {
     width: 100%;
   }
 }
+
+/* --- Example Callout --- */
+.example-callout {
+  background: var(--env-accent-subtle);
+  border: 1px solid rgba(74, 144, 184, 0.2);
+  border-left: 3px solid var(--env-accent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg) var(--space-xl);
+  margin-bottom: var(--space-lg);
+}
+
+.example-callout__label {
+  font-size: var(--text-meta);
+  font-weight: 600;
+  color: var(--env-accent);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-overline);
+  margin-bottom: var(--space-sm);
+}
+
+.example-callout__text {
+  font-size: var(--text-body);
+  color: var(--svalin-navy);
+  line-height: 1.7;
+}
+
+/* --- Blind Spot Table --- */
+.blind-spot__table-wrapper {
+  border: 1px solid var(--svalin-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-top: var(--space-xl);
+}
+
+.blind-spot__table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--svalin-surface);
+}
+
+.blind-spot__table thead th {
+  padding: var(--space-md) var(--space-xl);
+  text-align: left;
+  font-size: var(--text-meta);
+  font-weight: 500;
+  letter-spacing: var(--tracking-overline);
+  text-transform: uppercase;
+  color: var(--svalin-muted);
+  background: var(--env-bg);
+  border-bottom: 1px solid var(--svalin-border);
+}
+
+.blind-spot__table tbody tr {
+  border-bottom: 1px solid var(--svalin-border);
+}
+
+.blind-spot__table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.blind-spot__table td {
+  padding: var(--space-md) var(--space-xl);
+  font-size: var(--text-body);
+  vertical-align: middle;
+  line-height: 1.5;
+}
+
+.blind-spot__table td:first-child {
+  font-weight: 600;
+  white-space: nowrap;
+  width: 140px;
+}
+
+.blind-spot__table td:nth-child(2) {
+  color: var(--svalin-muted);
+  font-size: var(--text-ui);
+}
+
+.blind-spot__table td:last-child {
+  color: var(--color-danger);
+  font-size: var(--text-ui);
+}
+
+.blind-spot__row--svalin {
+  background: rgba(74, 144, 184, 0.04);
+}
+
+.blind-spot__row--svalin td:first-child {
+  color: var(--env-accent);
+}
+
+.blind-spot__row--svalin td:nth-child(2) {
+  color: var(--svalin-navy);
+  font-size: var(--text-ui);
+}
+
+.blind-spot__row--svalin td:last-child {
+  color: var(--env-accent);
+}
+
+.blind-spot__row--svalin td:last-child a {
+  color: var(--env-accent);
+  font-weight: 500;
+}
+
+/* --- How It Works Steps --- */
+.how-it-works__steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xl);
+}
+
+.hiw-step {
+  padding: var(--space-xl);
+  background: var(--svalin-surface);
+  border: 1px solid var(--svalin-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.hiw-step__number {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--svalin-navy);
+  color: var(--svalin-amber);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  border-radius: var(--radius);
+  margin-bottom: var(--space-lg);
+}
+
+.hiw-step__title {
+  font-size: var(--text-body);
+  font-weight: 600;
+  color: var(--svalin-navy);
+  margin-bottom: var(--space-sm);
+  line-height: 1.4;
+}
+
+.hiw-step__desc {
+  font-size: var(--text-ui);
+  color: var(--svalin-muted);
+  line-height: 1.6;
+}
+
+/* --- Integration Tags --- */
+.integration-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--svalin-border);
+}
+
+.integration-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.625rem;
+  font-size: var(--text-meta);
+  font-weight: 500;
+  color: var(--svalin-muted);
+  background: var(--env-bg);
+  border: 1px solid var(--svalin-border);
+  border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+  .how-it-works__steps {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .blind-spot__table-wrapper {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .how-it-works__steps {
+    grid-template-columns: 1fr;
+  }
+}
