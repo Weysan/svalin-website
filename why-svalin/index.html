@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Svalin — AI Governance Beyond the Gateway</title>
+  <meta name="description" content="API gateways only see traffic you route through them. Claude Code, Cursor, and Gemini CLI don't. Svalin deploys via MDM to cover every AI session — with tamper-evident logs and completeness proof." />
+  <meta name="keywords" content="AI governance, API gateway blind spot, Claude Code governance, Cursor AI governance, Gemini CLI audit, MDM AI policy, tamper-evident AI logs, AI completeness proof, CISO AI visibility" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Why Svalin — AI Governance Beyond the Gateway" />
+  <meta property="og:description" content="API gateways miss the sessions developers don't route through them. Svalin sees everything — deployed via MDM, with cryptographic completeness proof." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TG3V0DWW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1TG3V0DWW3');
+  </script>
+
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://www.svalinhq.com/why-svalin" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand">
+        <img src="/assets/logo.svg" alt="Svalin logo" class="nav__logo" />
+        <span class="nav__wordmark">Svalin</span>
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="/" class="nav__link">Home</a>
+        <a href="/why-svalin" class="nav__link">Why Svalin</a>
+        <a href="/compliance" class="nav__link">Compliance</a>
+        <a href="/faq" class="nav__link">FAQ</a>
+        <a href="/demo" class="nav__cta">Request a Demo</a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="why-svalin">
+    <div class="container">
+
+      <!-- Section 1: The assumption -->
+      <div class="why-svalin__section fade-up">
+        <p class="section__overline">The problem</p>
+        <h1 class="section__title" style="font-size: var(--text-display); max-width: 760px;">The assumption every AI governance tool is built on</h1>
+        <p class="why-now__text" style="max-width: 720px; margin-top: var(--space-lg);">
+          Every API gateway, every proxy-based governance solution starts from the same premise: <strong>AI traffic passes through a central point that we control.</strong>
+        </p>
+        <p class="why-now__text" style="max-width: 720px;">
+          In 2023, that was a reasonable assumption. Developers called APIs. APIs were easy to proxy. In 2026, developers run AI agents locally. Claude Code runs on their laptop. Cursor's AI engine never leaves their IDE. Gemini CLI talks directly to Google.
+        </p>
+        <p class="why-now__text" style="max-width: 720px;">
+          The gateway assumption isn't just wrong — it creates false confidence. You can configure <code>ANTHROPIC_BASE_URL</code> to point at a gateway, document the policy, and ask every developer to comply. Some will. Some will forget. Some will deliberately work around it. And you'll never know the difference. Your CISO sees a green dashboard. Your auditor sees a coverage report. Neither reflects what's actually happening on developer machines.
+        </p>
+      </div>
+
+      <!-- Section 2: The session your gateway never saw -->
+      <div class="why-svalin__section fade-up">
+        <p class="section__overline">The gap</p>
+        <h2 class="section__title">The session your gateway never saw</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); margin-top: var(--space-2xl); align-items: start;">
+          <div style="padding: var(--space-2xl); background: #fee2e2; border-radius: var(--radius-xl); border: 1px solid #fca5a5;">
+            <p class="section__overline" style="color: var(--color-danger);">Without Svalin</p>
+            <p style="font-size: var(--text-body); line-height: 1.7; color: var(--svalin-navy); margin-top: var(--space-sm);">
+              A developer opens Claude Code. They ask it to analyse a production database schema. You've configured a gateway and asked developers to route traffic through it — some do. But this developer runs a quick <code>unset ANTHROPIC_BASE_URL</code> in their terminal. The session goes directly to Anthropic's servers.
+            </p>
+            <p style="font-size: var(--text-body); line-height: 1.7; color: var(--svalin-navy); margin-top: var(--space-md);">
+              Your gateway logs the sessions it saw. It has no way to detect the ones it didn't. Your policy engine never fired. Your CISO's dashboard still shows full coverage — because the gap is invisible by design.
+            </p>
+            <p style="font-size: var(--text-body); font-weight: 600; color: var(--color-danger); margin-top: var(--space-md);">
+              One developer. One unset variable. No log entry. No policy enforcement. No way to know it happened.
+            </p>
+          </div>
+          <div style="padding: var(--space-2xl); background: #d1fae5; border-radius: var(--radius-xl); border: 1px solid #6ee7b7;">
+            <p class="section__overline" style="color: var(--color-success);">With Svalin</p>
+            <p style="font-size: var(--text-body); line-height: 1.7; color: var(--svalin-navy); margin-top: var(--space-sm);">
+              The same developer opens Claude Code and unsets the environment variable. It doesn't matter. Svalin's agent — deployed to their machine via MDM, independently of any proxy configuration — detects the session at the OS level. The bypass attempt is logged as a compliance alert. The session is captured regardless of routing.
+            </p>
+            <p style="font-size: var(--text-body); line-height: 1.7; color: var(--svalin-navy); margin-top: var(--space-md);">
+              The session is logged with a tamper-evident chain. The bypass event is flagged with device identity and timestamp. Data categories, AI provider, and policy decisions are all recorded — whether the developer cooperated or not.
+            </p>
+            <p style="font-size: var(--text-body); font-weight: 600; color: var(--color-success); margin-top: var(--space-md);">
+              Complete coverage. Bypass detected. Cryptographic proof.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Comparison table -->
+      <div class="why-svalin__section fade-up">
+        <p class="section__overline">Comparison</p>
+        <h2 class="section__title">API Gateways vs Svalin</h2>
+        <p class="why-now__text" style="max-width: 720px; margin-top: var(--space-md);">
+          Both claim to govern AI. Only one can prove completeness.
+        </p>
+        <div class="comparison-table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>API Gateway / Proxy</th>
+                <th class="col-svalin">Svalin</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Deployment model</strong></td>
+                <td>Cloud-hosted proxy — traffic must be routed through it</td>
+                <td class="col-svalin">MDM-deployed agent per device (Jamf, Intune, Kandji)</td>
+              </tr>
+              <tr>
+                <td><strong>Covers Claude Code</strong></td>
+                <td><span class="comparison-table__cross">&#10005; Not enforced</span> — requires developer cooperation, bypasses undetectable</td>
+                <td class="col-svalin"><span class="comparison-table__check">&#10003; Yes</span> — captured at device level</td>
+              </tr>
+              <tr>
+                <td><strong>Covers Cursor AI</strong></td>
+                <td><span class="comparison-table__cross">&#10005; Not enforced</span> — requires developer cooperation, bypasses undetectable</td>
+                <td class="col-svalin"><span class="comparison-table__check">&#10003; Yes</span> — captured at device level</td>
+              </tr>
+              <tr>
+                <td><strong>Covers Gemini CLI</strong></td>
+                <td><span class="comparison-table__cross">&#10005; Not enforced</span> — requires developer cooperation, bypasses undetectable</td>
+                <td class="col-svalin"><span class="comparison-table__check">&#10003; Yes</span> — captured at device level</td>
+              </tr>
+              <tr>
+                <td><strong>Tamper-evident logs</strong></td>
+                <td><span class="comparison-table__cross">&#10005; No</span> — logs can be modified or deleted</td>
+                <td class="col-svalin"><span class="comparison-table__check">&#10003; Yes</span> — cryptographic chain, any gap is detectable</td>
+              </tr>
+              <tr>
+                <td><strong>Completeness proof</strong></td>
+                <td><span class="comparison-table__cross">&#10005; No</span> — can only prove routed sessions</td>
+                <td class="col-svalin"><span class="comparison-table__check">&#10003; Yes</span> — every session is accounted for</td>
+              </tr>
+              <tr>
+                <td><strong>Developer friction</strong></td>
+                <td>High — requires proxy config, re-routing, browser settings</td>
+                <td class="col-svalin">Zero — silent MDM deployment, no workflow changes</td>
+              </tr>
+              <tr>
+                <td><strong>Audit-ready evidence</strong></td>
+                <td>Partial — only what passed through the gateway</td>
+                <td class="col-svalin">Complete — exportable reports for every major framework</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Section 4: How Svalin works -->
+      <div class="why-svalin__section fade-up">
+        <p class="section__overline">How it works</p>
+        <h2 class="section__title">Governance at the source, not the gateway</h2>
+        <p class="why-now__text" style="max-width: 720px; margin-top: var(--space-md);">
+          Svalin intercepts AI sessions where they originate — on the developer's machine — before any traffic reaches an AI provider. No proxy re-routing. No browser extension. No developer action required.
+        </p>
+        <div class="how-it-works__steps">
+          <div class="how-it-works__step fade-up">
+            <div class="how-it-works__step-num">1</div>
+            <div>
+              <p class="how-it-works__step-title">Deploy via MDM</p>
+              <p class="how-it-works__step-desc">Svalin's lightweight agent is pushed to every developer machine through your existing MDM — Jamf, Microsoft Intune, or Kandji. No developer action needed.</p>
+            </div>
+          </div>
+          <div class="how-it-works__step fade-up">
+            <div class="how-it-works__step-num">2</div>
+            <div>
+              <p class="how-it-works__step-title">Capture every AI session at the device level</p>
+              <p class="how-it-works__step-desc">The agent wraps MCP servers and monitors AI tool configurations at the OS level — Claude Code, Cursor, Gemini CLI — before traffic leaves the machine. No routing required. Bypass attempts are detected regardless of how they're executed.</p>
+            </div>
+          </div>
+          <div class="how-it-works__step fade-up">
+            <div class="how-it-works__step-num">3</div>
+            <div>
+              <p class="how-it-works__step-title">Build a tamper-evident log chain</p>
+              <p class="how-it-works__step-desc">Each session entry is cryptographically linked to the previous one. Any gap, deletion, or modification breaks the chain and is immediately detectable — even by administrators.</p>
+            </div>
+          </div>
+          <div class="how-it-works__step fade-up">
+            <div class="how-it-works__step-num">4</div>
+            <div>
+              <p class="how-it-works__step-title">Enforce policies before traffic leaves</p>
+              <p class="how-it-works__step-desc">Policies deployed via MDM apply on device. Data category rules, provider restrictions, and content controls fire before any data reaches an AI provider.</p>
+            </div>
+          </div>
+          <div class="how-it-works__step fade-up">
+            <div class="how-it-works__step-num">5</div>
+            <div>
+              <p class="how-it-works__step-title">Generate audit evidence on demand</p>
+              <p class="how-it-works__step-desc">One-click compliance reports mapped to EU AI Act, NIST AI RMF, ISO 42001, ISO 27001, SOC 2, and GDPR. Complete evidence, no manual gathering.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Auditor questions -->
+      <div class="why-svalin__section fade-up">
+        <p class="section__overline">Audit readiness</p>
+        <h2 class="section__title">Questions your auditor will ask</h2>
+        <p class="why-now__text" style="max-width: 720px; margin-top: var(--space-md);">
+          AI governance audits are moving from policy documentation to operational evidence. These are the questions that expose gateway-dependent tools.
+        </p>
+        <div class="auditor-blocks">
+          <div class="auditor-block fade-up">
+            <p class="auditor-block__label">Auditor question</p>
+            <p class="auditor-block__question">"Can you show me every AI session from the last 90 days, including sessions that didn't go through your gateway?"</p>
+            <p class="auditor-block__answer">Svalin logs every session at the device level, regardless of routing. The answer is yes — with a cryptographic completeness proof showing no session is missing from the record.</p>
+          </div>
+          <div class="auditor-block fade-up">
+            <p class="auditor-block__label">Auditor question</p>
+            <p class="auditor-block__question">"What data was sent to Claude Code last Tuesday by your engineering team?"</p>
+            <p class="auditor-block__answer">Svalin captures session context at the point of origin. Data categories, AI provider, user, timestamp, and policy outcome are available for any session, any user, any time range — exportable for audit.</p>
+          </div>
+          <div class="auditor-block fade-up">
+            <p class="auditor-block__label">Auditor question</p>
+            <p class="auditor-block__question">"How do you know your governance controls weren't bypassed?"</p>
+            <p class="auditor-block__answer">Svalin operates at the OS level via MDM — independently of proxy configuration. Even if a developer unsets environment variables, uses a VPN, or finds another workaround, the bypass is detected and logged as a compliance event. Tamper-evident log chains mean any gap or modification is cryptographically detectable. Governance completeness is provable, not assumed — the chain either holds or it doesn't.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 6: CTA -->
+      <div class="compliance-detail__cta fade-up" style="max-width: 100%; margin-top: var(--space-4xl);">
+        <h2 class="compliance-detail__cta-title">See the sessions your gateway is missing</h2>
+        <p class="compliance-detail__cta-text">Request a demo and we'll show you exactly what AI activity is happening outside your current governance perimeter.</p>
+        <a href="/demo" class="btn btn--primary">Request a Demo</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border-top: none; padding-top: 0;">
+        <span>&copy; 2026 Svalin. All rights reserved.</span>
+        <div>
+          <a href="/privacy" class="footer__link" style="margin-right: 1rem;">Privacy Policy</a>
+          <a href="/terms" class="footer__link" style="margin-right: 1rem;">Terms of Service</a>
+          <a href="https://www.linkedin.com/company/svalin-hq/about/" class="footer__link" target="_blank" rel="noopener noreferrer" style="margin-right: 1rem;"><i class="ph ph-linkedin-logo" style="font-size: 14px; vertical-align: middle; margin-right: 3px;"></i> LinkedIn</a>
+          <a href="https://x.com/svalinHQ" class="footer__link" target="_blank" rel="noopener noreferrer" style="margin-right: 1rem;"><i class="ph ph-x-logo" style="font-size: 14px; vertical-align: middle; margin-right: 3px;"></i> X</a>
+          <a href="https://bsky.app/profile/svalinhq.bsky.social" class="footer__link" target="_blank" rel="noopener noreferrer"><i class="ph ph-butterfly" style="font-size: 14px; vertical-align: middle; margin-right: 3px;"></i> Bluesky</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
