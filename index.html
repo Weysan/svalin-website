@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Svalin — AI Governance Platform | Audit, Observe & Govern AI Usage</title>
-  <meta name="description" content="Svalin is an AI governance and monitoring platform. Get full audit trails, real-time observability, and policy enforcement for AI models like Claude, GPT, and Gemini. Built for EU AI Act compliance." />
-  <meta name="keywords" content="AI governance, AI compliance, EU AI Act, AI audit trail, AI observability, AI policy engine, MCP gateway, Claude governance, GPT governance, AI risk management, ISO 42001, SOC 2" />
+  <title>Svalin — AI Governance for Claude Code, Cursor & Gemini CLI</title>
+  <meta name="description" content="Monitor Claude Code, Cursor, and Gemini CLI via MDM-deployed agents on enrolled developer machines. Tamper-evident audit logs, policy enforcement, and compliance evidence packs for CISOs." />
+  <meta name="keywords" content="AI governance, Claude Code governance, Cursor AI audit, Gemini CLI monitoring, MDM AI deployment, tamper-evident AI logs, EU AI Act compliance, ISO 42001, SOC 2 AI governance, AI policy enforcement, CISO AI visibility, AI compliance platform" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Svalin — AI Governance Platform" />
-  <meta property="og:description" content="Full audit trails, real-time observability, and policy enforcement for enterprise AI. Built for EU AI Act compliance." />
+  <meta property="og:title" content="Svalin — AI Governance for Claude Code, Cursor &amp; Gemini CLI" />
+  <meta property="og:description" content="Monitor Claude Code, Cursor, and Gemini CLI via MDM-deployed agents. Tamper-evident audit logs, policy enforcement, and compliance evidence packs for CISOs." />
   <meta property="og:image" content="assets/logo.svg" />
   <meta property="og:url" content="https://www.svalinhq.com" />
   <meta property="og:site_name" content="Svalin" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Svalin — AI Governance Platform" />
-  <meta name="twitter:description" content="Full audit trails, real-time observability, and policy enforcement for enterprise AI." />
+  <meta name="twitter:title" content="Svalin — AI Governance for Claude Code, Cursor &amp; Gemini CLI" />
+  <meta name="twitter:description" content="Monitor Claude Code, Cursor, and Gemini CLI via MDM-deployed agents. Tamper-evident audit logs, policy enforcement, and compliance evidence packs." />
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -76,6 +76,7 @@
       <div class="nav__links" id="navLinks">
         <a href="#features" class="nav__link">Features</a>
         <a href="/why-svalin" class="nav__link">Why Svalin</a>
+        <a href="/how-it-works" class="nav__link">How It Works</a>
         <a href="#compliance" class="nav__link">Compliance</a>
         <a href="#audience" class="nav__link">Who It's For</a>
         <a href="#faq" class="nav__link">FAQ</a>
@@ -103,7 +104,7 @@
           AI governance that works even when developers <em>don't route through a gateway</em>
         </h1>
         <p class="hero__subtitle fade-up">
-          Svalin deploys to every developer machine via MDM. It sees every AI session — Claude Code, Cursor, Gemini CLI — whether traffic goes through a gateway or not. Tamper-evident logs. Completeness proof. Zero developer friction.
+          Svalin deploys to enrolled developer machines via MDM. It captures AI sessions — Claude Code, Cursor, Gemini CLI — on governed devices, whether traffic goes through a gateway or not. Tamper-evident logs. Configuration integrity enforcement. Zero developer friction.
         </p>
         <div class="hero__actions fade-up">
           <a href="/demo" class="btn btn--primary btn--large">Request a Demo</a>
@@ -205,6 +206,17 @@
             From audit trails to policy enforcement, Svalin gives security and compliance teams full control over AI usage.
           </p>
         </div>
+        <div class="arch-block fade-up">
+          <div class="arch-block__icon">
+            <i class="ph ph-cpu" style="font-size: 24px;"></i>
+          </div>
+          <div>
+            <p class="arch-block__text">
+              Svalin deploys a lightweight agent to developer machines through your MDM — Jamf, Intune, or Kandji. The agent auto-detects supported AI coding tools and wraps their MCP configurations to proxy tool calls. It also configures itself as an LLM proxy where supported. Process tree analysis attributes agent activity to specific developer sessions, allowing Svalin to reconstruct the full coding flow from developer prompt to session close — without touching the developer's workflow. Telemetry is shipped to an append-only platform backend. Svalin's scope is the developer tool layer — MCP tool calls, LLM interactions, and configuration integrity for supported agents. Activity outside that scope is outside its visibility.
+            </p>
+            <a href="/how-it-works" class="arch-block__link">How it works in detail &rarr;</a>
+          </div>
+        </div>
         <div class="features__grid stagger">
           <div class="feature-card fade-up">
             <div class="feature-card__icon">
@@ -212,7 +224,7 @@
             </div>
             <h3 class="feature-card__title">Tamper-Evident Audit Chain</h3>
             <p class="feature-card__desc">
-              Every AI session is logged with a cryptographic chain that proves completeness. No gap, no modification, no bypass goes undetected — even by administrators.
+              Every AI session on enrolled devices is logged with a cryptographic chain that proves log integrity and ordering. Configuration tampering and known bypass attempts are detected and alerted — giving auditors tamper-evident evidence of observed activity and device posture.
             </p>
           </div>
           <div class="feature-card fade-up">
@@ -221,7 +233,7 @@
             </div>
             <h3 class="feature-card__title">Full Session Visibility</h3>
             <p class="feature-card__desc">
-              Every AI session across your organisation — Claude Code, Cursor, Gemini CLI, API calls — captured at the device level. No routing required. No blind spots.
+              MCP tool calls and LLM interactions for supported agents — Claude Code, Claude Desktop, Cursor, Gemini CLI — captured at the device level without requiring gateway routing. Svalin's scope is the developer tool layer; activity outside supported agents is outside its visibility.
             </p>
           </div>
           <div class="feature-card fade-up">
@@ -239,7 +251,7 @@
             </div>
             <h3 class="feature-card__title">Multi-Model Support</h3>
             <p class="feature-card__desc">
-              Works across Claude, GPT, Gemini, and any model accessible via MCP. One governance layer for your entire AI stack.
+              Works across Claude Code, Claude Desktop, Cursor, and Gemini CLI today, with support for additional MCP-compatible agents on the roadmap. One governance layer for your supported AI stack.
             </p>
           </div>
           <div class="feature-card feature-card--full fade-up">
@@ -248,9 +260,45 @@
             </div>
             <h3 class="feature-card__title">Bypass Detection</h3>
             <p class="feature-card__desc">
-              Svalin detects when AI governance controls are circumvented. Logs include cryptographic completeness proofs, so any attempt to remove or suppress session data is immediately visible to your security team.
+              Svalin continuously monitors agent configuration files for tampering — unapproved MCP servers, proxy URL changes, hook suppression. Detected changes trigger automatic policy re-application and a compliance alert on the platform. Known bypass paths on enrolled devices are surfaced in real time.
             </p>
           </div>
+        </div>
+        <div class="agents-section fade-up">
+          <p class="agents-section__title">Supported agents</p>
+          <div class="agents-grid">
+            <div class="agent-tile">
+              <div class="agent-tile__icon">
+                <i class="ph ph-terminal-window" style="font-size: 22px;"></i>
+              </div>
+              <span class="agent-tile__name">Claude Code</span>
+            </div>
+            <div class="agent-tile">
+              <div class="agent-tile__icon">
+                <i class="ph ph-desktop" style="font-size: 22px;"></i>
+              </div>
+              <span class="agent-tile__name">Claude Desktop</span>
+            </div>
+            <div class="agent-tile">
+              <div class="agent-tile__icon">
+                <i class="ph ph-cursor" style="font-size: 22px;"></i>
+              </div>
+              <span class="agent-tile__name">Cursor</span>
+            </div>
+            <div class="agent-tile">
+              <div class="agent-tile__icon">
+                <i class="ph ph-google-logo" style="font-size: 22px;"></i>
+              </div>
+              <span class="agent-tile__name">Gemini CLI</span>
+            </div>
+            <a href="/demo" class="agent-tile agent-tile--placeholder">
+              <div class="agent-tile__icon">
+                <i class="ph ph-plus" style="font-size: 22px;"></i>
+              </div>
+              <span class="agent-tile__name">Your tool here</span>
+            </a>
+          </div>
+          <p class="agents-section__desc">Svalin currently supports the four most widely adopted AI coding agents in regulated engineering teams. We're actively expanding — tell us which tool your team uses and help shape the roadmap.</p>
         </div>
       </div>
     </section>
@@ -266,7 +314,7 @@
           </p>
         </div>
         <p class="compliance__intro fade-up">
-          Generate one-click compliance reports mapped to EU AI Act, NIST AI RMF, ISO 42001, ISO 27001, SOC 2, and GDPR. Continuous audit evidence — no evidence-gathering sprints before your next audit.
+          Generate evidence packs mapped to EU AI Act, ISO 42001, ISO 27001, SOC 2, GDPR, and NIST AI RMF control objectives. Continuous audit evidence — no evidence-gathering sprints before your next audit.
         </p>
         <div class="compliance__items fade-up">
           <a href="/compliance/eu-ai-act" class="compliance__item" style="text-decoration: none; color: inherit;">

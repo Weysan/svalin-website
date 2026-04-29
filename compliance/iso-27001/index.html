@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ISO 27001 AI Compliance — How Svalin Addresses Information Security Controls</title>
-  <meta name="description" content="Learn how Svalin helps organisations meet ISO/IEC 27001:2022 requirements for AI tool governance. Covers cloud services security (A.5.23), data leakage prevention (A.8.12), supplier relationships (A.5.19), and data masking (A.8.11)." />
-  <meta name="keywords" content="ISO 27001 AI compliance, ISO 27001 2022 AI tools, A.5.23 cloud services AI, A.8.12 data leakage prevention AI, AI supplier security, ISO 27001 audit trail, information security AI governance, MCP server security" />
+  <title>ISO 27001 &amp; AI Tool Governance — Compliance Evidence | Svalin</title>
+  <meta name="description" content="Svalin supports ISO 27001:2022 AI compliance. Evidence for cloud services security (A.5.23), data leakage prevention (A.8.12), supplier risk management (A.5.19), and data masking (A.8.11) on enrolled devices." />
+  <meta name="keywords" content="ISO 27001 AI compliance, ISO 27001 2022 AI tools, A.5.23 cloud services security, A.8.12 data leakage prevention, AI supplier risk management, ISO 27001 audit evidence, information security AI governance, Claude Code ISO 27001" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="ISO 27001 AI Compliance — How Svalin Addresses Information Security Controls" />
-  <meta property="og:description" content="Learn how Svalin helps organisations meet ISO/IEC 27001:2022 requirements for AI tool governance." />
+  <meta property="og:title" content="ISO 27001 &amp; AI Tool Governance — Compliance Evidence | Svalin" />
+  <meta property="og:description" content="Svalin supports ISO 27001:2022 AI compliance. Evidence for cloud services security (A.5.23), data leakage prevention (A.8.12), and supplier risk management (A.5.19) on enrolled devices." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -42,6 +42,8 @@
       <div class="nav__links" id="navLinks">
         <a href="/" class="nav__link">Home</a>
         <a href="/why-svalin" class="nav__link">Why Svalin</a>
+        <a href="/how-it-works" class="nav__link">How It Works</a>
+        <a href="/compliance" class="nav__link">Compliance</a>
         <a href="/faq" class="nav__link">FAQ</a>
         <a href="/demo" class="nav__cta">Request a Demo</a>
       </div>
@@ -82,7 +84,7 @@
             <div class="control-card__divider"></div>
             <span class="control-card__section-label--svalin">How Svalin addresses it</span>
             <p class="control-card__text">
-              Captures every API call made to external AI providers (Anthropic, Google, OpenAI) including data transferred. Produces audit-ready logs of cloud service usage that satisfy A.5.23 evidence requirements.
+              Captures MCP tool calls and LLM interactions for supported agents on enrolled devices, documenting what data was transmitted to each AI provider. Produces audit-ready logs of governed AI tool usage that satisfy A.5.23 evidence requirements.
             </p>
           </div>
         </div>
@@ -100,7 +102,7 @@
             <div class="control-card__divider"></div>
             <span class="control-card__section-label--svalin">How Svalin addresses it</span>
             <p class="control-card__text">
-              Policy engine acts as a DLP enforcement point for AI tool data flows — detecting sensitive data categories (PII, credentials, health data, confidential IP) in MCP server calls and blocking or alerting in real time.
+              Policy engine acts as a DLP enforcement point for AI tool data flows — detecting configured data categories (PII patterns, credential formats, custom identifiers) in MCP tool call payloads. Blocking and redaction are configurable per policy.
             </p>
           </div>
         </div>
@@ -136,7 +138,7 @@
             <div class="control-card__divider"></div>
             <span class="control-card__section-label--svalin">How Svalin addresses it</span>
             <p class="control-card__text">
-              Detects sensitive data categories in MCP server payloads before they reach external models. Policy engine can warn or block calls where unmasked PII or confidential data is detected. Audit trail shows which calls were governed.
+              Detects configured data categories in MCP tool call payloads before they reach external models. Policy engine can warn, redact, or block calls where configured patterns are matched. Audit trail shows which calls were governed and what action was taken.
             </p>
           </div>
         </div>

@@ -1275,6 +1275,168 @@ h1, h2, h3, h4 {
   color: var(--svalin-muted);
 }
 
+/* Inline code */
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--env-accent-subtle);
+  color: var(--env-accent);
+  padding: 0.15em 0.4em;
+  border-radius: var(--radius-sm);
+}
+
+/* Architecture block (homepage Features section) */
+.arch-block {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: flex-start;
+  padding: var(--space-xl) var(--space-2xl);
+  background: var(--svalin-navy);
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.arch-block__icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  color: var(--svalin-amber);
+}
+
+.arch-block__text {
+  font-size: var(--text-body);
+  line-height: 1.7;
+  color: rgba(240, 244, 248, 0.85);
+  margin-bottom: var(--space-md);
+}
+
+.arch-block__link {
+  font-size: var(--text-ui);
+  font-weight: 600;
+  color: var(--svalin-amber);
+  transition: color 0.15s ease;
+}
+
+.arch-block__link:hover {
+  color: var(--svalin-ice);
+}
+
+/* Supported agents grid */
+.agents-section {
+  margin-top: var(--space-3xl);
+  text-align: center;
+}
+
+.agents-section__title {
+  font-size: var(--text-meta);
+  font-weight: 500;
+  letter-spacing: var(--tracking-overline);
+  text-transform: uppercase;
+  color: var(--svalin-muted);
+  margin-bottom: var(--space-xl);
+}
+
+.agents-grid {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-xl);
+}
+
+.agent-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 148px;
+  padding: var(--space-lg) var(--space-md);
+  background: var(--svalin-surface);
+  border: 1px solid var(--svalin-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  gap: var(--space-sm);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.agent-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.agent-tile__icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--env-accent-subtle);
+  border-radius: var(--radius-lg);
+  color: var(--env-accent);
+}
+
+.agent-tile__name {
+  font-size: var(--text-ui);
+  font-weight: 600;
+  color: var(--svalin-navy);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.agent-tile--placeholder {
+  border-style: dashed;
+  border-color: var(--svalin-muted);
+  background: var(--env-bg);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.agent-tile--placeholder .agent-tile__icon {
+  background: var(--svalin-border);
+  color: var(--svalin-muted);
+}
+
+.agent-tile--placeholder .agent-tile__name {
+  color: var(--svalin-muted);
+}
+
+.agent-tile--placeholder:hover {
+  border-color: var(--env-accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.agent-tile--placeholder:hover .agent-tile__name {
+  color: var(--env-accent);
+}
+
+.agents-section__desc {
+  font-size: var(--text-body);
+  color: var(--svalin-muted);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* FAQ group headings */
+.faq__group-title {
+  font-size: var(--text-meta);
+  font-weight: 500;
+  letter-spacing: var(--tracking-overline);
+  text-transform: uppercase;
+  color: var(--env-accent);
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--svalin-border);
+}
+
 /* --- Why Svalin page --- */
 .why-svalin {
   padding: calc(var(--nav-height) + var(--space-3xl)) 0 var(--space-5xl);

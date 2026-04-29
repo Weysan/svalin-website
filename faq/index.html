@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FAQ — Svalin | AI Governance Platform</title>
-  <meta name="description" content="Frequently asked questions about Svalin, the AI governance platform. Learn about data security, supported clients, setup time, and more." />
+  <title>Svalin FAQ — AI Governance Coverage, Deployment & Compliance</title>
+  <meta name="description" content="Frequently asked questions about Svalin. Coverage scope, bypass detection, MCP proxy architecture, MDM deployment, tamper-evident logs, and compliance evidence — answered honestly." />
+  <meta name="keywords" content="Svalin FAQ, AI governance questions, Claude Code coverage, MDM AI deployment, MCP proxy architecture, tamper-evident AI logs, AI bypass detection, SOC 2 AI evidence, EU AI Act FAQ, GDPR AI monitoring" />
+  <meta name="keywords" content="Svalin FAQ, AI governance questions, Claude Code governance, MDM AI deployment, tamper-evident logs, MCP proxy, AI bypass detection, ISO 42001 audit, SOC 2 AI evidence, GDPR AI monitoring" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TG3V0DWW3"></script>
@@ -35,7 +39,9 @@
       <div class="nav__links" id="navLinks">
         <a href="/" class="nav__link">Home</a>
         <a href="/why-svalin" class="nav__link">Why Svalin</a>
-        <a href="/contact" class="nav__link">Contact</a>
+        <a href="/how-it-works" class="nav__link">How It Works</a>
+        <a href="/compliance" class="nav__link">Compliance</a>
+        <a href="/faq" class="nav__link">FAQ</a>
         <a href="/demo" class="nav__cta">Request a Demo</a>
       </div>
       <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
@@ -50,11 +56,205 @@
     <div class="container">
       <div class="info-page__content" style="max-width: 760px;">
         <h1 class="info-page__title">Frequently Asked Questions</h1>
-        <p class="info-page__meta">Everything you need to know about Svalin.</p>
+        <p class="info-page__meta">Honest answers for security and compliance buyers.</p>
 
         <div class="faq__list" style="margin-top: var(--space-2xl);">
 
-          <!-- Security & Data -->
+          <!-- Coverage & Scope -->
+          <p class="faq__group-title">Coverage &amp; Scope</p>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              Does Svalin cover all AI tool usage across my organisation?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>No. Svalin's scope is the developer tool layer: MCP tool calls, LLM interactions, and configuration integrity for supported agents — currently Claude Code, Claude Desktop, Cursor, and Gemini CLI. Usage outside that scope — other tools, web UI, copy-paste, remote dev boxes — is outside Svalin's visibility. Svalin doesn't claim to see what it doesn't govern.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              Which AI agents are supported?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Currently supported: Claude Code, Claude Desktop, Cursor, and Gemini CLI. These are the four most widely adopted AI coding agents in regulated engineering teams. Support for additional MCP-compatible agents is on the roadmap — tell us what your team uses via the demo request form.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              What happens if a developer uses an unsupported AI tool?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Svalin won't see it. Svalin's scope covers supported agents — Claude Code, Claude Desktop, Cursor, and Gemini CLI — and specifically their MCP tool calls and LLM interactions. If a developer uses a different tool, that activity is outside Svalin's visibility entirely. Svalin doesn't claim to govern what it cannot see.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              Does Svalin work if developers use the AI tool's web interface instead of the desktop client?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Web UI usage is outside Svalin's current scope. The platform will flag the absence of expected session activity on enrolled devices, which can indicate out-of-scope usage. Full web UI governance is on the roadmap.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              What about developers using personal laptops or unmanaged devices?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Svalin requires MDM enrollment. Unmanaged devices are outside scope and will appear as coverage gaps in the platform. We recommend pairing Svalin with MDM enrollment enforcement for complete fleet coverage.</p>
+            </div>
+          </div>
+
+          <!-- Bypass & Security -->
+          <p class="faq__group-title">Bypass &amp; Security</p>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              Can a developer bypass Svalin's governance controls?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Svalin continuously monitors agent configuration files for tampering — including changes to the LLM proxy URL, addition of unapproved MCP servers, and hook suppression. Detected changes trigger automatic policy re-application and a compliance alert. A developer with local admin rights could attempt more advanced bypasses — these are surfaced as anomalies and coverage gaps, not silently ignored. No governance tool can claim to prevent all possible bypasses; Svalin's approach is to detect, alert, and document.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              What does "tamper-evident" actually mean?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Tamper-evident means that events are cryptographically signed and hash-chained before leaving the device. This proves that log entries were not modified, deleted, or reordered after capture. It does not mean Svalin captured every possible event — it means what was captured can be proven to be accurate and unmodified. Sequence numbers and heartbeat checks allow auditors to identify gaps in session coverage.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              Can Svalin prove that nothing was missed?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>No governance tool can make this claim honestly. Svalin provides tamper-evident evidence of observed activity on enrolled devices running supported agents, combined with coverage gap detection and device posture attestation. Auditors receive a documented picture of what was governed, what policy was active, and where coverage ended — not a claim of omniscience.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              What happens if a developer has local administrator rights?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>A local admin could attempt to disable the Svalin agent or modify its configuration. Svalin's configuration integrity monitoring detects these attempts and raises compliance alerts. Persistent tampering on a device will appear as a sustained coverage gap and policy violation on the platform. For high-risk environments, we recommend pairing Svalin with MDM-enforced restrictions on local admin rights.</p>
+            </div>
+          </div>
+
+          <!-- Architecture & Technical -->
+          <p class="faq__group-title">Architecture &amp; Technical</p>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              How does Svalin intercept MCP tool calls?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Svalin wraps the MCP configuration of supported AI coding tools to proxy tool calls through its local agent. It does not modify the AI tool itself. The interception happens at the configuration layer — the tool is redirected to communicate through Svalin's proxy, which logs, enforces policy, and forwards the call transparently.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              How does Svalin attribute activity to a specific developer?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Svalin uses process tree analysis — tracking parent and child process IDs (PID/PPID) — to attribute agent activity to the developer's session. This allows the platform to reconstruct the full coding flow from the initial developer prompt to session close, attributing each tool call to the right person on the right device.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              Does Svalin modify how AI tools work for developers?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>No. Developer workflow is unchanged. Svalin operates transparently — approved tool calls proceed normally, redacted content is removed before transmission, and blocked operations are logged. Developers do not need to change how they work.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              What MDM platforms does Svalin support?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Jamf, Microsoft Intune, and Kandji. Additional MDM platforms are on the roadmap.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              Does Svalin access AI conversation content?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Logging scope is configurable. By default, Svalin logs session metadata — data categories transferred, AI provider, timestamp, and policy decisions — not raw conversation content. For customers who require it, full content logging can be enabled with appropriate access controls and data residency settings.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              What happens if Svalin goes down?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Zero impact on your teams. Local agents simply log information and never interfere with actual tool calls. Your teams continue working uninterrupted — no blocking dependency, no downtime risk.</p>
+            </div>
+          </div>
+
+          <!-- Compliance & Audit -->
+          <p class="faq__group-title">Compliance &amp; Audit</p>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              What does "evidence packs mapped to control objectives" mean?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Svalin generates structured exports of audit evidence — session logs, policy snapshots, device posture records, coverage reports — organised and labelled against specific control objectives in EU AI Act, ISO 42001, SOC 2, ISO 27001, and GDPR frameworks. These are not compliance certifications — they are the documented evidence your auditor will ask for. The difference matters: Svalin helps you demonstrate compliance, not claim it.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              Will Svalin's audit logs satisfy an ISO 42001 auditor?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Svalin's logs cover the AI tool governance layer — what agents did, what data they accessed, what policies were active, and whether devices remained in a governed state. Whether this satisfies a specific auditor depends on your overall AI management system and how Svalin fits within it. We recommend discussing your specific control requirements with us before your audit cycle.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              How long are logs retained?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Retention periods are configurable based on your pricing tier. Retention policies are set at the organisation level and enforced by the platform. <a href="/contact">Contact us</a> to discuss your retention requirements.</p>
+            </div>
+          </div>
+
+          <!-- Privacy & Data -->
+          <p class="faq__group-title">Privacy &amp; Data</p>
+
           <div class="faq__item">
             <button class="faq__question" aria-expanded="false">
               How is the data stored and secured?
@@ -77,63 +277,54 @@
 
           <div class="faq__item">
             <button class="faq__question" aria-expanded="false">
-              Does Svalin access AI conversation content?
+              Does Svalin store sensitive data from developer sessions?
               <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
             </button>
             <div class="faq__answer">
-              <p>No. AI conversation content and filesystem information are never accessible to the Svalin agent. Only the input and output of MCP server tool calls are stored and logged. Your teams' prompts, responses, and local files remain completely private.</p>
-            </div>
-          </div>
-
-          <!-- Product -->
-          <div class="faq__item">
-            <button class="faq__question" aria-expanded="false">
-              How is Svalin different from existing AI monitoring tools?
-              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
-            </button>
-            <div class="faq__answer">
-              <p>Unlike traditional monitoring or MDM tools, Svalin is purpose-built for AI governance. It monitors and enforces policies across every MCP server, regardless of which AI client is used or whether the MCP server runs locally or remotely via API. This gives you a single governance layer across your entire AI stack.</p>
+              <p>Svalin is designed with data minimisation in mind. By default, only metadata is stored. If content logging is enabled, PII and credential redaction policies apply before data leaves the device. Role-based access controls restrict who can view log content on the platform. Customers in the EU benefit from EU data residency and separate key management.</p>
             </div>
           </div>
 
           <div class="faq__item">
             <button class="faq__question" aria-expanded="false">
-              Which AI clients are supported?
+              Is Svalin compliant with GDPR employee monitoring requirements?
               <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
             </button>
             <div class="faq__answer">
-              <p>Svalin works with any client that supports MCP servers, including terminal-based tools and desktop applications. As the MCP ecosystem grows, Svalin automatically supports new clients without any additional configuration.</p>
+              <p>Svalin is designed to support GDPR-compliant deployment, including data minimisation, purpose limitation, and role-based access. Employee monitoring obligations vary by jurisdiction — in Germany, for example, works council consultation may be required before deployment. We recommend reviewing your local monitoring disclosure requirements with your legal team before rollout.</p>
             </div>
           </div>
 
-          <div class="faq__item">
-            <button class="faq__question" aria-expanded="false">
-              What happens if Svalin goes down?
-              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
-            </button>
-            <div class="faq__answer">
-              <p>Zero impact on your teams. Local agents simply log information and never interfere with actual tool calls. Your teams continue working uninterrupted — no blocking dependency, no downtime risk.</p>
-            </div>
-          </div>
+          <!-- Implementation -->
+          <p class="faq__group-title">Implementation</p>
 
-          <!-- Setup -->
           <div class="faq__item">
             <button class="faq__question" aria-expanded="false">
               How long does it take to set up?
               <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
             </button>
             <div class="faq__answer">
-              <p>Days, not months. Deployment time depends on your client setup (via MDM or other distribution methods), but you can start defining policies and rolling out local agents to your teams right away.</p>
+              <p>For organisations with an existing MDM fleet, initial deployment typically takes less than a day. The Svalin agent is distributed as a standard MDM package. Policy configuration and onboarding support are included for all tiers.</p>
             </div>
           </div>
 
           <div class="faq__item">
             <button class="faq__question" aria-expanded="false">
-              Can policies be customised per team or department?
+              Do developers need to do anything to get started?
               <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
             </button>
             <div class="faq__answer">
-              <p>Yes. Svalin supports granular policy configuration, allowing you to define different rules for different teams, departments, or use cases within your organisation.</p>
+              <p>No. Deployment is fully managed through MDM. Developers do not need to install, configure, or change anything. The agent operates transparently in the background.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              What happens to existing audit logs if we cancel?
+              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Customers retain access to their audit logs for the duration of their contracted retention period after cancellation. Log export in NDJSON, CSV, or OTLP format is available at any time.</p>
             </div>
           </div>
 
