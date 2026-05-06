@@ -104,13 +104,41 @@
     });
   });
 
+  // --- Subnav scroll spy ---
+  var subnav = document.querySelector('.subnav');
+  var subnavLinks = document.querySelectorAll('.subnav__link');
+  if (subnav && subnavLinks.length && 'IntersectionObserver' in window) {
+    var subSections = [];
+    subnavLinks.forEach(function (link) {
+      var id = link.getAttribute('href').slice(1);
+      var section = document.getElementById(id);
+      if (section) subSections.push({ el: section, link: link });
+    });
+
+    var subSpyObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          subnavLinks.forEach(function (l) { l.classList.remove('active'); });
+          var match = subSections.find(function (s) { return s.el === entry.target; });
+          if (match) match.link.classList.add('active');
+        }
+      });
+    }, {
+      threshold: 0,
+      rootMargin: '-20% 0px -75% 0px'
+    });
+
+    subSections.forEach(function (s) { subSpyObserver.observe(s.el); });
+  }
+
   // --- Smooth scroll for anchor links ---
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
       var target = document.querySelector(this.getAttribute('href'));
       if (target) {
         e.preventDefault();
-        var offset = nav ? nav.offsetHeight + 16 : 80;
+        var subnavEl = document.querySelector('.subnav');
+        var offset = (nav ? nav.offsetHeight : 64) + (subnavEl ? subnavEl.offsetHeight : 0) + 8;
         var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
         window.scrollTo({ top: top, behavior: 'smooth' });
       }

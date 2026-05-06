@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How It Works — Svalin | AI Governance at the Device Level</title>
-  <meta name="description" content="Svalin deploys via MDM, intercepts MCP tool calls and LLM interactions, attributes sessions by process, and produces tamper-evident audit chains — with no changes to the developer's workflow." />
-  <meta name="keywords" content="Svalin architecture, MCP proxy AI governance, MDM AI agent deployment, LLM proxy governance, process tree attribution, tamper-evident AI logs, Claude Code governance architecture, AI session reconstruction, configuration integrity monitoring" />
+  <title>How Svalin Works — OS-Level AI Governance &amp; Cryptographic Audit Trail</title>
+  <meta name="description" content="Svalin deploys as a Go binary via MDM. proc_pidinfo process introspection, 500ms config monitoring, MCP and LLM proxy interception, Ed25519-signed tamper-evident audit chains — no developer action required." />
+  <meta name="keywords" content="Svalin architecture, Go binary MDM deployment, proc_pidinfo process tree, MCP proxy AI governance, LLM proxy on-device redaction, Ed25519 tamper-evident logs, AI session attribution, configuration integrity monitoring, ISO 42001 audit evidence, EU AI Act Art 12" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="How It Works — Svalin | AI Governance at the Device Level" />
-  <meta property="og:description" content="Svalin deploys via MDM, intercepts MCP tool calls and LLM interactions, attributes sessions by process, and produces tamper-evident audit chains — no developer friction." />
+  <meta property="og:title" content="How Svalin Works — OS-Level AI Governance &amp; Cryptographic Audit Trail" />
+  <meta property="og:description" content="Go binary via MDM, proc_pidinfo introspection, MCP and LLM proxy interception, Ed25519 cryptographic chaining. OS-level AI governance with no developer friction." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,6 +43,7 @@
         <a href="/" class="nav__link">Home</a>
         <a href="/why-svalin" class="nav__link">Why Svalin</a>
         <a href="/how-it-works" class="nav__link">How It Works</a>
+        <a href="/design-partner" class="nav__link">Design Partners</a>
         <a href="/compliance" class="nav__link">Compliance</a>
         <a href="/faq" class="nav__link">FAQ</a>
         <a href="/demo" class="nav__cta">Request a Demo</a>
@@ -58,12 +59,15 @@
   <main class="why-svalin">
     <div class="container">
 
-      <!-- Header -->
+      <!-- Header: The Governance Loop -->
       <div class="why-svalin__section fade-up" style="border-top: none; padding-top: 0;">
         <p class="section__overline">Architecture</p>
         <h1 class="section__title" style="font-size: var(--text-display); max-width: 760px;">How Svalin works</h1>
-        <p class="why-now__text" style="max-width: 680px; margin-top: var(--space-lg);">
-          Svalin is a lightweight agent deployed through your MDM that wraps supported AI coding tools at the MCP and LLM proxy layer — without modifying how developers work.
+        <p class="why-now__text" style="max-width: 680px; margin-top: var(--space-lg); font-size: var(--text-lead); font-weight: 500; color: var(--svalin-navy);">
+          Svalin provides OS-level visibility and cryptographic proof for AI-native workflows.
+        </p>
+        <p class="why-now__text" style="max-width: 680px; margin-top: var(--space-md);">
+          A lightweight agent deployed through your MDM wraps supported AI coding tools at the MCP and LLM proxy layer — capturing every tool call, attributing every session by process, and sealing every event into a tamper-evident chain before it leaves the device. No developer action required.
         </p>
 
         <!-- Flow diagram -->
@@ -108,38 +112,38 @@
         </div>
       </div>
 
-      <!-- Section 1: Deployment -->
+      <!-- Section 1: The Local Agent — The Plumbing -->
       <div class="why-svalin__section fade-up">
         <div style="display: flex; gap: var(--space-lg); align-items: flex-start;">
           <div style="flex-shrink: 0; width: 48px; height: 48px; background: var(--svalin-navy); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
             <span style="font-size: var(--text-body); font-weight: 700; color: var(--svalin-amber);">1</span>
           </div>
-          <div>
-            <p class="section__overline">Deployment</p>
-            <h2 class="section__title">Deploy via MDM — zero developer action</h2>
+          <div style="flex: 1;">
+            <p class="section__overline">The Local Agent — The "Plumbing"</p>
+            <h2 class="section__title">Zero-friction deployment, real-time process introspection</h2>
             <p class="why-now__text" style="max-width: 680px; margin-top: var(--space-md);">
-              Svalin deploys as a Go binary through Jamf, Microsoft Intune, or Kandji. It requires no developer action, no code changes, and no manual configuration. Once enrolled, the agent auto-detects supported AI coding tools on the machine and configures itself transparently.
+              Svalin deploys as a lightweight Go binary via Jamf, Microsoft Intune, or Kandji. No developer action, no code changes, no manual configuration. Once enrolled, the agent starts watching immediately.
             </p>
-            <div class="why-now__list" style="max-width: 560px; margin-top: var(--space-lg);">
+            <div class="why-now__list" style="max-width: 620px; margin-top: var(--space-lg);">
               <div class="why-now__item">
-                <div class="why-now__icon"><i class="ph ph-check-circle" style="font-size: 20px;"></i></div>
+                <div class="why-now__icon"><i class="ph ph-code" style="font-size: 20px;"></i></div>
                 <div>
-                  <p class="why-now__item-title">Jamf, Intune, Kandji</p>
-                  <p class="why-now__item-desc">Distributed as a standard MDM package — no custom tooling required.</p>
+                  <p class="why-now__item-title">Native OS syscalls — no shelling out</p>
+                  <p class="why-now__item-desc">Process tree analysis uses <code>proc_pidinfo</code> on macOS — a direct kernel call. No spawning <code>ps</code>, no <code>ptrace</code>. Lower overhead, no side-effects, no race conditions from external process invocations.</p>
                 </div>
               </div>
               <div class="why-now__item">
-                <div class="why-now__icon"><i class="ph ph-check-circle" style="font-size: 20px;"></i></div>
+                <div class="why-now__icon"><i class="ph ph-timer" style="font-size: 20px;"></i></div>
+                <div>
+                  <p class="why-now__item-title">500ms polling cycle, negligible CPU overhead</p>
+                  <p class="why-now__item-desc">Configuration integrity monitoring runs on a 500ms cycle — fast enough to catch tampering in real time, light enough to be invisible to the developer and not appear in performance profiling.</p>
+                </div>
+              </div>
+              <div class="why-now__item">
+                <div class="why-now__icon"><i class="ph ph-magnifying-glass" style="font-size: 20px;"></i></div>
                 <div>
                   <p class="why-now__item-title">Auto-detection of supported agents</p>
-                  <p class="why-now__item-desc">The agent identifies Claude Code, Claude Desktop, Cursor, and Gemini CLI on enrolment.</p>
-                </div>
-              </div>
-              <div class="why-now__item">
-                <div class="why-now__icon"><i class="ph ph-check-circle" style="font-size: 20px;"></i></div>
-                <div>
-                  <p class="why-now__item-title">Sub-day deployment for existing MDM fleets</p>
-                  <p class="why-now__item-desc">If your fleet is already MDM-enrolled, initial rollout typically takes less than a day.</p>
+                  <p class="why-now__item-desc">On enrolment, the agent identifies Claude Code, Claude Desktop, Cursor, and Gemini CLI and configures itself without touching the developer's workflow. Sub-day rollout for existing MDM fleets.</p>
                 </div>
               </div>
             </div>
@@ -147,18 +151,38 @@
         </div>
       </div>
 
-      <!-- Section 2: MCP Proxy -->
+      <!-- Section 2: Policy Enforcement — The Logic -->
       <div class="why-svalin__section fade-up">
         <div style="display: flex; gap: var(--space-lg); align-items: flex-start;">
           <div style="flex-shrink: 0; width: 48px; height: 48px; background: var(--svalin-navy); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
             <span style="font-size: var(--text-body); font-weight: 700; color: var(--svalin-amber);">2</span>
           </div>
           <div style="flex: 1;">
-            <p class="section__overline">MCP Proxy Layer</p>
-            <h2 class="section__title">Every tool call logged and policy-checked</h2>
+            <p class="section__overline">Policy Enforcement — The "Logic"</p>
+            <h2 class="section__title">Two interception layers, applied before data moves</h2>
             <p class="why-now__text" style="max-width: 680px; margin-top: var(--space-md);">
-              For supported agents, Svalin wraps the tool's MCP configuration to intercept tool calls before they execute. Every file read, shell command, and API query that flows through MCP is logged, attributed, and policy-checked before transmission. Approved operations proceed transparently. Blocked or redacted operations are logged as policy events.
+              Governance happens at two distinct points in the AI workflow — before tool calls execute, and before prompts leave the machine. Both layers are configured automatically via MDM. Neither requires developer cooperation.
             </p>
+
+            <!-- Two-column layer cards -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-top: var(--space-xl);">
+              <div style="padding: var(--space-xl); background: var(--env-bg); border-radius: var(--radius-xl); border: 1px solid var(--svalin-border);">
+                <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md);">
+                  <i class="ph ph-plug" style="font-size: 22px; color: var(--env-accent);"></i>
+                  <p style="font-size: var(--text-body); font-weight: 700; color: var(--svalin-navy); margin: 0;">The MCP Layer</p>
+                </div>
+                <p style="font-size: var(--text-body); color: var(--svalin-body); line-height: 1.65; margin: 0;">Svalin wraps each Model Context Protocol server, intercepting tool calls <em>before they execute</em>. Every file read, shell command, and external API call is policy-checked first. Approved operations proceed transparently. Blocked or redacted operations are logged as policy events.</p>
+              </div>
+              <div style="padding: var(--space-xl); background: var(--env-bg); border-radius: var(--radius-xl); border: 1px solid var(--svalin-border);">
+                <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md);">
+                  <i class="ph ph-shield-check" style="font-size: 22px; color: var(--env-accent);"></i>
+                  <p style="font-size: var(--text-body); font-weight: 700; color: var(--svalin-navy); margin: 0;">The LLM Proxy</p>
+                </div>
+                <p style="font-size: var(--text-body); color: var(--svalin-body); line-height: 1.65; margin: 0;">Every request to Claude, Gemini, or local models is intercepted on-device. PII and credentials are detected against configured patterns and redacted <em>locally</em> before the prompt leaves the machine. No sensitive data reaches the model provider unreviewed.</p>
+              </div>
+            </div>
+
+            <!-- What gets captured -->
             <div style="margin-top: var(--space-xl); padding: var(--space-lg) var(--space-xl); background: var(--svalin-navy); border-radius: var(--radius-xl);">
               <p style="font-size: var(--text-ui); font-weight: 500; letter-spacing: var(--tracking-overline); text-transform: uppercase; color: var(--svalin-amber); margin-bottom: var(--space-md);">What gets captured</p>
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm);">
@@ -188,94 +212,102 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Section 3: LLM Proxy -->
-      <div class="why-svalin__section fade-up">
-        <div style="display: flex; gap: var(--space-lg); align-items: flex-start;">
-          <div style="flex-shrink: 0; width: 48px; height: 48px; background: var(--svalin-navy); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: var(--text-body); font-weight: 700; color: var(--svalin-amber);">3</span>
-          </div>
-          <div>
-            <p class="section__overline">LLM Proxy Layer</p>
-            <h2 class="section__title">Prompts attributed before they leave the machine</h2>
-            <p class="why-now__text" style="max-width: 680px; margin-top: var(--space-md);">
-              Where supported, Svalin configures itself as the local LLM proxy. Every prompt sent to a model provider and every response received is attributed to a specific developer session before being forwarded. Sensitive data patterns are detected and redacted before leaving the machine.
-            </p>
-            <p class="why-now__text" style="max-width: 680px;">
-              This is the layer that gateway-dependent tools depend on developer cooperation to route traffic through. Svalin's agent configures this at the OS level via MDM — no developer action required, and configuration changes are detected as compliance events.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section 4: Session Reconstruction -->
-      <div class="why-svalin__section fade-up">
-        <div style="display: flex; gap: var(--space-lg); align-items: flex-start;">
-          <div style="flex-shrink: 0; width: 48px; height: 48px; background: var(--svalin-navy); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: var(--text-body); font-weight: 700; color: var(--svalin-amber);">4</span>
-          </div>
-          <div>
-            <p class="section__overline">Session Reconstruction</p>
-            <h2 class="section__title">A coherent timeline, not just a list of events</h2>
-            <p class="why-now__text" style="max-width: 680px; margin-top: var(--space-md);">
-              Svalin uses process tree analysis — PID and PPID attribution — to reconstruct the full coding flow from developer prompt to session close. This means the audit trail is not just a list of events — it is a coherent session timeline showing what the agent did, in what order, on behalf of which developer.
-            </p>
-            <p class="why-now__text" style="max-width: 680px;">
-              Each tool call is linked to the session that spawned it. Each session is linked to the developer identity and device. The result is a navigable audit record: any event can be traced to its full context — what was asked, what was executed, what data moved.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section 5: Configuration Integrity -->
-      <div class="why-svalin__section fade-up">
-        <div style="display: flex; gap: var(--space-lg); align-items: flex-start;">
-          <div style="flex-shrink: 0; width: 48px; height: 48px; background: var(--svalin-navy); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: var(--text-body); font-weight: 700; color: var(--svalin-amber);">5</span>
-          </div>
-          <div>
-            <p class="section__overline">Configuration Integrity</p>
-            <h2 class="section__title">Bypass attempts detected, not just logged</h2>
-            <p class="why-now__text" style="max-width: 680px; margin-top: var(--space-md);">
-              Svalin continuously monitors agent configuration files for tampering. If a developer or administrator changes the LLM proxy URL, adds an unapproved MCP server, or suppresses a hook, Svalin detects the change, automatically re-applies the correct configuration, and raises a compliance alert on the platform.
-            </p>
-            <div class="auditor-blocks" style="margin-top: var(--space-xl);">
-              <div class="auditor-block">
-                <p class="auditor-block__label">What triggers an alert</p>
-                <p class="auditor-block__answer">LLM proxy URL changed · Unapproved MCP server added · Hook suppression detected · Agent configuration file modified · Svalin agent process terminated</p>
-              </div>
-              <div class="auditor-block">
-                <p class="auditor-block__label">What happens on detection</p>
-                <p class="auditor-block__answer">Correct configuration automatically re-applied · Compliance alert raised on platform with device identity and timestamp · Event logged in tamper-evident chain as a policy violation</p>
+            <!-- Configuration integrity -->
+            <div style="margin-top: var(--space-xl);">
+              <h3 style="font-size: var(--text-h3); color: var(--svalin-navy); margin-bottom: var(--space-sm);">Configuration integrity — bypass attempts detected, not just logged</h3>
+              <p class="why-now__text" style="max-width: 680px; margin-top: var(--space-sm);">
+                The 500ms monitoring cycle watches agent configuration files for tampering. If the LLM proxy URL is changed, an unapproved MCP server is added, or a hook is suppressed — the correct configuration is automatically re-applied and a compliance alert is raised with device identity and timestamp.
+              </p>
+              <div class="auditor-blocks" style="margin-top: var(--space-lg);">
+                <div class="auditor-block">
+                  <p class="auditor-block__label">What triggers an alert</p>
+                  <p class="auditor-block__answer">LLM proxy URL changed · Unapproved MCP server added · Hook suppression detected · Agent configuration file modified · Svalin agent process terminated</p>
+                </div>
+                <div class="auditor-block">
+                  <p class="auditor-block__label">What happens on detection</p>
+                  <p class="auditor-block__answer">Correct configuration automatically re-applied · Compliance alert raised on platform with device identity and timestamp · Event logged in tamper-evident chain as a policy violation</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Section 6: Telemetry & Storage -->
+      <!-- Section 3: The Audit Trail — The Proof -->
       <div class="why-svalin__section fade-up">
         <div style="display: flex; gap: var(--space-lg); align-items: flex-start;">
           <div style="flex-shrink: 0; width: 48px; height: 48px; background: var(--svalin-navy); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: var(--text-body); font-weight: 700; color: var(--svalin-amber);">6</span>
+            <span style="font-size: var(--text-body); font-weight: 700; color: var(--svalin-amber);">3</span>
           </div>
-          <div>
-            <p class="section__overline">Telemetry &amp; Storage</p>
-            <h2 class="section__title">Tamper-evident logs, append-only backend</h2>
+          <div style="flex: 1;">
+            <p class="section__overline">The Audit Trail — The "Proof"</p>
+            <h2 class="section__title">Cryptographic chaining from device to compliance report</h2>
             <p class="why-now__text" style="max-width: 680px; margin-top: var(--space-md);">
-              Events are hash-chained and signed on device before being shipped to Svalin's append-only backend — EU-hosted, with separate key management. The result is a tamper-evident log that proves events were not modified after capture.
+              Every event captured by Svalin is signed on-device with a per-device Ed25519 key, then hashed into a chain. Modifying any event — or inserting a gap — breaks the chain. The result is a tamper-evident record that proves log integrity and ordering, not just that events were stored.
             </p>
-            <p class="why-now__text" style="max-width: 680px;">
-              Sequence numbers and heartbeat checks allow auditors to identify gaps in coverage, not just verify what was logged. The distinction matters: a tamper-evident log proves integrity of what was captured. The heartbeat system helps identify periods where nothing was captured — so gaps are visible rather than invisible.
+
+            <!-- Two-column cryptographic detail cards -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-top: var(--space-xl);">
+              <div style="padding: var(--space-xl); background: var(--svalin-navy); border-radius: var(--radius-xl);">
+                <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md);">
+                  <i class="ph ph-key" style="font-size: 22px; color: var(--svalin-amber);"></i>
+                  <p style="font-size: var(--text-body); font-weight: 700; color: var(--svalin-ice); margin: 0;">Cryptographic Chaining</p>
+                </div>
+                <ul style="display: flex; flex-direction: column; gap: var(--space-sm); padding: 0; margin: 0; list-style: none;">
+                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm);">
+                    <i class="ph ph-check" style="color: var(--svalin-amber); font-size: 14px; flex-shrink: 0; margin-top: 3px;"></i>
+                    <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85); line-height: 1.5;">Per-device Ed25519 signing key generated at enrolment</span>
+                  </li>
+                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm);">
+                    <i class="ph ph-check" style="color: var(--svalin-amber); font-size: 14px; flex-shrink: 0; margin-top: 3px;"></i>
+                    <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85); line-height: 1.5;">Each event signed and hashed into the chain before leaving the device</span>
+                  </li>
+                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm);">
+                    <i class="ph ph-check" style="color: var(--svalin-amber); font-size: 14px; flex-shrink: 0; margin-top: 3px;"></i>
+                    <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85); line-height: 1.5;">Sequence numbers and heartbeats make gaps visible, not invisible</span>
+                  </li>
+                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm);">
+                    <i class="ph ph-check" style="color: var(--svalin-amber); font-size: 14px; flex-shrink: 0; margin-top: 3px;"></i>
+                    <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85); line-height: 1.5;">Append-only EU-hosted backend with separate key management</span>
+                  </li>
+                </ul>
+              </div>
+              <div style="padding: var(--space-xl); background: var(--svalin-navy); border-radius: var(--radius-xl);">
+                <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md);">
+                  <i class="ph ph-seal-check" style="font-size: 22px; color: var(--svalin-amber);"></i>
+                  <p style="font-size: var(--text-body); font-weight: 700; color: var(--svalin-ice); margin: 0;">Compliance Ready</p>
+                </div>
+                <p style="font-size: var(--text-ui); color: rgba(240,244,248,0.75); margin-bottom: var(--space-md); line-height: 1.5;">Audit data is structured to support evidence generation mapped to:</p>
+                <ul style="display: flex; flex-direction: column; gap: var(--space-sm); padding: 0; margin: 0; list-style: none;">
+                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm);">
+                    <i class="ph ph-check" style="color: var(--svalin-amber); font-size: 14px; flex-shrink: 0; margin-top: 3px;"></i>
+                    <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85); line-height: 1.5;">ISO 42001 — AI management system monitoring (Cl. 9.1)</span>
+                  </li>
+                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm);">
+                    <i class="ph ph-check" style="color: var(--svalin-amber); font-size: 14px; flex-shrink: 0; margin-top: 3px;"></i>
+                    <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85); line-height: 1.5;">SOC 2 — access control and data restriction (CC6.1, CC6.6)</span>
+                  </li>
+                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm);">
+                    <i class="ph ph-check" style="color: var(--svalin-amber); font-size: 14px; flex-shrink: 0; margin-top: 3px;"></i>
+                    <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85); line-height: 1.5;">EU AI Act — record-keeping and transparency (Art. 12, 13)</span>
+                  </li>
+                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm);">
+                    <i class="ph ph-check" style="color: var(--svalin-amber); font-size: 14px; flex-shrink: 0; margin-top: 3px;"></i>
+                    <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85); line-height: 1.5;">GDPR — records of processing activities (Art. 30)</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <p class="why-now__text" style="max-width: 680px; margin-top: var(--space-xl);">
+              A tamper-evident log proves integrity of what was captured. The heartbeat and sequence number system helps auditors identify periods where nothing was captured — so gaps are visible rather than invisible. Both matter for a credible compliance posture.
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Section 7: Coverage Scope (Honest) -->
+      <!-- Coverage Scope (Honest) -->
       <div class="why-svalin__section fade-up">
         <div style="display: flex; gap: var(--space-lg); align-items: flex-start;">
           <div style="flex-shrink: 0; width: 48px; height: 48px; background: var(--svalin-navy); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
