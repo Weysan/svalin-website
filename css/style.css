@@ -1697,6 +1697,24 @@ code {
   .contact__grid {
     grid-template-columns: 1fr;
   }
+
+  .founder__grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .founder__photo-card {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+
+  .founder__photo-card img {
+    width: 120px !important;
+    flex-shrink: 0;
+    border-radius: var(--radius-lg) !important;
+    aspect-ratio: 1/1 !important;
+    object-fit: cover !important;
+  }
 }
 
 @media (max-width: 480px) {
