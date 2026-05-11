@@ -11,13 +11,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TG3V0DWW3"></script>
+  <!-- Google Analytics (Consent Mode v2 — analytics only fire after cookie acceptance) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', { 'analytics_storage': 'denied' });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TG3V0DWW3"></script>
+  <script>
     gtag('js', new Date());
     gtag('config', 'G-1TG3V0DWW3');
+    if (localStorage.getItem('svalin_cookie_consent') === 'accepted') {
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    }
   </script>
 
   <link rel="stylesheet" href="/css/style.css" />
@@ -86,9 +92,12 @@
           The Service and its original content, features, and functionality are owned by Svalin and are protected by international copyright, trademark, and other intellectual property laws. You may not reproduce, distribute, or create derivative works without our prior written consent.
         </p>
 
-        <h2>6. Data Processing</h2>
+        <h2>6. Data Processing and Cookies</h2>
         <p>
           Our processing of personal data is governed by our <a href="/privacy">Privacy Policy</a>. For enterprise customers, data processing terms are detailed in a separate Data Processing Agreement (DPA).
+        </p>
+        <p>
+          This website uses Google Analytics cookies solely to understand how visitors use our site. Analytics cookies are only activated with your explicit consent, given via the cookie banner shown on your first visit. You may withdraw consent at any time by clearing this site's cookies and local storage in your browser. No advertising or third-party tracking cookies are used.
         </p>
 
         <h2>7. Disclaimer of Warranties</h2>

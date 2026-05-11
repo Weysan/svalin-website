@@ -145,4 +145,57 @@
     });
   });
 
+  // --- Cookie consent banner ---
+  (function () {
+    var CONSENT_KEY = 'svalin_cookie_consent';
+
+    function updateGA(granted) {
+      if (typeof gtag === 'function') {
+        gtag('consent', 'update', {
+          'analytics_storage': granted ? 'granted' : 'denied'
+        });
+      }
+    }
+
+    function dismissBanner(banner) {
+      banner.classList.remove('visible');
+      setTimeout(function () { if (banner.parentNode) banner.parentNode.removeChild(banner); }, 400);
+    }
+
+    // Only show if visitor hasn't chosen yet
+    if (!localStorage.getItem(CONSENT_KEY)) {
+      var banner = document.createElement('div');
+      banner.className = 'cookie-banner';
+      banner.setAttribute('role', 'dialog');
+      banner.setAttribute('aria-label', 'Cookie consent');
+      banner.innerHTML =
+        '<p class="cookie-banner__text">We use <strong>Google Analytics</strong> to understand how visitors use this site — page views and basic navigation data only. No personal data is sold or shared. <a href="/privacy">Privacy Policy</a></p>' +
+        '<div class="cookie-banner__actions">' +
+          '<button class="btn btn--secondary" id="cookieDecline">Decline</button>' +
+          '<button class="btn btn--primary" id="cookieAccept">Accept Analytics</button>' +
+        '</div>';
+
+      document.body.appendChild(banner);
+
+      // Trigger slide-in on next frame
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          banner.classList.add('visible');
+        });
+      });
+
+      document.getElementById('cookieAccept').addEventListener('click', function () {
+        localStorage.setItem(CONSENT_KEY, 'accepted');
+        updateGA(true);
+        dismissBanner(banner);
+      });
+
+      document.getElementById('cookieDecline').addEventListener('click', function () {
+        localStorage.setItem(CONSENT_KEY, 'declined');
+        updateGA(false);
+        dismissBanner(banner);
+      });
+    }
+  })();
+
 })();

@@ -17,13 +17,19 @@
 
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TG3V0DWW3"></script>
+  <!-- Google Analytics (Consent Mode v2 — analytics only fire after cookie acceptance) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', { 'analytics_storage': 'denied' });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TG3V0DWW3"></script>
+  <script>
     gtag('js', new Date());
     gtag('config', 'G-1TG3V0DWW3');
+    if (localStorage.getItem('svalin_cookie_consent') === 'accepted') {
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    }
   </script>
 
   <link rel="stylesheet" href="/css/style.css" />
