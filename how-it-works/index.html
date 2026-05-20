@@ -1,487 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How Svalin Works — OS-Level AI Governance &amp; Cryptographic Audit Trail</title>
-  <meta name="description" content="Svalin deploys as a Go binary via MDM. proc_pidinfo process introspection, 500ms config monitoring, MCP and LLM proxy interception, Ed25519-signed tamper-evident audit chains — no developer action required." />
-  <meta name="keywords" content="Svalin architecture, Go binary MDM deployment, proc_pidinfo process tree, MCP proxy AI governance, LLM proxy on-device redaction, Ed25519 tamper-evident logs, AI session attribution, configuration integrity monitoring, ISO 42001 audit evidence, EU AI Act Art 12" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How it works — Svalin</title>
+  <meta name="description" content="From MDM rollout to audit, in four moves. See how Svalin captures every AI coding agent action and turns it into the evidence your auditors need." />
+  <link rel="canonical" href="https://svalinhq.com/how-it-works/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0D1B2A" />
 
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="How Svalin Works — OS-Level AI Governance &amp; Cryptographic Audit Trail" />
-  <meta property="og:description" content="Go binary via MDM, proc_pidinfo introspection, MCP and LLM proxy interception, Ed25519 cryptographic chaining. OS-level AI governance with no developer friction." />
+  <meta property="og:site_name" content="Svalin" />
+  <meta property="og:title" content="How it works — Svalin" />
+  <meta property="og:description" content="From MDM rollout to audit, in four moves. See how Svalin captures every AI coding agent action and turns it into the evidence your auditors need." />
+  <meta property="og:url" content="https://svalinhq.com/how-it-works/" />
+  <meta property="og:image" content="https://svalinhq.com/assets/logo.svg" />
+  <meta property="og:locale" content="en_US" />
 
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@svalinHQ" />
+  <meta name="twitter:title" content="How it works — Svalin" />
+  <meta name="twitter:description" content="From MDM rollout to audit, in four moves. See how Svalin captures every AI coding agent action and turns it into the evidence your auditors need." />
+  <meta name="twitter:image" content="https://svalinhq.com/assets/logo.svg" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/styles.css" />
 
-  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
-
-  <!-- Google Analytics (Consent Mode v2 — analytics only fire after cookie acceptance) -->
+  <!-- Google Analytics — consent-mode v2, default-deny -->
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+    try {
+      var __sv = localStorage.getItem('svalin_consent');
+      if (__sv === 'granted') {
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+      }
+    } catch (e) {}
+    gtag('js', new Date());
+    gtag('config', 'G-1TG3V0DWW3', { anonymize_ip: true });
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TG3V0DWW3"></script>
-  <script>
-    gtag('js', new Date());
-    gtag('config', 'G-1TG3V0DWW3');
-    if (localStorage.getItem('svalin_cookie_consent') === 'accepted') {
-      gtag('consent', 'update', { 'analytics_storage': 'granted' });
-    }
-  </script>
 
-  <link rel="stylesheet" href="/css/style.css" />
-  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
-  <link rel="canonical" href="https://www.svalinhq.com/how-it-works" />
 </head>
 <body>
+  <div id="root"></div>
 
-  <!-- Navigation -->
-  <nav class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="/" class="nav__brand">
-        <img src="/assets/logo.svg" alt="Svalin logo" class="nav__logo" />
-        <span class="nav__wordmark">Svalin</span>
-      </a>
-      <div class="nav__links" id="navLinks">
-        <a href="/" class="nav__link">Home</a>
-        <a href="/why-svalin" class="nav__link">Why Svalin</a>
-        <a href="/how-it-works" class="nav__link">How It Works</a>
-        <a href="/design-partner" class="nav__link">Design Partners</a>
-        <a href="/compliance" class="nav__link">Compliance</a>
-        <a href="/faq" class="nav__link">FAQ</a>
-        <a href="/demo" class="nav__cta">Request a Demo</a>
-      </div>
-      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
-  <main class="why-svalin">
-    <div class="container">
-
-      <!-- Header: The Governance Loop -->
-      <div class="why-svalin__section fade-up" style="border-top: none; padding-top: 0;">
-        <p class="section__overline">Architecture</p>
-        <h1 class="section__title" style="font-size: var(--text-display); max-width: 760px;">How Svalin works</h1>
-        <p class="why-now__text" style="max-width: 680px; margin-top: var(--space-lg); font-size: var(--text-lead); font-weight: 500; color: var(--svalin-navy);">
-          Svalin provides OS-level visibility and cryptographic proof for AI-native workflows.
-        </p>
-        <p class="why-now__text" style="max-width: 680px; margin-top: var(--space-md);">
-          A lightweight agent deployed through your MDM wraps supported AI coding tools at the MCP and LLM proxy layer — capturing every tool call, attributing every session by process, and sealing every event into a tamper-evident chain before it leaves the device. No developer action required.
-        </p>
-
-        <!-- Flow diagram -->
-        <div style="margin-top: var(--space-2xl); padding: var(--space-xl) var(--space-2xl); background: var(--env-bg); border-radius: var(--radius-xl); border: 1px solid var(--svalin-border); overflow-x: auto;">
-          <div style="display: flex; align-items: center; gap: var(--space-md); min-width: 640px; justify-content: center; flex-wrap: nowrap;">
-            <div style="text-align: center; flex-shrink: 0;">
-              <div style="width: 56px; height: 56px; background: var(--svalin-navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-sm);">
-                <i class="ph ph-user" style="font-size: 22px; color: var(--svalin-ice);"></i>
-              </div>
-              <span style="font-size: var(--text-meta); font-weight: 600; color: var(--svalin-navy);">Developer</span>
-            </div>
-            <div style="flex: 1; height: 2px; background: var(--svalin-border); min-width: 24px;"></div>
-            <div style="text-align: center; flex-shrink: 0;">
-              <div style="width: 56px; height: 56px; background: var(--env-accent-subtle); border: 1px solid var(--env-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-sm);">
-                <i class="ph ph-terminal-window" style="font-size: 22px; color: var(--env-accent);"></i>
-              </div>
-              <span style="font-size: var(--text-meta); font-weight: 600; color: var(--svalin-navy);">AI Agent</span>
-            </div>
-            <div style="flex: 1; height: 2px; background: var(--svalin-border); min-width: 24px;"></div>
-            <div style="text-align: center; flex-shrink: 0;">
-              <div style="width: 56px; height: 56px; background: #fef3c7; border: 1px solid var(--svalin-amber); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-sm);">
-                <i class="ph ph-cpu" style="font-size: 22px; color: var(--color-warning);"></i>
-              </div>
-              <span style="font-size: var(--text-meta); font-weight: 600; color: var(--svalin-navy);">Svalin Agent</span>
-              <div style="font-size: var(--text-meta); color: var(--svalin-muted); margin-top: 2px;">MCP + LLM Proxy</div>
-            </div>
-            <div style="flex: 1; height: 2px; background: var(--svalin-border); min-width: 24px;"></div>
-            <div style="text-align: center; flex-shrink: 0;">
-              <div style="width: 56px; height: 56px; background: var(--svalin-navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-sm);">
-                <i class="ph ph-database" style="font-size: 22px; color: var(--svalin-amber);"></i>
-              </div>
-              <span style="font-size: var(--text-meta); font-weight: 600; color: var(--svalin-navy);">Platform</span>
-            </div>
-            <div style="flex: 1; height: 2px; background: var(--svalin-border); min-width: 24px;"></div>
-            <div style="text-align: center; flex-shrink: 0;">
-              <div style="width: 56px; height: 56px; background: var(--color-success-bg); border: 1px solid var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-sm);">
-                <i class="ph ph-shield-check" style="font-size: 22px; color: var(--color-success);"></i>
-              </div>
-              <span style="font-size: var(--text-meta); font-weight: 600; color: var(--svalin-navy);">Compliance Team</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section 1: The Local Agent — The Plumbing -->
-      <div class="why-svalin__section fade-up">
-        <div style="display: flex; gap: var(--space-lg); align-items: flex-start;">
-          <div style="flex-shrink: 0; width: 48px; height: 48px; background: var(--svalin-navy); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: var(--text-body); font-weight: 700; color: var(--svalin-amber);">1</span>
-          </div>
-          <div style="flex: 1;">
-            <p class="section__overline">The Local Agent — The "Plumbing"</p>
-            <h2 class="section__title">Zero-friction deployment, real-time process introspection</h2>
-            <p class="why-now__text" style="max-width: 680px; margin-top: var(--space-md);">
-              Svalin deploys as a lightweight Go binary via Jamf, Microsoft Intune, or Kandji. No developer action, no code changes, no manual configuration. Once enrolled, the agent starts watching immediately.
-            </p>
-            <div class="why-now__list" style="max-width: 620px; margin-top: var(--space-lg);">
-              <div class="why-now__item">
-                <div class="why-now__icon"><i class="ph ph-code" style="font-size: 20px;"></i></div>
-                <div>
-                  <p class="why-now__item-title">Native OS syscalls — no shelling out</p>
-                  <p class="why-now__item-desc">Process tree analysis uses <code>proc_pidinfo</code> on macOS — a direct kernel call. No spawning <code>ps</code>, no <code>ptrace</code>. Lower overhead, no side-effects, no race conditions from external process invocations.</p>
-                </div>
-              </div>
-              <div class="why-now__item">
-                <div class="why-now__icon"><i class="ph ph-timer" style="font-size: 20px;"></i></div>
-                <div>
-                  <p class="why-now__item-title">500ms polling cycle, negligible CPU overhead</p>
-                  <p class="why-now__item-desc">Configuration integrity monitoring runs on a 500ms cycle — fast enough to catch tampering in real time, light enough to be invisible to the developer and not appear in performance profiling.</p>
-                </div>
-              </div>
-              <div class="why-now__item">
-                <div class="why-now__icon"><i class="ph ph-magnifying-glass" style="font-size: 20px;"></i></div>
-                <div>
-                  <p class="why-now__item-title">Auto-detection of supported agents</p>
-                  <p class="why-now__item-desc">On enrolment, the agent identifies Claude Code, Claude Desktop, Cursor, and Gemini CLI and configures itself without touching the developer's workflow. Sub-day rollout for existing MDM fleets.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section 2: Policy Enforcement — The Logic -->
-      <div class="why-svalin__section fade-up">
-        <div style="display: flex; gap: var(--space-lg); align-items: flex-start;">
-          <div style="flex-shrink: 0; width: 48px; height: 48px; background: var(--svalin-navy); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: var(--text-body); font-weight: 700; color: var(--svalin-amber);">2</span>
-          </div>
-          <div style="flex: 1;">
-            <p class="section__overline">Policy Enforcement — The "Logic"</p>
-            <h2 class="section__title">Two interception layers, applied before data moves</h2>
-            <p class="why-now__text" style="max-width: 680px; margin-top: var(--space-md);">
-              Governance happens at two distinct points in the AI workflow — before tool calls execute, and before prompts leave the machine. Both layers are configured automatically via MDM. Neither requires developer cooperation.
-            </p>
-
-            <!-- Two-column layer cards -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-top: var(--space-xl);">
-              <div style="padding: var(--space-xl); background: var(--env-bg); border-radius: var(--radius-xl); border: 1px solid var(--svalin-border);">
-                <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md);">
-                  <i class="ph ph-plug" style="font-size: 22px; color: var(--env-accent);"></i>
-                  <p style="font-size: var(--text-body); font-weight: 700; color: var(--svalin-navy); margin: 0;">The MCP Layer</p>
-                </div>
-                <p style="font-size: var(--text-body); color: var(--svalin-body); line-height: 1.65; margin: 0;">Svalin wraps each Model Context Protocol server, intercepting tool calls <em>before they execute</em>. Every file read, shell command, and external API call is policy-checked first. Approved operations proceed transparently. Blocked or redacted operations are logged as policy events.</p>
-              </div>
-              <div style="padding: var(--space-xl); background: var(--env-bg); border-radius: var(--radius-xl); border: 1px solid var(--svalin-border);">
-                <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md);">
-                  <i class="ph ph-shield-check" style="font-size: 22px; color: var(--env-accent);"></i>
-                  <p style="font-size: var(--text-body); font-weight: 700; color: var(--svalin-navy); margin: 0;">The LLM Proxy</p>
-                </div>
-                <p style="font-size: var(--text-body); color: var(--svalin-body); line-height: 1.65; margin: 0;">Every request to Claude, Gemini, or local models is intercepted on-device. PII and credentials are detected against configured patterns and redacted <em>locally</em> before the prompt leaves the machine. No sensitive data reaches the model provider unreviewed.</p>
-              </div>
-            </div>
-
-            <!-- What gets captured -->
-            <div style="margin-top: var(--space-xl); padding: var(--space-lg) var(--space-xl); background: var(--svalin-navy); border-radius: var(--radius-xl);">
-              <p style="font-size: var(--text-ui); font-weight: 500; letter-spacing: var(--tracking-overline); text-transform: uppercase; color: var(--svalin-amber); margin-bottom: var(--space-md);">What gets captured</p>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm);">
-                <div style="display: flex; align-items: center; gap: var(--space-sm);">
-                  <i class="ph ph-file-text" style="color: var(--svalin-amber); font-size: 16px; flex-shrink: 0;"></i>
-                  <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85);">File reads and writes</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: var(--space-sm);">
-                  <i class="ph ph-terminal" style="color: var(--svalin-amber); font-size: 16px; flex-shrink: 0;"></i>
-                  <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85);">Shell command invocations</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: var(--space-sm);">
-                  <i class="ph ph-cloud-arrow-up" style="color: var(--svalin-amber); font-size: 16px; flex-shrink: 0;"></i>
-                  <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85);">LLM interaction when supported</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: var(--space-sm);">
-                  <i class="ph ph-shield-warning" style="color: var(--svalin-amber); font-size: 16px; flex-shrink: 0;"></i>
-                  <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85);">Policy blocks and redactions</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: var(--space-sm);">
-                  <i class="ph ph-user" style="color: var(--svalin-amber); font-size: 16px; flex-shrink: 0;"></i>
-                  <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85);">Developer and device attribution</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: var(--space-sm);">
-                  <i class="ph ph-clock" style="color: var(--svalin-amber); font-size: 16px; flex-shrink: 0;"></i>
-                  <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85);">Timestamps and sequence numbers</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Configuration integrity -->
-            <div style="margin-top: var(--space-xl);">
-              <h3 style="font-size: var(--text-h3); color: var(--svalin-navy); margin-bottom: var(--space-sm);">Configuration integrity — bypass attempts detected, not just logged</h3>
-              <p class="why-now__text" style="max-width: 680px; margin-top: var(--space-sm);">
-                The 500ms monitoring cycle watches agent configuration files for tampering. If the LLM proxy URL is changed, an unapproved MCP server is added, or a hook is suppressed — the correct configuration is automatically re-applied and a compliance alert is raised with device identity and timestamp.
-              </p>
-              <div class="auditor-blocks" style="margin-top: var(--space-lg);">
-                <div class="auditor-block">
-                  <p class="auditor-block__label">What triggers an alert</p>
-                  <p class="auditor-block__answer">LLM proxy URL changed · Unapproved MCP server added · Hook suppression detected · Agent configuration file modified · Svalin agent process terminated</p>
-                </div>
-                <div class="auditor-block">
-                  <p class="auditor-block__label">What happens on detection</p>
-                  <p class="auditor-block__answer">Correct configuration automatically re-applied · Compliance alert raised on platform with device identity and timestamp · Event logged in tamper-evident chain as a policy violation</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section 3: The Audit Trail — The Proof -->
-      <div class="why-svalin__section fade-up">
-        <div style="display: flex; gap: var(--space-lg); align-items: flex-start;">
-          <div style="flex-shrink: 0; width: 48px; height: 48px; background: var(--svalin-navy); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: var(--text-body); font-weight: 700; color: var(--svalin-amber);">3</span>
-          </div>
-          <div style="flex: 1;">
-            <p class="section__overline">The Audit Trail — The "Proof"</p>
-            <h2 class="section__title">Cryptographic chaining from device to compliance report</h2>
-            <p class="why-now__text" style="max-width: 680px; margin-top: var(--space-md);">
-              Every event captured by Svalin is signed on-device with a per-device Ed25519 key, then hashed into a chain. Modifying any event — or inserting a gap — breaks the chain. The result is a tamper-evident record that proves log integrity and ordering, not just that events were stored.
-            </p>
-
-            <!-- Two-column cryptographic detail cards -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-top: var(--space-xl);">
-              <div style="padding: var(--space-xl); background: var(--svalin-navy); border-radius: var(--radius-xl);">
-                <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md);">
-                  <i class="ph ph-key" style="font-size: 22px; color: var(--svalin-amber);"></i>
-                  <p style="font-size: var(--text-body); font-weight: 700; color: var(--svalin-ice); margin: 0;">Cryptographic Chaining</p>
-                </div>
-                <ul style="display: flex; flex-direction: column; gap: var(--space-sm); padding: 0; margin: 0; list-style: none;">
-                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm);">
-                    <i class="ph ph-check" style="color: var(--svalin-amber); font-size: 14px; flex-shrink: 0; margin-top: 3px;"></i>
-                    <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85); line-height: 1.5;">Per-device Ed25519 signing key generated at enrolment</span>
-                  </li>
-                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm);">
-                    <i class="ph ph-check" style="color: var(--svalin-amber); font-size: 14px; flex-shrink: 0; margin-top: 3px;"></i>
-                    <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85); line-height: 1.5;">Each event signed and hashed into the chain before leaving the device</span>
-                  </li>
-                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm);">
-                    <i class="ph ph-check" style="color: var(--svalin-amber); font-size: 14px; flex-shrink: 0; margin-top: 3px;"></i>
-                    <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85); line-height: 1.5;">Sequence numbers and heartbeats make gaps visible, not invisible</span>
-                  </li>
-                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm);">
-                    <i class="ph ph-check" style="color: var(--svalin-amber); font-size: 14px; flex-shrink: 0; margin-top: 3px;"></i>
-                    <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85); line-height: 1.5;">Append-only EU-hosted backend with separate key management</span>
-                  </li>
-                </ul>
-              </div>
-              <div style="padding: var(--space-xl); background: var(--svalin-navy); border-radius: var(--radius-xl);">
-                <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md);">
-                  <i class="ph ph-seal-check" style="font-size: 22px; color: var(--svalin-amber);"></i>
-                  <p style="font-size: var(--text-body); font-weight: 700; color: var(--svalin-ice); margin: 0;">Compliance Ready</p>
-                </div>
-                <p style="font-size: var(--text-ui); color: rgba(240,244,248,0.75); margin-bottom: var(--space-md); line-height: 1.5;">Audit data is structured to support evidence generation mapped to:</p>
-                <ul style="display: flex; flex-direction: column; gap: var(--space-sm); padding: 0; margin: 0; list-style: none;">
-                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm);">
-                    <i class="ph ph-check" style="color: var(--svalin-amber); font-size: 14px; flex-shrink: 0; margin-top: 3px;"></i>
-                    <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85); line-height: 1.5;">ISO 42001 — AI management system monitoring (Cl. 9.1)</span>
-                  </li>
-                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm);">
-                    <i class="ph ph-check" style="color: var(--svalin-amber); font-size: 14px; flex-shrink: 0; margin-top: 3px;"></i>
-                    <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85); line-height: 1.5;">SOC 2 — access control and data restriction (CC6.1, CC6.6)</span>
-                  </li>
-                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm);">
-                    <i class="ph ph-check" style="color: var(--svalin-amber); font-size: 14px; flex-shrink: 0; margin-top: 3px;"></i>
-                    <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85); line-height: 1.5;">EU AI Act — record-keeping and transparency (Art. 12, 13)</span>
-                  </li>
-                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm);">
-                    <i class="ph ph-check" style="color: var(--svalin-amber); font-size: 14px; flex-shrink: 0; margin-top: 3px;"></i>
-                    <span style="font-size: var(--text-ui); color: rgba(240,244,248,0.85); line-height: 1.5;">GDPR — records of processing activities (Art. 30)</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <p class="why-now__text" style="max-width: 680px; margin-top: var(--space-xl);">
-              A tamper-evident log proves integrity of what was captured. The heartbeat and sequence number system helps auditors identify periods where nothing was captured — so gaps are visible rather than invisible. Both matter for a credible compliance posture.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Coverage Scope (Honest) -->
-      <div class="why-svalin__section fade-up">
-        <div style="display: flex; gap: var(--space-lg); align-items: flex-start;">
-          <div style="flex-shrink: 0; width: 48px; height: 48px; background: var(--svalin-navy); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: var(--text-body); font-weight: 700; color: var(--svalin-amber);">7</span>
-          </div>
-          <div>
-            <p class="section__overline">Coverage Scope</p>
-            <h2 class="section__title">What Svalin governs — and what it doesn't</h2>
-            <p class="why-now__text" style="max-width: 680px; margin-top: var(--space-md);">
-              Svalin governs enrolled devices running supported agents. Knowing the boundary of coverage is part of governance.
-            </p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-top: var(--space-xl);">
-              <div style="padding: var(--space-xl); background: #d1fae5; border-radius: var(--radius-xl); border: 1px solid #6ee7b7;">
-                <p style="font-size: var(--text-ui); font-weight: 700; letter-spacing: var(--tracking-overline); text-transform: uppercase; color: var(--color-success); margin-bottom: var(--space-md);">In scope</p>
-                <ul style="display: flex; flex-direction: column; gap: var(--space-sm);">
-                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm); font-size: var(--text-body); color: var(--svalin-navy);">
-                    <i class="ph ph-check" style="color: var(--color-success); font-size: 16px; flex-shrink: 0; margin-top: 2px;"></i>
-                    Enrolled MDM devices
-                  </li>
-                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm); font-size: var(--text-body); color: var(--svalin-navy);">
-                    <i class="ph ph-check" style="color: var(--color-success); font-size: 16px; flex-shrink: 0; margin-top: 2px;"></i>
-                    Claude Code and Claude Desktop
-                  </li>
-                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm); font-size: var(--text-body); color: var(--svalin-navy);">
-                    <i class="ph ph-check" style="color: var(--color-success); font-size: 16px; flex-shrink: 0; margin-top: 2px;"></i>
-                    Cursor
-                  </li>
-                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm); font-size: var(--text-body); color: var(--svalin-navy);">
-                    <i class="ph ph-check" style="color: var(--color-success); font-size: 16px; flex-shrink: 0; margin-top: 2px;"></i>
-                    Gemini CLI
-                  </li>
-                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm); font-size: var(--text-body); color: var(--svalin-navy);">
-                    <i class="ph ph-check" style="color: var(--color-success); font-size: 16px; flex-shrink: 0; margin-top: 2px;"></i>
-                    MCP tool calls across supported agents
-                  </li>
-                </ul>
-              </div>
-              <div style="padding: var(--space-xl); background: #fee2e2; border-radius: var(--radius-xl); border: 1px solid #fca5a5;">
-                <p style="font-size: var(--text-ui); font-weight: 700; letter-spacing: var(--tracking-overline); text-transform: uppercase; color: var(--color-danger); margin-bottom: var(--space-md);">Surfaced as gaps</p>
-                <ul style="display: flex; flex-direction: column; gap: var(--space-sm);">
-                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm); font-size: var(--text-body); color: var(--svalin-navy);">
-                    <i class="ph ph-warning" style="color: var(--color-danger); font-size: 16px; flex-shrink: 0; margin-top: 2px;"></i>
-                    Unmanaged / personal devices
-                  </li>
-                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm); font-size: var(--text-body); color: var(--svalin-navy);">
-                    <i class="ph ph-warning" style="color: var(--color-danger); font-size: 16px; flex-shrink: 0; margin-top: 2px;"></i>
-                    Web browser AI usage (ChatGPT, Claude.ai, etc.)
-                  </li>
-                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm); font-size: var(--text-body); color: var(--svalin-navy);">
-                    <i class="ph ph-warning" style="color: var(--color-danger); font-size: 16px; flex-shrink: 0; margin-top: 2px;"></i>
-                    Remote dev boxes and cloud IDEs
-                  </li>
-                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm); font-size: var(--text-body); color: var(--svalin-navy);">
-                    <i class="ph ph-warning" style="color: var(--color-danger); font-size: 16px; flex-shrink: 0; margin-top: 2px;"></i>
-                    Copy-paste workflows
-                  </li>
-                  <li style="display: flex; align-items: flex-start; gap: var(--space-sm); font-size: var(--text-body); color: var(--svalin-navy);">
-                    <i class="ph ph-warning" style="color: var(--color-danger); font-size: 16px; flex-shrink: 0; margin-top: 2px;"></i>
-                    Unsupported agents (outside Svalin's visibility)
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <p class="why-now__text" style="max-width: 680px; margin-top: var(--space-xl);">
-              Svalin's governance scope is explicit. What falls outside it is outside its visibility — and the platform makes no claim otherwise.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section 8: Supported Agents -->
-      <div class="why-svalin__section fade-up">
-        <p class="section__overline">Supported agents</p>
-        <h2 class="section__title">The four most widely adopted AI coding agents in regulated teams</h2>
-        <div class="agents-grid" style="margin-top: var(--space-2xl); justify-content: flex-start;">
-          <div class="agent-tile">
-            <div class="agent-tile__icon">
-              <i class="ph ph-terminal-window" style="font-size: 22px;"></i>
-            </div>
-            <span class="agent-tile__name">Claude Code</span>
-          </div>
-          <div class="agent-tile">
-            <div class="agent-tile__icon">
-              <i class="ph ph-desktop" style="font-size: 22px;"></i>
-            </div>
-            <span class="agent-tile__name">Claude Desktop</span>
-          </div>
-          <div class="agent-tile">
-            <div class="agent-tile__icon">
-              <i class="ph ph-cursor" style="font-size: 22px;"></i>
-            </div>
-            <span class="agent-tile__name">Cursor</span>
-          </div>
-          <div class="agent-tile">
-            <div class="agent-tile__icon">
-              <i class="ph ph-google-logo" style="font-size: 22px;"></i>
-            </div>
-            <span class="agent-tile__name">Gemini CLI</span>
-          </div>
-          <a href="/demo" class="agent-tile agent-tile--placeholder">
-            <div class="agent-tile__icon">
-              <i class="ph ph-plus" style="font-size: 22px;"></i>
-            </div>
-            <span class="agent-tile__name">Your tool here</span>
-          </a>
-        </div>
-        <p class="why-now__text" style="max-width: 640px; margin-top: var(--space-xl);">
-          More on the roadmap. Tell us which AI coding tool your team uses and help shape what we support next.
-        </p>
-      </div>
-
-      <!-- CTA -->
-      <div class="compliance-detail__cta fade-up" style="max-width: 100%; margin-top: var(--space-4xl);">
-        <h2 class="compliance-detail__cta-title">See it in your environment</h2>
-        <p class="compliance-detail__cta-text">Request a demo and we'll walk through exactly how Svalin integrates with your MDM, your AI agents, and your compliance workflow.</p>
-        <a href="/demo" class="btn btn--primary">Request a Demo</a>
-      </div>
-
-    </div>
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div>
-          <a href="/" class="footer__brand">
-            <img src="/assets/logo.svg" alt="Svalin" class="footer__brand-logo" />
-            <span class="footer__brand-name">Svalin</span>
-          </a>
-          <p class="footer__tagline">AI Governance Platform</p>
-        </div>
-        <div class="footer__nav">
-          <div>
-            <p class="footer__col-title">Product</p>
-            <div class="footer__col-links">
-              <a href="/how-it-works" class="footer__link">How It Works</a>
-              <a href="/compliance" class="footer__link">Compliance</a>
-              <a href="/faq" class="footer__link">FAQ</a>
-              <a href="/demo" class="footer__link">Request a Demo</a>
-            </div>
-          </div>
-          <div>
-            <p class="footer__col-title">Company</p>
-            <div class="footer__col-links">
-              <a href="/about" class="footer__link">About Svalin</a>
-              <a href="/design-partner" class="footer__link">Design Partners</a>
-              <a href="/contact" class="footer__link">Contact</a>
-              <a href="/privacy" class="footer__link">Privacy Policy</a>
-              <a href="/terms" class="footer__link">Terms of Service</a>
-            </div>
-          </div>
-          <div>
-            <p class="footer__col-title">Follow</p>
-            <div class="footer__col-links">
-              <a href="https://www.linkedin.com/company/svalin-hq/about/" class="footer__link" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo" style="font-size: 14px; vertical-align: middle; margin-right: 3px;"></i> LinkedIn</a>
-              <a href="https://x.com/svalinHQ" class="footer__link" target="_blank" rel="noopener noreferrer"><i class="ph ph-x-logo" style="font-size: 14px; vertical-align: middle; margin-right: 3px;"></i> X</a>
-              <a href="https://bsky.app/profile/svalinhq.bsky.social" class="footer__link" target="_blank" rel="noopener noreferrer"><i class="ph ph-butterfly" style="font-size: 14px; vertical-align: middle; margin-right: 3px;"></i> Bluesky</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <span>&copy; 2026 Svalin. All rights reserved.</span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="/js/main.js"></script>
+  <script type="text/babel" src="/js/chrome.jsx"></script>
+  <script type="text/babel" src="/js/pages/how-it-works.jsx"></script>
 </body>
 </html>

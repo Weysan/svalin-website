@@ -1,196 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy — Svalin | AI Governance Platform</title>
-  <meta name="description" content="Svalin's privacy policy — how we collect, store, and protect your personal data when you use our AI governance platform or visit this website." />
-  <meta name="keywords" content="Svalin privacy policy, data protection, personal data AI platform" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy policy — Svalin</title>
+  <meta name="description" content="Svalin privacy policy. EU-hosted, consent-gated analytics, customer-managed keys outside US cloud." />
+  <link rel="canonical" href="https://svalinhq.com/privacy/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0D1B2A" />
 
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Svalin" />
+  <meta property="og:title" content="Privacy policy — Svalin" />
+  <meta property="og:description" content="Svalin privacy policy. EU-hosted, consent-gated analytics, customer-managed keys outside US cloud." />
+  <meta property="og:url" content="https://svalinhq.com/privacy/" />
+  <meta property="og:image" content="https://svalinhq.com/assets/logo.svg" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@svalinHQ" />
+  <meta name="twitter:title" content="Privacy policy — Svalin" />
+  <meta name="twitter:description" content="Svalin privacy policy. EU-hosted, consent-gated analytics, customer-managed keys outside US cloud." />
+  <meta name="twitter:image" content="https://svalinhq.com/assets/logo.svg" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/styles.css" />
 
-  <!-- Google Analytics (Consent Mode v2 — analytics only fire after cookie acceptance) -->
+  <!-- Google Analytics — consent-mode v2, default-deny -->
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+    try {
+      var __sv = localStorage.getItem('svalin_consent');
+      if (__sv === 'granted') {
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+      }
+    } catch (e) {}
+    gtag('js', new Date());
+    gtag('config', 'G-1TG3V0DWW3', { anonymize_ip: true });
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TG3V0DWW3"></script>
-  <script>
-    gtag('js', new Date());
-    gtag('config', 'G-1TG3V0DWW3');
-    if (localStorage.getItem('svalin_cookie_consent') === 'accepted') {
-      gtag('consent', 'update', { 'analytics_storage': 'granted' });
-    }
-  </script>
 
-  <link rel="stylesheet" href="/css/style.css" />
-  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
-  <link rel="canonical" href="https://www.svalinhq.com/privacy" />
 </head>
 <body>
+  <div id="root"></div>
 
-  <!-- Navigation -->
-  <nav class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="/" class="nav__brand">
-        <img src="/assets/logo.svg" alt="Svalin logo" class="nav__logo" />
-        <span class="nav__wordmark">Svalin</span>
-      </a>
-      <div class="nav__links" id="navLinks">
-        <a href="/" class="nav__link">Home</a>
-        <a href="/why-svalin" class="nav__link">Why Svalin</a>
-        <a href="/how-it-works" class="nav__link">How It Works</a>
-        <a href="/design-partner" class="nav__link">Design Partners</a>
-        <a href="/compliance" class="nav__link">Compliance</a>
-        <a href="/faq" class="nav__link">FAQ</a>
-        <a href="/demo" class="nav__cta">Request a Demo</a>
-      </div>
-      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
-  <main class="info-page">
-    <div class="container">
-      <div class="info-page__content">
-        <h1 class="info-page__title">Privacy Policy</h1>
-        <p class="info-page__meta">Last updated: May 2026</p>
-
-        <h2>1. Introduction</h2>
-        <p>
-          Svalin ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our platform.
-        </p>
-
-        <h2>2. Information We Collect</h2>
-        <h3>Information you provide</h3>
-        <p>We may collect information that you voluntarily provide when you:</p>
-        <ul>
-          <li>Request a demo or contact us</li>
-          <li>Create an account on our platform</li>
-          <li>Subscribe to our communications</li>
-        </ul>
-        <p>This may include your name, email address, company name, job title, and phone number.</p>
-
-        <h3>Information collected automatically</h3>
-        <p>
-          If you accept analytics cookies (see Section 7), we collect anonymised data about how you navigate this website — pages visited, time on page, and referral source. This data is processed by Google Analytics and is used solely to understand how visitors use our site so we can improve it. We do not collect this data if you decline cookies.
-        </p>
-
-        <h2>3. How We Use Your Information</h2>
-        <p>We use the information we collect to:</p>
-        <ul>
-          <li>Respond to your enquiries and demo requests</li>
-          <li>Provide, operate, and maintain our platform</li>
-          <li>Understand how our website is used (analytics, with your consent only)</li>
-          <li>Send you relevant communications (with your consent)</li>
-          <li>Comply with legal obligations</li>
-        </ul>
-
-        <h2>4. Data Sharing</h2>
-        <p>
-          We do not sell your personal information. If you accept analytics cookies, anonymised usage data is shared with Google LLC via Google Analytics under their standard terms. No other personal data is shared with third parties except as required to operate our platform or comply with legal obligations.
-        </p>
-
-        <h2>5. Data Security</h2>
-        <p>
-          We implement appropriate technical and organisational measures to protect your personal information against unauthorised access, alteration, disclosure, or destruction.
-        </p>
-
-        <h2>6. Your Rights</h2>
-        <p>Under applicable data protection laws (including the GDPR), you may have the right to:</p>
-        <ul>
-          <li>Access the personal data we hold about you</li>
-          <li>Request correction of inaccurate data</li>
-          <li>Request deletion of your data</li>
-          <li>Object to or restrict processing of your data</li>
-          <li>Withdraw consent at any time (for consent-based processing such as analytics cookies)</li>
-          <li>Data portability</li>
-        </ul>
-        <p>To exercise any of these rights, please contact us at <a href="/contact">our contact form</a>.</p>
-
-        <h2>7. Cookies and Analytics</h2>
-        <p>
-          This website uses cookies for one purpose only: <strong>Google Analytics</strong>, a web analytics service provided by Google LLC. Google Analytics uses cookies to collect anonymised data about how visitors use our site — including pages viewed, time spent, and navigation paths. This data helps us understand and improve the website. No personally identifiable information is collected through Google Analytics.
-        </p>
-        <p>
-          <strong>Legal basis:</strong> We only activate Google Analytics cookies if you explicitly accept them via the cookie consent banner. This processing is based on your consent (GDPR Article 6(1)(a)). You may withdraw consent at any time by clearing your browser's local storage or cookies.
-        </p>
-        <p>
-          <strong>Cookie used:</strong> <code>_ga</code>, <code>_ga_*</code> — set by Google Analytics to distinguish users and sessions. These cookies do not contain personal data on their own and expire after 2 years (<code>_ga</code>) or as configured.
-        </p>
-        <p>
-          <strong>To opt out or change your choice:</strong> Clear this site's cookies and local storage in your browser settings, then revisit any page — the consent banner will appear again. You can also install the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics Opt-out Browser Add-on</a>.
-        </p>
-        <p>
-          We do not use advertising cookies, tracking pixels, remarketing tags, or any third-party cookies other than Google Analytics.
-        </p>
-
-        <h2>8. Changes to This Policy</h2>
-        <p>
-          We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last updated" date.
-        </p>
-
-        <h2>9. Contact Us</h2>
-        <p>
-          If you have questions about this Privacy Policy or how we handle your data, please contact us at <a href="/contact">our contact form</a>.
-        </p>
-      </div>
-    </div>
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div>
-          <a href="/" class="footer__brand">
-            <img src="/assets/logo.svg" alt="Svalin" class="footer__brand-logo" />
-            <span class="footer__brand-name">Svalin</span>
-          </a>
-          <p class="footer__tagline">AI Governance Platform</p>
-        </div>
-        <div class="footer__nav">
-          <div>
-            <p class="footer__col-title">Product</p>
-            <div class="footer__col-links">
-              <a href="/how-it-works" class="footer__link">How It Works</a>
-              <a href="/compliance" class="footer__link">Compliance</a>
-              <a href="/faq" class="footer__link">FAQ</a>
-              <a href="/demo" class="footer__link">Request a Demo</a>
-            </div>
-          </div>
-          <div>
-            <p class="footer__col-title">Company</p>
-            <div class="footer__col-links">
-              <a href="/about" class="footer__link">About Svalin</a>
-              <a href="/design-partner" class="footer__link">Design Partners</a>
-              <a href="/contact" class="footer__link">Contact</a>
-              <a href="/privacy" class="footer__link">Privacy Policy</a>
-              <a href="/terms" class="footer__link">Terms of Service</a>
-            </div>
-          </div>
-          <div>
-            <p class="footer__col-title">Follow</p>
-            <div class="footer__col-links">
-              <a href="https://www.linkedin.com/company/svalin-hq/about/" class="footer__link" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo" style="font-size: 14px; vertical-align: middle; margin-right: 3px;"></i> LinkedIn</a>
-              <a href="https://x.com/svalinHQ" class="footer__link" target="_blank" rel="noopener noreferrer"><i class="ph ph-x-logo" style="font-size: 14px; vertical-align: middle; margin-right: 3px;"></i> X</a>
-              <a href="https://bsky.app/profile/svalinhq.bsky.social" class="footer__link" target="_blank" rel="noopener noreferrer"><i class="ph ph-butterfly" style="font-size: 14px; vertical-align: middle; margin-right: 3px;"></i> Bluesky</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <span>&copy; 2026 Svalin. All rights reserved.</span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="/js/main.js"></script>
+  <script type="text/babel" src="/js/chrome.jsx"></script>
+  <script type="text/babel" src="/js/pages/privacy.jsx"></script>
 </body>
 </html>

@@ -1,554 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Svalin — AI Governance for Claude Code, Cursor & Gemini CLI</title>
-  <meta name="description" content="Monitor Claude Code, Cursor, and Gemini CLI via MDM-deployed agents on enrolled developer machines. Tamper-evident audit logs, policy enforcement, and compliance evidence packs for CISOs." />
-  <meta name="keywords" content="AI governance, Claude Code governance, Cursor AI audit, Gemini CLI monitoring, MDM AI deployment, tamper-evident AI logs, EU AI Act compliance, ISO 42001, SOC 2 AI governance, AI policy enforcement, CISO AI visibility, AI compliance platform" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Svalin — Observability for AI coding agents</title>
+  <meta name="description" content="AI productivity, with the observability your CISO needs. Svalin is a European observability platform for AI coding agents — every Cursor, Claude Code and Gemini session, captured for compliance." />
+  <link rel="canonical" href="https://svalinhq.com/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0D1B2A" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Svalin — AI Governance for Claude Code, Cursor &amp; Gemini CLI" />
-  <meta property="og:description" content="Monitor Claude Code, Cursor, and Gemini CLI via MDM-deployed agents. Tamper-evident audit logs, policy enforcement, and compliance evidence packs for CISOs." />
-  <meta property="og:image" content="assets/logo.svg" />
-  <meta property="og:url" content="https://www.svalinhq.com" />
   <meta property="og:site_name" content="Svalin" />
+  <meta property="og:title" content="Svalin — Observability for AI coding agents" />
+  <meta property="og:description" content="AI productivity, with the observability your CISO needs. Svalin is a European observability platform for AI coding agents — every Cursor, Claude Code and Gemini session, captured for compliance." />
+  <meta property="og:url" content="https://svalinhq.com/" />
+  <meta property="og:image" content="https://svalinhq.com/assets/logo.svg" />
+  <meta property="og:locale" content="en_US" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Svalin — AI Governance for Claude Code, Cursor &amp; Gemini CLI" />
-  <meta name="twitter:description" content="Monitor Claude Code, Cursor, and Gemini CLI via MDM-deployed agents. Tamper-evident audit logs, policy enforcement, and compliance evidence packs." />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@svalinHQ" />
+  <meta name="twitter:title" content="Svalin — Observability for AI coding agents" />
+  <meta name="twitter:description" content="AI productivity, with the observability your CISO needs. Svalin is a European observability platform for AI coding agents — every Cursor, Claude Code and Gemini session, captured for compliance." />
+  <meta name="twitter:image" content="https://svalinhq.com/assets/logo.svg" />
 
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Svalin",
-    "applicationCategory": "BusinessApplication",
-    "description": "AI governance and monitoring platform providing audit trails, observability, and policy enforcement for enterprise AI usage.",
-    "operatingSystem": "Web",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD",
-      "description": "Request a demo"
-    }
-  }
-  </script>
-
-  <!-- Fonts -->
+  <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/styles.css" />
 
-  <!-- Icons (Phosphor via CDN) -->
-  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
-
-  <!-- Styles -->
-  <!-- Google Analytics (Consent Mode v2 — analytics only fire after cookie acceptance) -->
+  <!-- Google Analytics — consent-mode v2, default-deny -->
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+    try {
+      var __sv = localStorage.getItem('svalin_consent');
+      if (__sv === 'granted') {
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+      }
+    } catch (e) {}
+    gtag('js', new Date());
+    gtag('config', 'G-1TG3V0DWW3', { anonymize_ip: true });
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TG3V0DWW3"></script>
-  <script>
-    gtag('js', new Date());
-    gtag('config', 'G-1TG3V0DWW3');
-    if (localStorage.getItem('svalin_cookie_consent') === 'accepted') {
-      gtag('consent', 'update', { 'analytics_storage': 'granted' });
-    }
-  </script>
 
-  <link rel="stylesheet" href="css/style.css" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
-
-  <link rel="canonical" href="https://www.svalinhq.com/" />
 </head>
 <body>
+  <div id="root"></div>
 
-  <!-- Navigation -->
-  <nav class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="/" class="nav__brand">
-        <img src="assets/logo.svg" alt="Svalin logo" class="nav__logo" />
-        <span class="nav__wordmark">Svalin</span>
-      </a>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
-      <div class="nav__links" id="navLinks">
-        <a href="/" class="nav__link">Home</a>
-        <a href="/why-svalin" class="nav__link">Why Svalin</a>
-        <a href="/how-it-works" class="nav__link">How It Works</a>
-        <a href="/design-partner" class="nav__link">Design Partners</a>
-        <a href="/compliance" class="nav__link">Compliance</a>
-        <a href="/faq" class="nav__link">FAQ</a>
-        <a href="/demo" class="nav__cta">Request a Demo</a>
-      </div>
-
-      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
-
-  <main>
-
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero__badge fade-up">
-          <span class="hero__badge-dot"></span>
-          AI Governance Platform
-        </div>
-        <h1 class="hero__title fade-up">
-          Let your developers use the AI tools they want.<br><em>Give your compliance team the evidence they need.</em>
-        </h1>
-        <p class="hero__subtitle fade-up">
-          Svalin deploys to enrolled developer machines via MDM. It captures AI sessions — Claude Code, Cursor, Gemini CLI — on governed devices, whether traffic goes through a gateway or not. Tamper-evident logs. Configuration integrity enforcement. Zero developer friction.
-        </p>
-        <div class="hero__actions fade-up">
-          <a href="/demo" class="btn btn--primary btn--large">Request a Demo</a>
-          <a href="#why-now" class="btn btn--secondary btn--large">Learn More</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sub-navigation (on-page sections) -->
-    <nav class="subnav" aria-label="Page sections">
-      <div class="subnav__inner">
-        <span class="subnav__label">On this page</span>
-        <div class="subnav__divider"></div>
-        <a href="#why-now" class="subnav__link">Why Now</a>
-        <a href="#features" class="subnav__link">Features</a>
-        <a href="#compliance" class="subnav__link">Compliance</a>
-        <a href="#audience" class="subnav__link">Who It's For</a>
-        <a href="#faq" class="subnav__link">FAQ</a>
-      </div>
-    </nav>
-
-    <!-- Why Now -->
-    <section class="section" id="why-now">
-      <div class="container">
-        <div class="why-now__grid">
-          <div class="why-now__content fade-up">
-            <p class="section__overline">Why Now</p>
-            <h2 class="section__title">AI is everywhere.<br>Governance isn't.</h2>
-            <p class="why-now__text">
-              Organisations are adopting AI tools faster than they can govern them. The EU AI Act is now in effect, ISO 42001 sets the bar for AI management systems, and regulators worldwide are demanding transparency. Without a governance layer, every AI interaction is an untracked risk.
-            </p>
-            <div class="why-now__list">
-              <div class="why-now__item">
-                <div class="why-now__icon">
-                  <i class="ph ph-warning-circle" style="font-size: 20px;"></i>
-                </div>
-                <div>
-                  <p class="why-now__item-title">No visibility</p>
-                  <p class="why-now__item-desc">Most organisations have no idea what data flows to AI models or what tools are being used.</p>
-                </div>
-              </div>
-              <div class="why-now__item">
-                <div class="why-now__icon">
-                  <i class="ph ph-scales" style="font-size: 20px;"></i>
-                </div>
-                <div>
-                  <p class="why-now__item-title">Regulatory pressure</p>
-                  <p class="why-now__item-desc">SOC 2, ISO 42001, and ISO 27001 require documented AI risk management and audit trails. The EU AI Act establishes broader AI governance expectations — including AI literacy obligations already in force.</p>
-                </div>
-              </div>
-              <div class="why-now__item">
-                <div class="why-now__icon">
-                  <i class="ph ph-shield-warning" style="font-size: 20px;"></i>
-                </div>
-                <div>
-                  <p class="why-now__item-title">Security blind spots</p>
-                  <p class="why-now__item-desc">AI tools with access to sensitive data operate without the same controls as traditional software.</p>
-                </div>
-              </div>
-              <div class="why-now__item">
-                <div class="why-now__icon">
-                  <i class="ph ph-eye-slash" style="font-size: 20px;"></i>
-                </div>
-                <div>
-                  <p class="why-now__item-title">Governance tools have a blind spot</p>
-                  <p class="why-now__item-desc">API gateways only see traffic routed through them. Claude Code, Cursor, and Gemini CLI go direct — your gateway never knew.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="why-now__visual fade-up stagger">
-            <div class="regulation-card fade-up">
-              <div class="regulation-card__icon regulation-card__icon--eu">EU</div>
-              <div>
-                <p class="regulation-card__title">EU AI Act</p>
-                <p class="regulation-card__desc">Establishes governance expectations for AI usage across the EU — including AI literacy obligations already in force and transparency requirements for GPAI model usage.</p>
-              </div>
-            </div>
-            <div class="regulation-card fade-up">
-              <div class="regulation-card__icon regulation-card__icon--iso">ISO</div>
-              <div>
-                <p class="regulation-card__title">ISO 42001</p>
-                <p class="regulation-card__desc">International standard for AI management systems and responsible AI practices.</p>
-              </div>
-            </div>
-            <div class="regulation-card fade-up">
-              <div class="regulation-card__icon regulation-card__icon--soc">S2</div>
-              <div>
-                <p class="regulation-card__title">SOC 2</p>
-                <p class="regulation-card__desc">Trust service criteria now extending to AI data processing and tool access controls.</p>
-              </div>
-            </div>
-            <div class="regulation-card fade-up">
-              <div class="regulation-card__icon regulation-card__icon--nist">NI</div>
-              <div>
-                <p class="regulation-card__title">NIST AI RMF</p>
-                <p class="regulation-card__desc">Framework for managing risks throughout the AI lifecycle.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Features -->
-    <section class="section section--alt" id="features">
-      <div class="container">
-        <div class="section__header fade-up">
-          <p class="section__overline">Features</p>
-          <h2 class="section__title">Everything you need to govern AI</h2>
-          <p class="section__subtitle">
-            From audit trails to policy enforcement, Svalin gives security and compliance teams full control over AI usage.
-          </p>
-        </div>
-        <div class="arch-block fade-up">
-          <div class="arch-block__icon">
-            <i class="ph ph-cpu" style="font-size: 24px;"></i>
-          </div>
-          <div>
-            <p class="arch-block__text">
-              Svalin deploys a lightweight agent to developer machines through your MDM — Jamf, Intune, or Kandji. The agent auto-detects supported AI coding tools and wraps their MCP configurations to proxy tool calls. It also configures itself as an LLM proxy where supported. Process tree analysis attributes agent activity to specific developer sessions, allowing Svalin to reconstruct the full coding flow from developer prompt to session close — without touching the developer's workflow. Telemetry is shipped to an append-only platform backend. Svalin's scope is the developer tool layer — MCP tool calls, LLM interactions, and configuration integrity for supported agents. Activity outside that scope is outside its visibility.
-            </p>
-            <a href="/how-it-works" class="arch-block__link">How it works in detail &rarr;</a>
-          </div>
-        </div>
-        <div class="features__grid stagger">
-          <div class="feature-card fade-up">
-            <div class="feature-card__icon">
-              <i class="ph ph-link" style="font-size: 24px;"></i>
-            </div>
-            <h3 class="feature-card__title">Tamper-Evident Audit Chain</h3>
-            <p class="feature-card__desc">
-              Every AI session on enrolled devices is logged with a cryptographic chain that proves log integrity and ordering. Configuration tampering and known bypass attempts are detected and alerted — giving auditors tamper-evident evidence of observed activity and device posture.
-            </p>
-          </div>
-          <div class="feature-card fade-up">
-            <div class="feature-card__icon">
-              <i class="ph ph-binoculars" style="font-size: 24px;"></i>
-            </div>
-            <h3 class="feature-card__title">Full Session Visibility</h3>
-            <p class="feature-card__desc">
-              MCP tool calls and LLM interactions for supported agents — Claude Code, Claude Desktop, Cursor, Gemini CLI — captured at the device level without requiring gateway routing. Svalin's scope is the developer tool layer; activity outside supported agents is outside its visibility.
-            </p>
-          </div>
-          <div class="feature-card fade-up">
-            <div class="feature-card__icon">
-              <i class="ph ph-shield-check" style="font-size: 24px;"></i>
-            </div>
-            <h3 class="feature-card__title">Policy Engine</h3>
-            <p class="feature-card__desc">
-              Deploy and enforce AI usage policies from your MDM — Jamf, Intune, or Kandji. Define which data categories can flow to which AI providers. Policies apply on device, before traffic leaves the machine.
-            </p>
-          </div>
-          <div class="feature-card fade-up">
-            <div class="feature-card__icon">
-              <i class="ph ph-stack" style="font-size: 24px;"></i>
-            </div>
-            <h3 class="feature-card__title">Multi-Model Support</h3>
-            <p class="feature-card__desc">
-              Works across Claude Code, Claude Desktop, Cursor, and Gemini CLI today, with support for additional MCP-compatible agents on the roadmap. One governance layer for your supported AI stack.
-            </p>
-          </div>
-          <div class="feature-card feature-card--full fade-up">
-            <div class="feature-card__icon">
-              <i class="ph ph-prohibit" style="font-size: 24px;"></i>
-            </div>
-            <h3 class="feature-card__title">Bypass Detection</h3>
-            <p class="feature-card__desc">
-              Svalin continuously monitors agent configuration files for tampering — unapproved MCP servers, proxy URL changes, hook suppression. Detected changes trigger automatic policy re-application and a compliance alert on the platform. Known bypass paths on enrolled devices are surfaced in real time.
-            </p>
-          </div>
-        </div>
-        <div class="agents-section fade-up">
-          <p class="agents-section__title">Supported agents</p>
-          <div class="agents-grid">
-            <div class="agent-tile">
-              <div class="agent-tile__icon">
-                <i class="ph ph-terminal-window" style="font-size: 22px;"></i>
-              </div>
-              <span class="agent-tile__name">Claude Code</span>
-            </div>
-            <div class="agent-tile">
-              <div class="agent-tile__icon">
-                <i class="ph ph-desktop" style="font-size: 22px;"></i>
-              </div>
-              <span class="agent-tile__name">Claude Desktop</span>
-            </div>
-            <div class="agent-tile">
-              <div class="agent-tile__icon">
-                <i class="ph ph-cursor" style="font-size: 22px;"></i>
-              </div>
-              <span class="agent-tile__name">Cursor</span>
-            </div>
-            <div class="agent-tile">
-              <div class="agent-tile__icon">
-                <i class="ph ph-google-logo" style="font-size: 22px;"></i>
-              </div>
-              <span class="agent-tile__name">Gemini CLI</span>
-            </div>
-            <a href="/demo" class="agent-tile agent-tile--placeholder">
-              <div class="agent-tile__icon">
-                <i class="ph ph-plus" style="font-size: 22px;"></i>
-              </div>
-              <span class="agent-tile__name">Your tool here</span>
-            </a>
-          </div>
-          <p class="agents-section__desc">Svalin currently supports the four most widely adopted AI coding agents in regulated engineering teams. We're actively expanding — tell us which tool your team uses and help shape the roadmap.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Compliance -->
-    <section class="section" id="compliance">
-      <div class="container">
-        <div class="section__header fade-up">
-          <p class="section__overline">Compliance</p>
-          <h2 class="section__title">Built to meet the standards that matter</h2>
-          <p class="section__subtitle">
-            Svalin is designed from the ground up to help your organisation achieve and maintain compliance with leading AI governance frameworks.
-          </p>
-        </div>
-        <p class="compliance__intro fade-up">
-          Generate evidence packs mapped to EU AI Act, ISO 42001, ISO 27001, SOC 2, GDPR, and NIST AI RMF control objectives. Continuous audit evidence — no evidence-gathering sprints before your next audit.
-        </p>
-        <div class="compliance__items fade-up">
-          <a href="/compliance/eu-ai-act" class="compliance__item" style="text-decoration: none; color: inherit;">
-            <div class="compliance__icon" style="background: #003399; color: #FFD700;">EU</div>
-            <span class="compliance__label">EU AI Act</span>
-          </a>
-          <a href="/compliance/iso-42001" class="compliance__item" style="text-decoration: none; color: inherit;">
-            <div class="compliance__icon" style="background: var(--env-accent-subtle); color: var(--env-accent);">ISO</div>
-            <span class="compliance__label">ISO 42001</span>
-          </a>
-          <a href="/compliance/iso-27001" class="compliance__item" style="text-decoration: none; color: inherit;">
-            <div class="compliance__icon" style="background: var(--env-accent-subtle); color: var(--env-accent);">ISO</div>
-            <span class="compliance__label">ISO 27001</span>
-          </a>
-          <a href="/compliance/soc-2" class="compliance__item" style="text-decoration: none; color: inherit;">
-            <div class="compliance__icon" style="background: #f0fdf4; color: var(--color-success);">S2</div>
-            <span class="compliance__label">SOC 2</span>
-          </a>
-          <a href="/compliance/gdpr" class="compliance__item" style="text-decoration: none; color: inherit;">
-            <div class="compliance__icon" style="background: var(--env-accent-subtle); color: var(--env-accent);">GDPR</div>
-            <span class="compliance__label">GDPR</span>
-          </a>
-          <a href="/compliance/nist-ai-rmf" class="compliance__item" style="text-decoration: none; color: inherit;">
-            <div class="compliance__icon" style="background: #e0f2fe; color: #0c4a6e;">NIST</div>
-            <span class="compliance__label">NIST AI RMF</span>
-          </a>
-        </div>
-        <div style="text-align: center; margin-top: var(--space-xl);" class="fade-up">
-          <a href="/compliance" class="btn btn--secondary">Explore all frameworks &rarr;</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Who It's For -->
-    <section class="section section--alt" id="audience">
-      <div class="container">
-        <div class="section__header fade-up">
-          <p class="section__overline">Who it's for</p>
-          <h2 class="section__title">Built for the teams that keep AI safe</h2>
-          <p class="section__subtitle">
-            Svalin is purpose-built for the people responsible for security, compliance, and risk in AI-adopting organisations.
-          </p>
-        </div>
-        <div class="audience__grid stagger">
-          <div class="audience-card fade-up">
-            <div class="audience-card__icon">
-              <i class="ph ph-shield-checkered" style="font-size: 24px;"></i>
-            </div>
-            <h3 class="audience-card__title">Security Teams</h3>
-            <p class="audience-card__desc">
-              Gain visibility into AI tool access patterns, data flows, and potential exfiltration vectors. Enforce security policies at the AI layer.
-            </p>
-          </div>
-          <div class="audience-card fade-up">
-            <div class="audience-card__icon">
-              <i class="ph ph-gavel" style="font-size: 24px;"></i>
-            </div>
-            <h3 class="audience-card__title">Compliance Officers</h3>
-            <p class="audience-card__desc">
-              Generate audit-ready reports, demonstrate regulatory compliance, and maintain documented evidence of AI governance practices.
-            </p>
-          </div>
-          <div class="audience-card fade-up">
-            <div class="audience-card__icon">
-              <i class="ph ph-chart-line-up" style="font-size: 24px;"></i>
-            </div>
-            <h3 class="audience-card__title">CISOs & Risk Managers</h3>
-            <p class="audience-card__desc">
-              Understand your organisation's AI risk posture at a glance. Make informed decisions about AI tool adoption and usage policies.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ Teaser -->
-    <section class="section" id="faq">
-      <div class="container">
-        <div class="section__header fade-up">
-          <p class="section__overline">FAQ</p>
-          <h2 class="section__title">Frequently asked questions</h2>
-          <p class="section__subtitle">
-            Quick answers to the most common questions about Svalin.
-          </p>
-        </div>
-        <div class="faq-teaser__items">
-          <div class="faq__item fade-up">
-            <button class="faq__question" aria-expanded="false">
-              How is the data stored and secured?
-              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
-            </button>
-            <div class="faq__answer">
-              <p>All data is fully encrypted and stored on European servers. Encryption keys are hosted with a separate European cloud provider and are never shared with our hosting platform, ensuring complete separation of concerns.</p>
-            </div>
-          </div>
-          <div class="faq__item fade-up">
-            <button class="faq__question" aria-expanded="false">
-              Does Svalin access AI conversation content?
-              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
-            </button>
-            <div class="faq__answer">
-              <p>Logging scope is configurable. By default, Svalin logs session metadata — data categories transferred, AI provider, timestamp, and policy decisions — not raw conversation content. For customers who require it, full content logging can be enabled with appropriate access controls and data residency settings.</p>
-            </div>
-          </div>
-          <div class="faq__item fade-up">
-            <button class="faq__question" aria-expanded="false">
-              What happens if Svalin goes down?
-              <svg class="faq__chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
-            </button>
-            <div class="faq__answer">
-              <p>Zero impact. Local agents simply log information and never interfere with actual tool calls. Your teams continue working uninterrupted.</p>
-            </div>
-          </div>
-        </div>
-        <div class="faq-teaser__more fade-up">
-          <a href="/faq" class="btn btn--secondary">View all questions</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- About / Founder teaser -->
-    <section class="section" style="background: var(--env-bg);">
-      <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4xl); align-items: center; max-width: 960px; margin: 0 auto;">
-          <div class="fade-up">
-            <p class="section__overline">About Svalin</p>
-            <h2 class="section__title" style="max-width: 420px;">Built by an engineer who saw the gap</h2>
-            <p class="why-now__text" style="margin-top: var(--space-lg);">
-              Svalin is built on a simple premise: engineering teams should be able to use Claude Code, Cursor, and Gemini CLI freely. The governance layer should be invisible to the developer and transparent to the auditor.
-            </p>
-            <a href="/about" class="btn btn--secondary" style="margin-top: var(--space-xl); display: inline-flex;">Learn more about us</a>
-          </div>
-          <div class="fade-up" style="display: flex; flex-direction: column; gap: var(--space-lg); align-items: flex-start;">
-            <div style="display: flex; align-items: flex-start; gap: var(--space-lg);">
-              <img
-                src="assets/raphael.jpg"
-                alt="Raphael Goncalves, Founder of Svalin"
-                style="width: 72px; height: 72px; border-radius: 50%; object-fit: cover; object-position: top; flex-shrink: 0; border: 2px solid var(--svalin-amber);"
-              />
-              <blockquote style="margin: 0; padding: var(--space-lg) var(--space-xl); background: var(--svalin-surface); border-left: 3px solid var(--svalin-amber); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; box-shadow: var(--shadow-sm);">
-                <p style="font-size: var(--text-ui); line-height: 1.6; color: var(--svalin-navy); font-style: italic; margin: 0 0 var(--space-md);">
-                  "Nobody — including the security team — could answer the question: what did the AI actually access today?"
-                </p>
-                <cite style="font-size: var(--text-meta); font-weight: 600; color: var(--svalin-muted); font-style: normal;">
-                  Raphael Goncalves &mdash; Founder, Svalin
-                </cite>
-              </blockquote>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Banner -->
-    <section class="section section--navy">
-      <div class="container">
-        <div class="cta-banner fade-up">
-          <h2 class="cta-banner__title">Ready to govern your AI?</h2>
-          <p class="cta-banner__text">
-            See how Svalin gives you complete visibility and control over AI usage across your organisation.
-          </p>
-          <a href="/demo" class="btn btn--primary btn--large">Request a Demo</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div>
-          <a href="/" class="footer__brand">
-            <img src="assets/logo.svg" alt="Svalin" class="footer__brand-logo" />
-            <span class="footer__brand-name">Svalin</span>
-          </a>
-          <p class="footer__tagline">AI Governance Platform</p>
-        </div>
-        <div class="footer__nav">
-          <div>
-            <p class="footer__col-title">Product</p>
-            <div class="footer__col-links">
-              <a href="/how-it-works" class="footer__link">How It Works</a>
-              <a href="/compliance" class="footer__link">Compliance</a>
-              <a href="/faq" class="footer__link">FAQ</a>
-              <a href="/demo" class="footer__link">Request a Demo</a>
-            </div>
-          </div>
-          <div>
-            <p class="footer__col-title">Company</p>
-            <div class="footer__col-links">
-              <a href="/about" class="footer__link">About Svalin</a>
-              <a href="/design-partner" class="footer__link">Design Partners</a>
-              <a href="/contact" class="footer__link">Contact</a>
-              <a href="/privacy" class="footer__link">Privacy Policy</a>
-              <a href="/terms" class="footer__link">Terms of Service</a>
-            </div>
-          </div>
-          <div>
-            <p class="footer__col-title">Follow</p>
-            <div class="footer__col-links">
-              <a href="https://www.linkedin.com/company/svalin-hq/about/" class="footer__link" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo" style="font-size: 14px; vertical-align: middle; margin-right: 3px;"></i> LinkedIn</a>
-              <a href="https://x.com/svalinHQ" class="footer__link" target="_blank" rel="noopener noreferrer"><i class="ph ph-x-logo" style="font-size: 14px; vertical-align: middle; margin-right: 3px;"></i> X</a>
-              <a href="https://bsky.app/profile/svalinhq.bsky.social" class="footer__link" target="_blank" rel="noopener noreferrer"><i class="ph ph-butterfly" style="font-size: 14px; vertical-align: middle; margin-right: 3px;"></i> Bluesky</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <span>&copy; 2026 Svalin. All rights reserved.</span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
+  <script type="text/babel" src="/js/chrome.jsx"></script>
+  <script type="text/babel" src="/js/pages/home.jsx"></script>
 </body>
 </html>
