@@ -31,6 +31,7 @@ function Wordmark() {
 }
 
 function TopNav({ active }) {
+  const [menuOpen, setMenuOpen] = useState(false);
   const items = [
     { id: 'home',    label: 'Home',         path: ROUTES.home },
     { id: 'how',     label: 'How it works', path: ROUTES.how },
@@ -38,24 +39,69 @@ function TopNav({ active }) {
     { id: 'team',    label: 'Team',         path: ROUTES.team },
   ];
   return (
-    <header className="topbar">
-      <div className="page topbar-inner">
-        <Wordmark />
-        <nav className="nav-links">
+    <>
+      <header className="topbar">
+        <div className="page topbar-inner">
+          <Wordmark />
+          <nav className="nav-links">
+            {items.map(it => (
+              <a key={it.id}
+                 className="nav-link"
+                 data-active={active === it.id}
+                 href={href(it.path)}>
+                {it.label}
+              </a>
+            ))}
+          </nav>
+          <div className="topbar-right">
+            <a className="demo-btn topbar-demo" href={href(ROUTES.demo)}>
+              Request a demo <span className="arrow">→</span>
+            </a>
+            <button
+              className="burger-btn"
+              aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen(o => !o)}
+            >
+              {menuOpen ? (
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                  <line x1="4" y1="4" x2="18" y2="18" />
+                  <line x1="18" y1="4" x2="4" y2="18" />
+                </svg>
+              ) : (
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                  <line x1="3" y1="6" x2="19" y2="6" />
+                  <line x1="3" y1="11" x2="19" y2="11" />
+                  <line x1="3" y1="16" x2="19" y2="16" />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
+      </header>
+      {menuOpen && (
+        <nav className="mobile-menu" aria-label="Mobile navigation">
           {items.map(it => (
-            <a key={it.id}
-               className="nav-link"
-               data-active={active === it.id}
-               href={href(it.path)}>
+            <a
+              key={it.id}
+              className={'mobile-nav-link' + (active === it.id ? ' active' : '')}
+              href={href(it.path)}
+              onClick={() => setMenuOpen(false)}
+            >
               {it.label}
             </a>
           ))}
+          <a
+            className="demo-btn"
+            href={href(ROUTES.demo)}
+            onClick={() => setMenuOpen(false)}
+            style={{ marginTop: 16, justifyContent: 'center' }}
+          >
+            Request a demo <span className="arrow">→</span>
+          </a>
         </nav>
-        <a className="demo-btn" href={href(ROUTES.demo)}>
-          Request a demo <span className="arrow">→</span>
-        </a>
-      </div>
-    </header>
+      )}
+    </>
   );
 }
 

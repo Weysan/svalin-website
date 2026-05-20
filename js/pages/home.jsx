@@ -110,7 +110,7 @@ function CredibilityBento() {
                 <div className="overline"><span className="dot"></span>Host environment mapping</div>
                 <h3>Every AI coding tool on every device, mapped without asking.</h3>
               </div>
-              <div className="shot">
+              <div className="shot crop">
                 <img src={_asset('assets/shot-detected-tools.png')} alt="Detected and governed AI coding tools — Claude Desktop, Claude CLI, Gemini CLI, Cursor with their config file paths" />
               </div>
               <div className="caption">

@@ -1170,8 +1170,10 @@
     .display { font-size: 56px; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
     .team-grid { grid-template-columns: repeat(2, 1fr); }
-    .plan-grid { grid-template-columns: 1fr; }
     .metric-grid { grid-template-columns: 1fr 1fr; }
+    /* Plan table: scroll horizontally rather than collapsing columns */
+    .plan-table .page { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .plan-grid { min-width: 700px; }
   }
 
   /* --- LEGAL DOC (Privacy/Terms long-form) --- */
@@ -1228,8 +1230,103 @@
     padding: 1px 6px;
     font-size: 12.5px;
   }
+  /* --- BURGER / MOBILE NAV --- */
+  .topbar-right { display: flex; align-items: center; }
+  .burger-btn {
+    display: none;
+    background: none; border: none;
+    padding: 8px; cursor: pointer;
+    color: var(--svalin-navy);
+    border-radius: var(--radius);
+    transition: background 0.15s ease;
+  }
+  .burger-btn:hover { background: var(--svalin-ice); }
+  .burger-btn svg { display: block; }
+
+  .mobile-menu {
+    position: fixed;
+    top: 65px; left: 0; right: 0;
+    z-index: 48;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: saturate(140%) blur(12px);
+    -webkit-backdrop-filter: saturate(140%) blur(12px);
+    border-bottom: 1px solid var(--svalin-border);
+    padding: 8px 24px 28px;
+    display: flex; flex-direction: column;
+    box-shadow: 0 12px 32px -8px rgba(13,27,42,0.12);
+  }
+  .mobile-nav-link {
+    display: block;
+    font-size: 17px; font-weight: 500;
+    color: var(--svalin-navy);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--svalin-border);
+    transition: color 0.15s ease;
+  }
+  .mobile-nav-link:hover,
+  .mobile-nav-link.active { color: var(--env-accent); }
+  .mobile-nav-link:last-of-type { border-bottom: none; }
+
+  /* --- MOBILE (≤720px) --- */
   @media (max-width: 720px) {
+    /* page gutter */
+    .page { padding: 0 20px; }
+
+    /* nav */
+    .nav-links { display: none; }
+    .topbar-demo { display: none; }
+    .burger-btn { display: block; }
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0;
+    }
+
+    /* typography */
+    .display { font-size: 36px; }
+    .hero { padding: 56px 0 48px; }
+    .hero-grid { gap: 36px; }
+
+    /* footer */
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 16px; align-items: flex-start; }
+
+    /* doc pages */
+    .doc-page { padding: 64px 0; }
+    .doc-page h1 { font-size: 36px; }
+
+    /* legal */
     .legal-section { grid-template-columns: 1fr; gap: 8px; }
+
+    /* pricing header */
+    .pricing-head { padding: 56px 0 36px; }
+    .pricing-head .row { grid-template-columns: 1fr; gap: 16px; }
+    .pricing-head h1 { font-size: 36px; }
+
+    /* bento shot crop — fixed height + proper fill on mobile only */
+    .bento-card .shot.crop { height: 220px; flex: none; }
+    .bento-card .shot.crop img { height: 100%; }
+
+    /* principles — stack num + title + paragraph in one column */
+    .principle {
+      grid-template-columns: 1fr;
+      gap: 10px;
+      padding: 24px 0;
+    }
+    .principle .num { padding-top: 0; }
+    .principle h3 { font-size: 19px; }
+
+    /* CTA strip — sentence full width, button full width below */
+    .cta-strip { padding: 64px 0; }
+    .cta-inner {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .cta-inner .demo-btn {
+      width: 100%;
+      justify-content: center;
+    }
   }
 
   /* --- COOKIE CONSENT --- */
