@@ -19,7 +19,7 @@ function Hero() {
               <em>Security keeps the receipts.</em>
             </h1>
             <p className="lede">
-              Svalin is an observability platform for AI coding agents. The local agent ships through your MDM and watches every Cursor, Claude Code, Copilot, and Windsurf session on the device — without changing a single engineering workflow. Security and compliance get the full picture, in one place.
+              Svalin is an observability platform for AI coding agents. The local agent ships through your MDM and watches every Cursor, Claude Code, and Gemini CLI session on the device — without changing a single engineering workflow. Security and compliance get the full picture, in one place.
             </p>
             <div className="hero-ctas">
               <a className="demo-btn" href={_href(_ROUTES.demo)}>
@@ -61,8 +61,8 @@ function HeartbeatJson() {
     <P>{'{'}</P>,
     <>{'  '}<K>"id"</K><P>: </P><S>"evt_47495ce6-5cc5-403c-9dc2-70cefe6db229"</S><P>,</P></>,
     <>{'  '}<K>"scope"</K><P>: </P><S>"agent"</S><P>,</P></>,
-    <>{'  '}<K>"device_hostname"</K><P>: </P><S>"Raphaels-MacBook-Pro-2.local"</S><P>,</P></>,
-    <>{'  '}<K>"os_user"</K><P>: </P><S>"raphaelgoncalves"</S><P>,</P></>,
+    <>{'  '}<K>"device_hostname"</K><P>: </P><S>"mbp-engineering-04.local"</S><P>,</P></>,
+    <>{'  '}<K>"os_user"</K><P>: </P><S>"jsmith"</S><P>,</P></>,
     <>{'  '}<K>"os_platform"</K><P>: </P><S>"macos"</S><P>,</P></>,
     <>{'  '}<K>"agent_version"</K><P>: </P><S>"v0.5.0-prod"</S><P>,</P></>,
     <>{'  '}<K>"governance_status"</K><P>: </P><OK>"governed"</OK><P>,</P></>,
@@ -139,7 +139,7 @@ function CredibilityBento() {
 
 function HomePrinciples() {
   const items = [
-    { n: '01', h: 'Engineers don\u2019t change a thing.', p: 'Deployed through your MDM in the same wave as any other endpoint. The agent watches Cursor, Claude Code, Copilot, Windsurf and the MCP servers they connect to — invisibly, on the device. No proxy, no new IDE settings, no tickets in the engineering backlog.' },
+    { n: '01', h: 'Engineers don\u2019t change a thing.', p: 'Deployed through your MDM in the same wave as any other endpoint. The agent watches Cursor, Claude Code, Gemini CLI and the MCP servers they connect to — invisibly, on the device. No proxy, no new IDE settings, no tickets in the engineering backlog.' },
     { n: '02', h: 'One registry, every surface.', p: 'Governed devices, supported AI coding agents, connected MCP servers — all in one place. The CISO surface answers \u201cwho is using what, where\u201d without an email thread.' },
     { n: '03', h: 'Incidents, not log floods.', p: 'Secrets, credentials, PII and policy violations surface as incidents — triaged, owned, resolved. Everything else stays in the timeline where it belongs.' },
     { n: '04', h: 'Compliance, as a side effect.', p: 'A signed, append-only audit trail of every call by every AI agent on every device. SOC 2, ISO 27001 and EU AI Act evidence falls out of the system you were going to deploy anyway.' },
