@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>How it works — Svalin</title>
-  <meta name="description" content="From MDM rollout to audit, in four moves. See how Svalin captures every AI coding agent action and turns it into the evidence your auditors need." />
-  <link rel="canonical" href="https://svalinhq.com/how-it-works/" />
+  <meta name="description" content="From MDM rollout to audit evidence in four moves. Svalin deploys silently, fills the registry automatically, surfaces incidents, and generates compliance exports." />
+  <link rel="canonical" href="https://svalinhq.com/how-it-works" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#0D1B2A" />
 
@@ -13,8 +13,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Svalin" />
   <meta property="og:title" content="How it works — Svalin" />
-  <meta property="og:description" content="From MDM rollout to audit, in four moves. See how Svalin captures every AI coding agent action and turns it into the evidence your auditors need." />
-  <meta property="og:url" content="https://svalinhq.com/how-it-works/" />
+  <meta property="og:description" content="From MDM rollout to audit evidence in four moves. Svalin deploys silently, fills the registry automatically, surfaces incidents, and generates compliance exports." />
+  <meta property="og:url" content="https://svalinhq.com/how-it-works" />
   <meta property="og:image" content="https://svalinhq.com/assets/logo.svg" />
   <meta property="og:locale" content="en_US" />
 
@@ -22,7 +22,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@svalinHQ" />
   <meta name="twitter:title" content="How it works — Svalin" />
-  <meta name="twitter:description" content="From MDM rollout to audit, in four moves. See how Svalin captures every AI coding agent action and turns it into the evidence your auditors need." />
+  <meta name="twitter:description" content="From MDM rollout to audit evidence in four moves. Svalin deploys silently, fills the registry automatically, surfaces incidents, and generates compliance exports." />
   <meta name="twitter:image" content="https://svalinhq.com/assets/logo.svg" />
 
   <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
@@ -37,35 +37,311 @@
     function gtag(){ dataLayer.push(arguments); }
     window.gtag = gtag;
     gtag('consent', 'default', {
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      analytics_storage: 'denied',
-      functionality_storage: 'denied',
-      personalization_storage: 'denied',
-      security_storage: 'granted',
-      wait_for_update: 500
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: 'denied', functionality_storage: 'denied',
+      personalization_storage: 'denied', security_storage: 'granted', wait_for_update: 500
     });
     try {
       var __sv = localStorage.getItem('svalin_consent');
-      if (__sv === 'granted') {
-        gtag('consent', 'update', { analytics_storage: 'granted' });
-      }
+      if (__sv === 'granted') { gtag('consent', 'update', { analytics_storage: 'granted' }); }
     } catch (e) {}
     gtag('js', new Date());
     gtag('config', 'G-1TG3V0DWW3', { anonymize_ip: true });
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TG3V0DWW3"></script>
-
 </head>
 <body>
-  <div id="root"></div>
 
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<header class="topbar">
+  <div class="page topbar-inner">
+    <a class="brand" href="/">
+      <img src="/assets/logo.svg" alt="" width="26" height="26" />
+      <div class="wm-block">
+        <span class="wordmark">SVALIN</span>
+        <span class="subtitle">AI Governance Platform</span>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a class="nav-link" data-active="false" href="/">Home</a>
+      <a class="nav-link" data-active="true" href="/how-it-works">How it works</a>
+      <a class="nav-link" data-active="false" href="/pricing">Pricing</a>
+      <a class="nav-link" data-active="false" href="/team">Team</a>
+    </nav>
+    <div class="topbar-right">
+      <a class="demo-btn topbar-demo" href="/demo">Request a demo <span class="arrow">→</span></a>
+      <button id="burger-btn" class="burger-btn" aria-label="Open navigation" aria-expanded="false">
+        <svg class="icon-burger" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="19" y2="6" /><line x1="3" y1="11" x2="19" y2="11" /><line x1="3" y1="16" x2="19" y2="16" />
+        </svg>
+        <svg class="icon-close" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" hidden>
+          <line x1="4" y1="4" x2="18" y2="18" /><line x1="18" y1="4" x2="4" y2="18" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation">
+  <a class="mobile-nav-link" href="/">Home</a>
+  <a class="mobile-nav-link active" href="/how-it-works">How it works</a>
+  <a class="mobile-nav-link" href="/pricing">Pricing</a>
+  <a class="mobile-nav-link" href="/team">Team</a>
+  <a class="demo-btn" href="/demo" style="margin-top:16px;justify-content:center">Request a demo <span class="arrow">→</span></a>
+</nav>
 
-  <script type="text/babel" src="/js/chrome.jsx"></script>
-  <script type="text/babel" src="/js/pages/how-it-works.jsx"></script>
+<main>
+  <!-- Anatomy of an Audit -->
+  <section class="audit-section">
+    <div class="page">
+      <div class="audit-head">
+        <div class="overline">Anatomy of an audit</div>
+        <h2>The four layers underneath every event you'll show your auditor.</h2>
+        <p>What happens between the moment a developer asks Cursor a question and the moment a compliance officer signs off on the quarter — captured, in order, in your tenant.</p>
+      </div>
+
+      <div class="audit-step">
+        <div class="step-row">
+          <div class="step-num">Phase 01</div>
+          <div>
+            <h3>Local context interception.</h3>
+            <p>Svalin deploys silently via corporate MDM. The lightweight background daemon hooks process execution loops at the system layer, identifying active LLM tools without adding millisecond performance overhead or interrupting engineering speed.</p>
+          </div>
+        </div>
+        <div class="audit-shot-label">local agent · overview</div>
+        <div class="audit-shot"><img src="/assets/shot-agent-overview.png" alt="Local agent overview — running, v0.5.0-prod, detected Claude Desktop, Claude CLI, Gemini CLI and Cursor" /></div>
+      </div>
+
+      <div class="audit-step">
+        <div class="step-row">
+          <div class="step-num">Phase 02</div>
+          <div>
+            <h3>Cryptographic execution reconstruction.</h3>
+            <p>Every tool use, spawned sub-agent and terminal mutation is reconstructed sequentially. Svalin creates a real-time, chronological trace ledger of precisely what actions an agent requested and exactly what it touched.</p>
+          </div>
+        </div>
+        <div class="audit-shot-label">platform · conversation timeline</div>
+        <div class="audit-shot"><img src="/assets/shot-timeline.png" alt="Conversation timeline with session starts, LLM token usages and shell exec blocks across milliseconds" /></div>
+      </div>
+
+      <div class="audit-step">
+        <div class="step-row">
+          <div class="step-num">Phase 03</div>
+          <div>
+            <h3>Automatic incident creation.</h3>
+            <p>When the trace ledger detects a policy break — profile tampering, an unsanctioned MCP server, a credential read — Svalin opens an incident, links the triggering telemetry event, and assigns an owner. If the device self-heals (a tampered shell profile reverts, an unknown MCP server disconnects) the incident closes itself with the resolution trail intact. No false-positive triage queues.</p>
+          </div>
+        </div>
+        <div class="audit-shot-label">platform · incident detail</div>
+        <div class="audit-shot"><img src="/assets/shot-incident-detail.png" alt="Profile tampering incident — severity high, dismissed status, with the triggering profile_tampered telemetry event linked and the full JSON payload showing the affected governed variable" /></div>
+      </div>
+
+      <div class="audit-step">
+        <div class="step-row">
+          <div class="step-num">Phase 04</div>
+          <div>
+            <h3>Centralized security log analysis.</h3>
+            <p>Telemetry data structures map instantly to a centralized ledger. Every process lifecycle event is structured as a cryptographically validated JSON payload, providing the raw foundational evidence your GRC and security engineering teams need to satisfy DORA and ISO risk tracking mandates on demand.</p>
+          </div>
+        </div>
+        <div class="audit-shot-label">platform · agent events</div>
+        <div class="audit-shot"><img src="/assets/shot-agent-events.png" alt="Log explorer — agent events with event volume bar chart and validation chain marked valid" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="hiw-head">
+    <div class="page">
+      <div class="row">
+        <div class="section-num">How it works</div>
+        <div>
+          <h1>From MDM rollout to audit, in four moves.</h1>
+          <p style="margin-top:18px">Most security teams have the registry populated within their first week. Most cut their first compliance evidence pack inside the first quarter — without ever touching an engineer's laptop.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page">
+    <div class="hiw-step">
+      <div class="num">Step 01</div>
+      <div>
+        <h2>Ship the agent through MDM.</h2>
+        <p>Push the Svalin agent to every developer device in the same wave as your other endpoint software — Jamf, Kandji, Intune, or any tool that can drop a signed pkg. Engineers see nothing. The agent enrolls itself, identifies the AI coding tools on the machine, and starts capturing.</p>
+        <div class="keyline">▸ MDM · svalin-agent-2.4.1.pkg</div>
+      </div>
+      <div>
+        <div class="visual-frame">
+          <div class="frame-label">deployment · Jamf Pro</div>
+          <div style="margin-top:10px;line-height:1.8">
+            <div><span class="muted">policy</span> Svalin / All-Macs</div>
+            <div class="muted">scope: 247 devices</div>
+            <div class="muted">package: svalin-agent-2.4.1.pkg</div>
+            <div class="muted">deploying… 233 / 247 enrolled</div>
+            <div><span style="color:var(--color-success)">✓</span> active · reporting to eu-central-1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hiw-step">
+      <div class="num">Step 02</div>
+      <div>
+        <h2>The registry fills itself.</h2>
+        <p>Within hours, the platform knows every governed device, every AI coding agent installed on it, and every MCP server those agents reach for. No survey. No questionnaire. No engineer told to log anything.</p>
+        <div class="keyline">▸ Registry · devices · agents · MCP servers</div>
+      </div>
+      <div>
+        <div class="visual-frame">
+          <div class="frame-label">registry · live</div>
+          <div class="kvs" style="margin-top:14px">
+            <span class="k">Governed devices</span><span class="v">233 / 247</span>
+            <span class="k">Cursor</span><span class="v">181 devices</span>
+            <span class="k">Claude Code</span><span class="v">142 devices</span>
+            <span class="k">GitHub Copilot</span><span class="v">198 devices</span>
+            <span class="k">Windsurf</span><span class="v">24 devices</span>
+            <span class="k">MCP servers seen</span><span class="v">31 unique</span>
+            <span class="k">Coverage</span><span class="v" style="color:var(--color-success)">● 94.3%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hiw-step">
+      <div class="num">Step 03</div>
+      <div>
+        <h2>Incidents, not log floods.</h2>
+        <p>PII reads, credential leaks, policy violations and unknown MCP servers all surface as incidents — triaged, assigned, and resolved in the platform. The rest of the firehose stays in the timeline, searchable when you need it.</p>
+        <div class="keyline">▸ Incidents · PII · credentials · policy</div>
+      </div>
+      <div>
+        <div class="visual-frame">
+          <div class="frame-label">incidents · last 7d</div>
+          <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+            <div style="display:grid;grid-template-columns:60px 90px 1fr 80px;gap:8px;font-size:11.5px">
+              <span class="muted">SVL-118</span><span style="color:var(--env-accent)">credential.read</span><span style="color:var(--svalin-navy)">claude on MBP-A1742</span><span style="color:var(--color-danger);text-align:right">● open</span>
+            </div>
+            <div style="display:grid;grid-template-columns:60px 90px 1fr 80px;gap:8px;font-size:11.5px">
+              <span class="muted">SVL-117</span><span style="color:var(--env-accent)">pii.email</span><span style="color:var(--svalin-navy)">cursor on MBP-3318</span><span style="color:var(--color-warning);text-align:right">● review</span>
+            </div>
+            <div style="display:grid;grid-template-columns:60px 90px 1fr 80px;gap:8px;font-size:11.5px">
+              <span class="muted">SVL-116</span><span style="color:var(--env-accent)">mcp.unknown</span><span style="color:var(--svalin-navy)">claude on MBP-Q221</span><span style="color:var(--color-warning);text-align:right">● review</span>
+            </div>
+            <div style="display:grid;grid-template-columns:60px 90px 1fr 80px;gap:8px;font-size:11.5px">
+              <span class="muted">SVL-115</span><span style="color:var(--env-accent)">credential.read</span><span style="color:var(--svalin-navy)">copilot on MBP-0048</span><span style="color:var(--color-success);text-align:right">● resolved</span>
+            </div>
+            <div style="display:grid;grid-template-columns:60px 90px 1fr 80px;gap:8px;font-size:11.5px">
+              <span class="muted">SVL-114</span><span style="color:var(--env-accent)">pii.address</span><span style="color:var(--svalin-navy)">cursor on MBP-7711</span><span style="color:var(--color-success);text-align:right">● resolved</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hiw-step">
+      <div class="num">Step 04</div>
+      <div>
+        <h2>Audit — already done.</h2>
+        <p>When the auditor asks, hand them a signed, timestamped report mapping every relevant event to your SOC 2 / ISO 27001 / EU AI Act controls. Generated in seconds. Delivered as a PDF, a JSONL bundle, or both. The compliance work was a side effect of running the platform.</p>
+        <div class="keyline">▸ Evidence pack · SOC 2 · CC7.2</div>
+      </div>
+      <div>
+        <div class="visual-frame">
+          <div class="frame-label">evidence pack · 2026-Q1</div>
+          <div class="kvs" style="margin-top:14px">
+            <span class="k">Framework</span><span class="v">SOC 2 Type II</span>
+            <span class="k">Period</span><span class="v">2026-01-01 → 2026-03-31</span>
+            <span class="k">Devices in scope</span><span class="v">233</span>
+            <span class="k">Tool calls captured</span><span class="v">52,634,118</span>
+            <span class="k">Incidents resolved</span><span class="v" style="color:var(--color-danger)">14 (all closed)</span>
+            <span class="k">Signed by</span><span class="v">svalin.evidence.v2</span>
+            <span class="k">Hash</span><span class="v" style="font-size:11px">0xa1c8…f24e</span>
+            <span class="k">Status</span><span class="v" style="color:var(--color-success)">● ready to export</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Strip -->
+  <section class="cta-strip">
+    <div class="page">
+      <div class="cta-inner">
+        <h2>See what AI coding agents <em>accessed yesterday</em>.<br>Without asking a single engineer.</h2>
+        <a class="demo-btn" href="/demo">Request a demo <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="page">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px">
+          <img src="/assets/logo.svg" alt="" width="26" height="26" />
+          <div style="display:flex;flex-direction:column;line-height:1">
+            <span class="wordmark">SVALIN</span>
+            <span class="subtitle">AI Governance Platform</span>
+          </div>
+        </div>
+        <p>AI productivity, with the observability your CISO needs. Built in Berlin.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="/about">About Svalin</a></li>
+          <li><a href="/team">The team</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <ul>
+          <li><a href="/how-it-works">How it works</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/demo">Request a demo</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/terms">Terms of service</a></li>
+          <li><a href="/privacy">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Svalin · Built in Berlin, Germany</span>
+      <div class="socials">
+        <a href="https://www.linkedin.com/company/svalin-hq/about/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v14H.22V8zm7.5 0h4.37v1.92h.06c.61-1.16 2.1-2.39 4.32-2.39 4.62 0 5.47 3.04 5.47 7v7.47h-4.56V15.4c0-1.71-.03-3.91-2.38-3.91-2.39 0-2.76 1.86-2.76 3.78V22h-4.56V8z"/></svg>
+        </a>
+        <a href="https://x.com/svalinHQ" target="_blank" rel="noopener noreferrer" aria-label="X" title="X">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.5 8.57L23 22h-6.797l-5.32-6.96L4.8 22H1.54l8.02-9.165L1 2h6.96l4.81 6.36L18.244 2zm-1.19 18h1.83L7.04 4H5.08l11.974 16z"/></svg>
+        </a>
+        <a href="https://bsky.app/profile/svalinhq.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky" title="Bluesky">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.277.04-.415.056-3.911.58-7.386 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.296 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="cookie-bar" class="cookie-bar" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cookie-bar-inner">
+    <div class="cookie-text">
+      <strong>Cookies &amp; analytics.</strong>
+      <span>We use Google Analytics to understand how this site is used. Nothing is stored until you accept.</span>
+      <a href="/privacy">Privacy policy</a>
+    </div>
+    <div class="cookie-actions">
+      <button class="ghost-btn js-decline">Decline</button>
+      <button class="demo-btn js-accept">Accept</button>
+    </div>
+  </div>
+</div>
+<script src="/js/interactions.js"></script>
+
 </body>
 </html>

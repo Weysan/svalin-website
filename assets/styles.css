@@ -1242,8 +1242,10 @@
   }
   .burger-btn:hover { background: var(--svalin-ice); }
   .burger-btn svg { display: block; }
+  .burger-btn svg[hidden] { display: none; } /* prevent display:block from overriding the hidden attribute */
 
   .mobile-menu {
+    display: none; /* shown via .open class added by JS */
     position: fixed;
     top: 65px; left: 0; right: 0;
     z-index: 48;
@@ -1252,9 +1254,10 @@
     -webkit-backdrop-filter: saturate(140%) blur(12px);
     border-bottom: 1px solid var(--svalin-border);
     padding: 8px 24px 28px;
-    display: flex; flex-direction: column;
+    flex-direction: column;
     box-shadow: 0 12px 32px -8px rgba(13,27,42,0.12);
   }
+  .mobile-menu.open { display: flex; }
   .mobile-nav-link {
     display: block;
     font-size: 17px; font-weight: 500;
@@ -1331,6 +1334,7 @@
 
   /* --- COOKIE CONSENT --- */
   .cookie-bar {
+    display: none; /* shown via .visible class added by JS */
     position: fixed; left: 16px; right: 16px; bottom: 16px;
     z-index: 100;
     border: 1px solid var(--svalin-border);
@@ -1341,6 +1345,7 @@
     max-width: 720px;
     margin: 0 auto;
   }
+  .cookie-bar.visible { display: block; }
   .cookie-bar-inner {
     display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center;
   }

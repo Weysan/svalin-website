@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Svalin — Observability for AI coding agents</title>
-  <meta name="description" content="AI productivity, with the observability your CISO needs. Svalin is a European observability platform for AI coding agents — every Cursor, Claude Code and Gemini session, captured for compliance." />
+  <title>Svalin — AI Governance Platform</title>
+  <meta name="description" content="Svalin gives security and compliance teams full observability over AI coding agent activity across the fleet — without changing how engineers work." />
   <link rel="canonical" href="https://svalinhq.com/" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#0D1B2A" />
@@ -12,8 +12,8 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Svalin" />
-  <meta property="og:title" content="Svalin — Observability for AI coding agents" />
-  <meta property="og:description" content="AI productivity, with the observability your CISO needs. Svalin is a European observability platform for AI coding agents — every Cursor, Claude Code and Gemini session, captured for compliance." />
+  <meta property="og:title" content="Svalin — AI Governance Platform" />
+  <meta property="og:description" content="Svalin gives security and compliance teams full observability over AI coding agent activity across the fleet — without changing how engineers work." />
   <meta property="og:url" content="https://svalinhq.com/" />
   <meta property="og:image" content="https://svalinhq.com/assets/logo.svg" />
   <meta property="og:locale" content="en_US" />
@@ -21,8 +21,8 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@svalinHQ" />
-  <meta name="twitter:title" content="Svalin — Observability for AI coding agents" />
-  <meta name="twitter:description" content="AI productivity, with the observability your CISO needs. Svalin is a European observability platform for AI coding agents — every Cursor, Claude Code and Gemini session, captured for compliance." />
+  <meta name="twitter:title" content="Svalin — AI Governance Platform" />
+  <meta name="twitter:description" content="Svalin gives security and compliance teams full observability over AI coding agent activity across the fleet — without changing how engineers work." />
   <meta name="twitter:image" content="https://svalinhq.com/assets/logo.svg" />
 
   <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
@@ -37,35 +37,339 @@
     function gtag(){ dataLayer.push(arguments); }
     window.gtag = gtag;
     gtag('consent', 'default', {
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      analytics_storage: 'denied',
-      functionality_storage: 'denied',
-      personalization_storage: 'denied',
-      security_storage: 'granted',
-      wait_for_update: 500
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: 'denied', functionality_storage: 'denied',
+      personalization_storage: 'denied', security_storage: 'granted', wait_for_update: 500
     });
     try {
       var __sv = localStorage.getItem('svalin_consent');
-      if (__sv === 'granted') {
-        gtag('consent', 'update', { analytics_storage: 'granted' });
-      }
+      if (__sv === 'granted') { gtag('consent', 'update', { analytics_storage: 'granted' }); }
     } catch (e) {}
     gtag('js', new Date());
     gtag('config', 'G-1TG3V0DWW3', { anonymize_ip: true });
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TG3V0DWW3"></script>
-
 </head>
 <body>
-  <div id="root"></div>
 
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<header class="topbar">
+  <div class="page topbar-inner">
+    <a class="brand" href="/">
+      <img src="/assets/logo.svg" alt="" width="26" height="26" />
+      <div class="wm-block">
+        <span class="wordmark">SVALIN</span>
+        <span class="subtitle">AI Governance Platform</span>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a class="nav-link" data-active="true" href="/">Home</a>
+      <a class="nav-link" data-active="false" href="/how-it-works">How it works</a>
+      <a class="nav-link" data-active="false" href="/pricing">Pricing</a>
+      <a class="nav-link" data-active="false" href="/team">Team</a>
+    </nav>
+    <div class="topbar-right">
+      <a class="demo-btn topbar-demo" href="/demo">Request a demo <span class="arrow">→</span></a>
+      <button id="burger-btn" class="burger-btn" aria-label="Open navigation" aria-expanded="false">
+        <svg class="icon-burger" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="19" y2="6" /><line x1="3" y1="11" x2="19" y2="11" /><line x1="3" y1="16" x2="19" y2="16" />
+        </svg>
+        <svg class="icon-close" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" hidden>
+          <line x1="4" y1="4" x2="18" y2="18" /><line x1="18" y1="4" x2="4" y2="18" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation">
+  <a class="mobile-nav-link active" href="/">Home</a>
+  <a class="mobile-nav-link" href="/how-it-works">How it works</a>
+  <a class="mobile-nav-link" href="/pricing">Pricing</a>
+  <a class="mobile-nav-link" href="/team">Team</a>
+  <a class="demo-btn" href="/demo" style="margin-top:16px;justify-content:center">Request a demo <span class="arrow">→</span></a>
+</nav>
 
-  <script type="text/babel" src="/js/chrome.jsx"></script>
-  <script type="text/babel" src="/js/pages/home.jsx"></script>
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="page">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">
+            <span>Svalin · Observability for AI coding agents</span>
+          </div>
+          <h1 class="display">
+            Engineers keep their speed.<br>
+            <em>Security keeps the receipts.</em>
+          </h1>
+          <p class="lede">
+            Svalin is an observability platform for AI coding agents. The local agent ships through your MDM and watches every Cursor, Claude Code, Copilot, and Windsurf session on the device — without changing a single engineering workflow. Security and compliance get the full picture, in one place.
+          </p>
+          <div class="hero-ctas">
+            <a class="demo-btn" href="/demo">Request a demo <span class="arrow">→</span></a>
+            <a class="ghost-btn" href="/how-it-works">How it works →</a>
+          </div>
+        </div>
+        <div class="hero-shot">
+          <img src="/assets/shot-hero-conversation.png" alt="Svalin conversation detail — governed Claude Code session with duration, token counts, model usage, environment snapshot, active MCP servers, policy version and a chronological timeline of sessions, LLM calls and tool invocations" />
+        </div>
+      </div>
+      <div class="hero-strip">
+        <div class="label">Telemetry foundations for</div>
+        <div class="compliance">
+          <span>SOC&nbsp;2</span>
+          <span>ISO&nbsp;27001</span>
+          <span>EU&nbsp;AI&nbsp;Act</span>
+          <span>GDPR</span>
+          <span>DORA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bento -->
+  <section class="bento">
+    <div class="page">
+      <div class="bento-grid">
+        <div class="bento-card">
+          <div class="head">
+            <div class="overline"><span class="dot"></span>The agent event ledger</div>
+            <h3>One stream for every Cursor, Claude or Gemini session your fleet ran.</h3>
+          </div>
+          <div class="shot crop">
+            <img src="/assets/shot-conversations.png" alt="Svalin conversations table with 85 governed sessions across Claude Code and Gemini CLI" />
+          </div>
+          <div class="caption">
+            Svalin aggregates fragmented agent sessions into a centralized compliance stream. Filter by local OS user, active MCP servers, or behavioral risk signatures across your entire machine fleet.
+          </div>
+        </div>
+        <div class="bento-stack">
+          <div class="bento-card">
+            <div class="head">
+              <div class="overline"><span class="dot"></span>Host environment mapping</div>
+              <h3>Every AI coding tool on every device, mapped without asking.</h3>
+            </div>
+            <div class="shot crop">
+              <img src="/assets/shot-detected-tools.png" alt="Detected and governed AI coding tools — Claude Desktop, Claude CLI, Gemini CLI, Cursor with their config file paths" />
+            </div>
+            <div class="caption">
+              Svalin maps your active configuration matrix automatically. It monitors system directories for Cursor, Gemini and Claude without asking developers to change their environment.
+            </div>
+          </div>
+          <div class="bento-card">
+            <div class="head">
+              <div class="overline"><span class="dot"></span>Immutable state telemetry</div>
+              <h3>Every heartbeat, validated. The chain breaks loudly when it should.</h3>
+            </div>
+            <div class="shot code">
+              <pre class="json-block"><span class="punct">{</span>
+  <span class="key">"id"</span><span class="punct">: </span><span class="str">"evt_47495ce6-5cc5-403c-9dc2-70cefe6db229"</span><span class="punct">,</span>
+  <span class="key">"scope"</span><span class="punct">: </span><span class="str">"agent"</span><span class="punct">,</span>
+  <span class="key">"device_hostname"</span><span class="punct">: </span><span class="str">"Raphaels-MacBook-Pro-2.local"</span><span class="punct">,</span>
+  <span class="key">"os_user"</span><span class="punct">: </span><span class="str">"raphaelgoncalves"</span><span class="punct">,</span>
+  <span class="key">"os_platform"</span><span class="punct">: </span><span class="str">"macos"</span><span class="punct">,</span>
+  <span class="key">"agent_version"</span><span class="punct">: </span><span class="str">"v0.5.0-prod"</span><span class="punct">,</span>
+  <span class="key">"governance_status"</span><span class="punct">: </span><span class="ok">"governed"</span><span class="punct">,</span>
+  <span class="key">"event_type"</span><span class="punct">: </span><span class="str">"heartbeat"</span><span class="punct">,</span>
+  <span class="key">"chain_status"</span><span class="punct">: </span><span class="bad">"broken"</span><span class="punct">,</span>
+  <span class="key">"occurred_at"</span><span class="punct">: </span><span class="str">"2026-05-19T18:28:15.831Z"</span><span class="punct">,</span>
+  <span class="key">"payload"</span><span class="punct">: {</span>
+    <span class="key">"interval_ms"</span><span class="punct">: </span><span class="num">30000</span><span class="punct">,</span>
+    <span class="key">"active_sessions"</span><span class="punct">: </span><span class="num">0</span><span class="punct">,</span>
+    <span class="key">"governance_status"</span><span class="punct">: </span><span class="ok">"governed"</span>
+  <span class="punct">}</span>
+<span class="punct">}</span></pre>
+            </div>
+            <div class="caption">
+              Svalin structures every agent heartbeat and system log into validated state payloads. Security teams can instantly verify telemetry integrity right out of the box.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Principles -->
+  <section class="block">
+    <div class="page">
+      <div class="section-head">
+        <h2 class="section-title">Built around one idea: <em style="font-style:normal;color:var(--svalin-muted)">observe without getting in the way.</em></h2>
+      </div>
+      <div class="principles">
+        <div class="principle-list">
+          <div class="principle">
+            <span class="num">01</span>
+            <h3>Engineers don't change a thing.</h3>
+            <p>Deployed through your MDM in the same wave as any other endpoint. The agent watches Cursor, Claude Code, Copilot, Windsurf and the MCP servers they connect to — invisibly, on the device. No proxy, no new IDE settings, no tickets in the engineering backlog.</p>
+          </div>
+          <div class="principle">
+            <span class="num">02</span>
+            <h3>One registry, every surface.</h3>
+            <p>Governed devices, supported AI coding agents, connected MCP servers — all in one place. The CISO surface answers "who is using what, where" without an email thread.</p>
+          </div>
+          <div class="principle">
+            <span class="num">03</span>
+            <h3>Incidents, not log floods.</h3>
+            <p>Secrets, credentials, PII and policy violations surface as incidents — triaged, owned, resolved. Everything else stays in the timeline where it belongs.</p>
+          </div>
+          <div class="principle">
+            <span class="num">04</span>
+            <h3>Compliance, as a side effect.</h3>
+            <p>A signed, append-only audit trail of every call by every AI agent on every device. SOC 2, ISO 27001 and EU AI Act evidence falls out of the system you were going to deploy anyway.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prose -->
+  <section class="block ice">
+    <div class="page">
+      <div class="section-head">
+        <h2 class="section-title">You have an AI policy. <em style="color:var(--svalin-muted);font-style:normal">You don't have proof anyone follows it.</em></h2>
+      </div>
+      <div class="prose-grid">
+        <div>
+          <p>Every InfoSec lead we talk to has the same answer: "we have a document registry." A Notion page, a Confluence space, a PDF that lists the AI coding tools they sanction and how they should be used. None of them can tell you, today, which engineer is actually running which agent against which MCP server.</p>
+          <p class="muted">The gap between the document and reality is where audit findings come from. It is also where credential leaks and unsanctioned MCP servers slip in.</p>
+          <p class="muted">Svalin closes the gap. The platform tells you which AI coding agents are in use across the fleet, which MCP servers they are connected to, and whether each device matches the policy you wrote — without asking engineers to log a thing.</p>
+        </div>
+        <aside class="prose-aside">
+          <dl>
+            <div>
+              <dt>Data residency</dt>
+              <dd>European servers (eu-central-1, Frankfurt). Encrypted at rest. Customer-managed key held outside any US cloud.</dd>
+            </div>
+            <div>
+              <dt>Transparency</dt>
+              <dd>The agent is inspectable on the device. Any engineer can see, at any moment, exactly what is going through it — a GDPR baseline, and a feature.</dd>
+            </div>
+            <div>
+              <dt>Posture</dt>
+              <dd>Observability first. Enforcement when you choose. The agent and the local policy cache are tamper-checked — manual edits don't hold.</dd>
+            </div>
+            <div>
+              <dt>Footprint</dt>
+              <dd>Single signed binary, &lt; 18 MB. Deployed through Jamf, Kandji, Intune.</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature pair -->
+  <section class="block">
+    <div class="page">
+      <div class="section-head">
+        <h2 class="section-title">Two surfaces. <em style="font-style:normal;color:var(--svalin-muted)">One source of truth.</em></h2>
+      </div>
+      <div class="feature-pair">
+        <div class="feature-body">
+          <div class="feature-block">
+            <h3><span class="idx">A · Local agent</span></h3>
+            <p>Lives on the device, deployed by your MDM in the same wave as any other endpoint tool. Watches every AI coding session in the background — and applies policy locally, with no network round-trip.</p>
+            <div class="keylines">
+              <div>MDM deployment (Jamf, Kandji, Intune)</div>
+              <div>Local policy engine — zero decision latency</div>
+              <div>Captures tool calls, file access, MCP traffic</div>
+              <div>PII and credential detection on-device</div>
+            </div>
+          </div>
+          <div class="feature-block">
+            <h3><span class="idx">B · Governance platform</span></h3>
+            <p>The CISO and CTO surface. Registry of every governed device, every supported AI coding agent, every connected MCP server. Central policy management and the full audit trail in one place.</p>
+            <div class="keylines">
+              <div>Device, agent and MCP server registry</div>
+              <div>Central policy management, pushed to every agent</div>
+              <div>Incident queue and audit log exploration</div>
+              <div>SOC 2 / ISO 27001 / AI Act evidence export</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Strip -->
+  <section class="cta-strip">
+    <div class="page">
+      <div class="cta-inner">
+        <h2>See what AI coding agents <em>accessed yesterday</em>.<br>Without asking a single engineer.</h2>
+        <a class="demo-btn" href="/demo">Request a demo <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="page">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px">
+          <img src="/assets/logo.svg" alt="" width="26" height="26" />
+          <div style="display:flex;flex-direction:column;line-height:1">
+            <span class="wordmark">SVALIN</span>
+            <span class="subtitle">AI Governance Platform</span>
+          </div>
+        </div>
+        <p>AI productivity, with the observability your CISO needs. Built in Berlin.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="/about">About Svalin</a></li>
+          <li><a href="/team">The team</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <ul>
+          <li><a href="/how-it-works">How it works</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/demo">Request a demo</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/terms">Terms of service</a></li>
+          <li><a href="/privacy">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Svalin · Built in Berlin, Germany</span>
+      <div class="socials">
+        <a href="https://www.linkedin.com/company/svalin-hq/about/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v14H.22V8zm7.5 0h4.37v1.92h.06c.61-1.16 2.1-2.39 4.32-2.39 4.62 0 5.47 3.04 5.47 7v7.47h-4.56V15.4c0-1.71-.03-3.91-2.38-3.91-2.39 0-2.76 1.86-2.76 3.78V22h-4.56V8z"/></svg>
+        </a>
+        <a href="https://x.com/svalinHQ" target="_blank" rel="noopener noreferrer" aria-label="X" title="X">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.5 8.57L23 22h-6.797l-5.32-6.96L4.8 22H1.54l8.02-9.165L1 2h6.96l4.81 6.36L18.244 2zm-1.19 18h1.83L7.04 4H5.08l11.974 16z"/></svg>
+        </a>
+        <a href="https://bsky.app/profile/svalinhq.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky" title="Bluesky">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.277.04-.415.056-3.911.58-7.386 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.296 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="cookie-bar" class="cookie-bar" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cookie-bar-inner">
+    <div class="cookie-text">
+      <strong>Cookies &amp; analytics.</strong>
+      <span>We use Google Analytics to understand how this site is used. Nothing is stored until you accept.</span>
+      <a href="/privacy">Privacy policy</a>
+    </div>
+    <div class="cookie-actions">
+      <button class="ghost-btn js-decline">Decline</button>
+      <button class="demo-btn js-accept">Accept</button>
+    </div>
+  </div>
+</div>
+<script src="/js/interactions.js"></script>
+
 </body>
 </html>
