@@ -1528,3 +1528,358 @@
     line-height: 1.65;
     max-width: 72ch;
   }
+
+  /* ── Scroll animations ──────────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .anim-ready { opacity: 0; transform: translateY(20px); }
+  .anim-in    { animation: fadeUp 0.55s ease forwards; }
+
+  /* ── Section sub-headline ───────────────────────────────────── */
+  .section-sub {
+    color: var(--svalin-muted);
+    font-size: 17px;
+    line-height: 1.6;
+    max-width: 60ch;
+    margin: 18px 0 0;
+  }
+
+  /* ── Stats strip ────────────────────────────────────────────── */
+  .stats-strip-section {
+    padding: 48px 0;
+    border-bottom: 1px solid var(--svalin-border);
+  }
+  .stats-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .stat-pill {
+    flex: 1;
+    text-align: center;
+    padding: 0 40px;
+  }
+  .stat-divider {
+    width: 1px;
+    height: 56px;
+    background: var(--svalin-border);
+    flex-shrink: 0;
+  }
+  .stat-pill-num {
+    display: block;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--env-accent);
+    line-height: 1;
+    letter-spacing: var(--tracking-display);
+  }
+  .stat-pill-label {
+    display: block;
+    font-size: 12px;
+    color: var(--svalin-muted);
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-overline);
+    font-family: var(--mono);
+  }
+
+  /* ── Registry UI ────────────────────────────────────────────── */
+  .registry-ui {
+    background: var(--svalin-surface);
+    border: 1px solid var(--svalin-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 2px 24px -6px rgba(13,27,42,0.08);
+  }
+  .registry-thead {
+    display: grid;
+    grid-template-columns: 220px 1fr 80px;
+    gap: 16px;
+    padding: 12px 24px;
+    background: var(--svalin-ice);
+    border-bottom: 1px solid var(--svalin-border);
+  }
+  .registry-thead span {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--svalin-muted);
+    font-family: var(--mono);
+  }
+  .registry-row {
+    display: grid;
+    grid-template-columns: 220px 1fr 80px;
+    gap: 16px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--svalin-border);
+    align-items: center;
+    transition: background 0.15s ease;
+  }
+  .registry-row:last-child { border-bottom: none; }
+  .registry-row:hover { background: var(--svalin-ice); }
+  .client-name {
+    display: block;
+    font-weight: 600;
+    color: var(--svalin-navy);
+    font-size: 15px;
+  }
+  .client-id {
+    display: block;
+    font-size: 12px;
+    font-family: 'SF Mono', 'Fira Code', ui-monospace, monospace;
+    color: var(--svalin-muted);
+    margin-top: 2px;
+  }
+  .badge-ungoverned {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: #FEF3C7;
+    color: #92400E;
+    border: 1px solid #FDE68A;
+    border-radius: 4px;
+    padding: 2px 8px;
+  }
+  .registry-versions {
+    font-size: 12.5px;
+    font-family: 'SF Mono', 'Fira Code', ui-monospace, monospace;
+    color: var(--svalin-muted);
+    word-break: break-word;
+  }
+  .registry-devices {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--svalin-navy);
+    text-align: right;
+  }
+
+  /* ── MCP list ───────────────────────────────────────────────── */
+  .mcp-list {
+    background: var(--svalin-surface);
+    border: 1px solid var(--svalin-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 2px 24px -6px rgba(13,27,42,0.08);
+  }
+  .mcp-thead {
+    display: grid;
+    grid-template-columns: 1fr 180px 140px 80px;
+    gap: 16px;
+    padding: 12px 24px;
+    background: var(--svalin-ice);
+    border-bottom: 1px solid var(--svalin-border);
+  }
+  .mcp-thead span {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--svalin-muted);
+    font-family: var(--mono);
+  }
+  .mcp-row {
+    display: grid;
+    grid-template-columns: 1fr 180px 140px 80px;
+    gap: 16px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--svalin-border);
+    align-items: start;
+    transition: background 0.15s ease;
+  }
+  .mcp-row:last-child { border-bottom: none; }
+  .mcp-row:hover { background: var(--svalin-ice); }
+  .mcp-type {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: var(--mono);
+    margin-bottom: 6px;
+  }
+  .mcp-type.remote { background: #EDE9FE; color: #5B21B6; }
+  .mcp-type.stdio  { background: #DCFCE7; color: #166534; }
+  .mcp-server-url {
+    font-size: 12.5px;
+    font-family: 'SF Mono', 'Fira Code', ui-monospace, monospace;
+    color: var(--svalin-navy);
+    word-break: break-all;
+  }
+  .mcp-names {
+    font-size: 14px;
+    color: var(--svalin-muted);
+    padding-top: 26px;
+  }
+  .mcp-versions-col {
+    font-size: 12.5px;
+    font-family: 'SF Mono', 'Fira Code', ui-monospace, monospace;
+    color: var(--svalin-muted);
+    padding-top: 26px;
+  }
+  .mcp-devices {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--svalin-navy);
+    text-align: right;
+    padding-top: 26px;
+  }
+  .mcp-footnote {
+    margin: 20px 0 0;
+    font-size: 12px;
+    font-family: var(--mono);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-overline);
+    color: var(--svalin-muted);
+    text-align: right;
+  }
+
+  /* ── Fleet Dashboard ────────────────────────────────────────── */
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 32px;
+  }
+  .dashboard-card {
+    background: var(--svalin-surface);
+    border: 1px solid var(--svalin-border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: 0 2px 24px -6px rgba(13,27,42,0.08);
+  }
+  .dashboard-card-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--svalin-navy);
+    margin-bottom: 4px;
+  }
+  .dashboard-card-sub {
+    font-size: 13px;
+    color: var(--svalin-muted);
+    margin-bottom: 28px;
+  }
+  .donut-chart {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+  .donut {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: conic-gradient(
+      #4F46E5 0% 50%,
+      #60A5FA 50% 87.5%,
+      #34D399 87.5% 100%
+    );
+    -webkit-mask: radial-gradient(farthest-side, transparent 57%, #000 58%);
+    mask: radial-gradient(farthest-side, transparent 57%, #000 58%);
+  }
+  .donut-legend { display: flex; flex-direction: column; gap: 16px; }
+  .legend-item { display: flex; align-items: center; gap: 12px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+  .legend-label { font-size: 14px; color: var(--svalin-navy); flex: 1; }
+  .legend-count { font-size: 14px; font-weight: 600; color: var(--svalin-muted); }
+  .dashboard-aside { display: flex; flex-direction: column; gap: 20px; }
+  .dashboard-kpi {
+    border: 1px solid var(--svalin-border);
+    border-radius: var(--radius-lg);
+    padding: 22px 24px;
+    background: var(--svalin-surface);
+    box-shadow: 0 1px 8px -4px rgba(13,27,42,0.06);
+    transition: border-color 0.15s ease;
+  }
+  .dashboard-kpi:hover { border-color: var(--env-accent); }
+  .kpi-num {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--env-accent);
+    line-height: 1;
+    letter-spacing: var(--tracking-display);
+  }
+  .kpi-label {
+    font-size: 13px;
+    color: var(--svalin-muted);
+    margin-top: 6px;
+    line-height: 1.45;
+  }
+
+  /* ── Booking modal ──────────────────────────────────────────── */
+  @keyframes gcalFadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .gcal-overlay {
+    position: fixed; inset: 0; z-index: 300;
+    background: rgba(13,27,42,0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+    animation: gcalFadeIn 0.2s ease;
+  }
+  .gcal-modal {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 860px;
+    height: min(82vh, 740px);
+    position: relative;
+    box-shadow: 0 32px 80px -24px rgba(13,27,42,0.5);
+    display: flex;
+    flex-direction: column;
+  }
+  .gcal-modal iframe {
+    flex: 1; width: 100%; height: 100%; border: none; display: block;
+  }
+  .gcal-close {
+    position: absolute; top: 12px; right: 12px; z-index: 10;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid var(--svalin-border);
+    border-radius: 50%;
+    width: 32px; height: 32px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--svalin-navy);
+    transition: background 0.15s ease;
+  }
+  .gcal-close:hover { background: var(--svalin-ice); }
+  @media (max-width: 720px) {
+    .gcal-overlay { padding: 0; align-items: flex-end; }
+    .gcal-modal { border-radius: 12px 12px 0 0; height: 90dvh; max-width: 100%; }
+  }
+
+  /* ── New section mobile overrides ───────────────────────────── */
+  @media (max-width: 1024px) {
+    .dashboard-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 720px) {
+    .stats-inner { flex-direction: column; gap: 32px; }
+    .stat-divider { width: 80px; height: 1px; }
+    .stat-pill { padding: 0; }
+    .stat-pill-num { font-size: 40px; }
+
+    .registry-thead { grid-template-columns: 1fr 60px; }
+    .registry-thead span:nth-child(2) { display: none; }
+    .registry-row { grid-template-columns: 1fr 60px; }
+    .registry-versions { display: none; }
+
+    .mcp-thead { grid-template-columns: 1fr 60px; }
+    .mcp-thead span:nth-child(2),
+    .mcp-thead span:nth-child(3) { display: none; }
+    .mcp-row { grid-template-columns: 1fr 60px; }
+    .mcp-names { display: none; }
+    .mcp-versions-col { display: none; }
+    .mcp-devices { padding-top: 26px; }
+
+    .donut-chart { flex-direction: column; align-items: flex-start; gap: 24px; }
+    .donut { width: 140px; height: 140px; }
+    .kpi-num { font-size: 32px; }
+  }

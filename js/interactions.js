@@ -1,4 +1,4 @@
-/* Svalin — vanilla JS interactions (burger menu, FAQ accordion, cookie consent) */
+/* Svalin — vanilla JS interactions (burger menu, FAQ accordion, cookie consent, scroll animations) */
 (function () {
   'use strict';
 
@@ -86,9 +86,102 @@
     });
   }
 
+  /* ── Scroll-triggered fade-up animations ─────────────────────── */
+  function initScrollAnimations() {
+    var els = document.querySelectorAll('[data-anim]');
+    if (!els.length || !window.IntersectionObserver) {
+      els.forEach(function (el) { el.style.opacity = '1'; el.style.transform = 'none'; });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var delay = e.target.getAttribute('data-anim-delay');
+        if (delay) e.target.style.animationDelay = delay + 'ms';
+        e.target.classList.add('anim-in');
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    els.forEach(function (el) {
+      el.classList.add('anim-ready');
+      io.observe(el);
+    });
+  }
+
+  /* ── Animated counters ────────────────────────────────────────── */
+  function initCounters() {
+    var counters = document.querySelectorAll('[data-count]');
+    if (!counters.length || !window.IntersectionObserver) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        var el = e.target;
+        var target = parseInt(el.getAttribute('data-count'), 10);
+        var duration = 1000;
+        var start = null;
+        function tick(now) {
+          if (!start) start = now;
+          var elapsed = now - start;
+          var progress = Math.min(elapsed / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(eased * target);
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ── Booking modal (intercepts all [href="/demo"] clicks) ────── */
+  function initBookingWidget() {
+    var GCAL_URL = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ1yL-YuI5VgWAKt4UikfstZso_R4BALLcTjlSOASef3o4ctqC4SI3POSp4gzacklz0-K4DMEM-0?gv=true';
+
+    function openModal() {
+      var overlay = document.createElement('div');
+      overlay.className = 'gcal-overlay';
+      overlay.setAttribute('role', 'dialog');
+      overlay.setAttribute('aria-modal', 'true');
+      overlay.setAttribute('aria-label', 'Book a demo');
+      overlay.innerHTML =
+        '<div class="gcal-modal">' +
+          '<button class="gcal-close" aria-label="Close">' +
+            '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">' +
+              '<line x1="2" y1="2" x2="14" y2="14"/><line x1="14" y1="2" x2="2" y2="14"/>' +
+            '</svg>' +
+          '</button>' +
+          '<iframe src="' + GCAL_URL + '" title="Book a demo" allowfullscreen></iframe>' +
+        '</div>';
+      document.body.appendChild(overlay);
+      document.body.style.overflow = 'hidden';
+
+      function close() {
+        overlay.remove();
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', onKey);
+      }
+      function onKey(e) { if (e.key === 'Escape') close(); }
+
+      overlay.querySelector('.gcal-close').addEventListener('click', close);
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+      document.addEventListener('keydown', onKey);
+    }
+
+    document.querySelectorAll('a[href="/demo"]').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        openModal();
+      });
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initCookies();
     initBurger();
     initFaq();
+    initScrollAnimations();
+    initCounters();
+    initBookingWidget();
   });
 })();
