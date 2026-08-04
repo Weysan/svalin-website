@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Svalin — AI Governance & Observability for Coding Agents</title>
-  <meta name="description" content="Svalin gives security and compliance teams full observability over AI coding agent activity across the fleet — without changing how engineers work." />
+  <title>Svalin — AI Coding Agent Governance & Shadow AI Control</title>
+  <meta name="description" content="Svalin governs AI coding agents at the device layer — surfacing Shadow AI, tracing causal intent, and enforcing policy. Governance beyond passive log dumps." />
   <link rel="canonical" href="https://www.svalinhq.com/" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#0D1B2A" />
@@ -12,8 +12,8 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Svalin" />
-  <meta property="og:title" content="Svalin — AI Governance & Observability for Coding Agents" />
-  <meta property="og:description" content="Svalin gives security and compliance teams full observability over AI coding agent activity across the fleet — without changing how engineers work." />
+  <meta property="og:title" content="Svalin — AI Coding Agent Governance & Shadow AI Control" />
+  <meta property="og:description" content="Svalin governs AI coding agents at the device layer — surfacing Shadow AI, tracing causal intent, and enforcing policy. Governance beyond passive log dumps." />
   <meta property="og:url" content="https://www.svalinhq.com/" />
   <meta property="og:image" content="https://www.svalinhq.com/assets/logo.png" />
   <meta property="og:locale" content="en_US" />
@@ -21,8 +21,8 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@svalinHQ" />
-  <meta name="twitter:title" content="Svalin — AI Governance & Observability for Coding Agents" />
-  <meta name="twitter:description" content="Svalin gives security and compliance teams full observability over AI coding agent activity across the fleet — without changing how engineers work." />
+  <meta name="twitter:title" content="Svalin — AI Coding Agent Governance & Shadow AI Control" />
+  <meta name="twitter:description" content="Svalin governs AI coding agents at the device layer — surfacing Shadow AI, tracing causal intent, and enforcing policy. Governance beyond passive log dumps." />
   <meta name="twitter:image" content="https://www.svalinhq.com/assets/logo.png" />
 
   <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
@@ -63,7 +63,7 @@
       "price": "0",
       "priceCurrency": "USD"
     },
-    "description": "Svalin is an observability and governance platform for AI coding agents, providing security and compliance teams full visibility over agent activity across their machine fleet.",
+    "description": "Svalin is an AI coding agent governance platform. It runs on the developer endpoint to surface Shadow AI, attribute causal intent, and enforce policy in real time — replacing passive log dumps with actionable governance.",
     "publisher": {
       "@type": "Organization",
       "name": "Svalin",
@@ -115,326 +115,206 @@
 </nav>
 
 <main>
-  <!-- Hero -->
-  <section class="hero">
+  <!-- Section 1 — Hero -->
+  <section class="hero hero-redesign">
     <div class="page">
-      <div class="hero-grid">
-        <div>
-          <div class="eyebrow">
-            <span>Svalin · Observability for AI coding agents</span>
-          </div>
-          <h1 class="display">
-            Engineers keep their speed.<br>
-            <em>Security keeps the receipts.</em>
-          </h1>
-          <p class="lede">
-            Svalin deploys through your MDM and silently maps every AI coding agent, every MCP server, and every session across the fleet. Security gets a live registry, a spawn gate on MCP traffic, and a real-time dashboard — without a single engineering impact.
-          </p>
-          <div class="hero-ctas">
-            <a class="demo-btn" href="/demo">Book a demo <span class="arrow">→</span></a>
-            <a class="ghost-btn" href="/how-it-works">How it works →</a>
-          </div>
+      <div class="eyebrow" data-anim>
+        <span>Svalin · Governance for AI coding agents</span>
+      </div>
+      <div class="problem-frame">
+        <div class="problem-card" data-anim>
+          <div class="problem-card-q">Who did this?</div>
+          <p>Was a production access request triggered by a developer's prompt, an automated skill file, or an autonomous AI decision?</p>
         </div>
-        <div class="hero-shot">
-          <img src="/assets/shot-hero-conversation.png" alt="Svalin conversation detail — governed Claude Code session with duration, token counts, model usage, environment snapshot, active MCP servers, policy version and a chronological timeline of sessions, LLM calls and tool invocations" />
+        <div class="problem-card" data-anim data-anim-delay="100">
+          <div class="problem-card-q">Should this have been allowed?</div>
+          <p>Your policy bans hardcoded credentials. Did every agent follow it across every tool and repository yesterday?</p>
         </div>
       </div>
-      <div class="hero-strip">
-        <div class="label">Telemetry foundations for</div>
-        <div class="compliance">
-          <span>SOC&nbsp;2</span>
-          <span>ISO&nbsp;27001</span>
-          <span>EU&nbsp;AI&nbsp;Act</span>
-          <span>GDPR</span>
-          <span>DORA</span>
+      <div class="hero-core" data-anim data-anim-delay="150">
+        <h1 class="display">Govern AI coding agents.<br><em>Across every tool. From one platform.</em></h1>
+        <p class="lede">Stop managing passive log dumps. Svalin operates locally on the developer endpoint to enforce security policy, trace causal intent, and block dangerous actions before they reach your infrastructure.</p>
+        <div class="hero-ctas">
+          <a class="demo-btn" href="/demo">Book a demo <span class="arrow">→</span></a>
+          <a class="ghost-btn" href="#capabilities">What it solves ↓</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Stats strip -->
-  <div class="stats-strip-section">
+  <!-- Section 2 — Problem Bar -->
+  <section class="problem-bar">
     <div class="page">
-      <div class="stats-inner">
-        <div class="stat-pill" data-anim>
-          <span class="stat-pill-num" data-count="7">7</span>
-          <span class="stat-pill-label">AI agent types detected</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-pill" data-anim data-anim-delay="100">
-          <span class="stat-pill-num" data-count="16">16</span>
-          <span class="stat-pill-label">MCP servers mapped</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-pill" data-anim data-anim-delay="200">
-          <span class="stat-pill-num" data-count="85">85</span>
-          <span class="stat-pill-label">governed sessions this month</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Agent Registry -->
-  <section class="block">
-    <div class="page">
-      <div class="section-head" data-anim>
-        <h2 class="section-title">Every agent your engineers run.<br><em style="font-style:normal;color:var(--svalin-muted)">Detected. Versioned. Governed.</em></h2>
-        <p class="section-sub">Svalin auto-detects every AI coding agent installed across the fleet — without engineers registering anything. See which clients are governed, which aren't, and every version currently in the wild.</p>
-      </div>
-      <div class="registry-ui">
-        <div class="registry-thead">
-          <span>CLIENT</span><span>VERSIONS IN THE WILD</span><span>DEVICES</span>
-        </div>
-        <div class="registry-row" data-anim data-anim-delay="50">
-          <div><span class="client-name">Claude Code</span><span class="client-id">claude-cli</span></div>
-          <div class="registry-versions">(v2.1.119, v2.1.139, v2.1.140, v2.1.185, v2.1.187, v2.1.193)</div>
-          <div class="registry-devices">6</div>
-        </div>
-        <div class="registry-row" data-anim data-anim-delay="100">
-          <div><span class="client-name">Claude Desktop</span><span class="client-id">claude-desktop</span></div>
-          <div class="registry-versions">(v1.12603.1, v1.14271.0, v1.15962.0)</div>
-          <div class="registry-devices">5</div>
-        </div>
-        <div class="registry-row" data-anim data-anim-delay="150">
-          <div><span class="client-name">Gemini CLI</span><span class="client-id">gemini-cli</span></div>
-          <div class="registry-versions">(v0.46.0)</div>
-          <div class="registry-devices">5</div>
-        </div>
-        <div class="registry-row" data-anim data-anim-delay="200">
-          <div><span class="client-name">Codex CLI</span><span class="client-id">codex</span><span class="badge-ungoverned">NOT GOVERNED</span></div>
-          <div class="registry-versions">—</div>
-          <div class="registry-devices">2</div>
-        </div>
-        <div class="registry-row" data-anim data-anim-delay="250">
-          <div><span class="client-name">GitHub Copilot</span><span class="client-id">copilot</span><span class="badge-ungoverned">NOT GOVERNED</span></div>
-          <div class="registry-versions">—</div>
-          <div class="registry-devices">2</div>
-        </div>
-        <div class="registry-row" data-anim data-anim-delay="300">
-          <div><span class="client-name">JetBrains Junie</span><span class="client-id">junie</span><span class="badge-ungoverned">NOT GOVERNED</span></div>
-          <div class="registry-versions">—</div>
-          <div class="registry-devices">2</div>
-        </div>
-        <div class="registry-row" data-anim data-anim-delay="350">
-          <div><span class="client-name">OpenCode</span><span class="client-id">opencode</span></div>
-          <div class="registry-versions">(v1.14.48, v1.17.10)</div>
-          <div class="registry-devices">2</div>
-        </div>
-      </div>
+      <p data-anim>Native compliance APIs only observe activity after execution, and only if developers log in with enterprise accounts.</p>
+      <p data-anim data-anim-delay="100">Svalin operates <em>at the device layer</em> — enforcing local control, tracing causal intent, and unifying governance across your entire developer fleet regardless of account type or tool choice.</p>
     </div>
   </section>
 
-  <!-- MCP Server Registry -->
-  <section class="block ice">
+  <!-- Section 3 — Capabilities -->
+  <section class="capabilities" id="capabilities">
     <div class="page">
-      <div class="section-head" data-anim>
-        <h2 class="section-title">Every MCP server, mapped automatically.<br><em style="font-style:normal;color:var(--svalin-muted)">With versions, per device.</em></h2>
-        <p class="section-sub">Svalin keeps a live registry of every MCP server configured across the fleet — remote endpoints and stdio processes — with the versions running on each device. No engineer registers anything.</p>
+      <div class="cap-head" data-anim>
+        <h2 class="section-title">Four problems. <em style="font-style:normal;color:var(--svalin-muted)">Zero log dumps.</em></h2>
       </div>
-      <div class="mcp-list">
-        <div class="mcp-thead">
-          <span>SERVER</span><span>NAMES USED</span><span>VERSIONS</span><span>DEVICES</span>
-        </div>
-        <div class="mcp-row" data-anim data-anim-delay="50">
-          <div>
-            <span class="mcp-type remote">REMOTE</span>
-            <div class="mcp-server-url">http://localhost:7777/svalin/svalin-observe/mcp</div>
-          </div>
-          <div class="mcp-names">svalin-observe</div>
-          <div class="mcp-versions-col">—</div>
-          <div class="mcp-devices">6</div>
-        </div>
-        <div class="mcp-row" data-anim data-anim-delay="100">
-          <div>
-            <span class="mcp-type stdio">STDIO</span>
-            <div class="mcp-server-url">code-intelligence</div>
-          </div>
-          <div class="mcp-names">code-intelligence</div>
-          <div class="mcp-versions-col">—</div>
-          <div class="mcp-devices">2</div>
-        </div>
-        <div class="mcp-row" data-anim data-anim-delay="150">
-          <div>
-            <span class="mcp-type remote">REMOTE</span>
-            <div class="mcp-server-url">https://mcp.context7.com/mcp</div>
-          </div>
-          <div class="mcp-names">context7</div>
-          <div class="mcp-versions-col">—</div>
-          <div class="mcp-devices">1</div>
-        </div>
-        <div class="mcp-row" data-anim data-anim-delay="200">
-          <div>
-            <span class="mcp-type stdio">STDIO</span>
-            <div class="mcp-server-url">@modelcontextprotocol/server-filesystem</div>
-          </div>
-          <div class="mcp-names">obsidian</div>
-          <div class="mcp-versions-col">(v2026.1.14)</div>
-          <div class="mcp-devices">1</div>
-        </div>
-      </div>
-      <p class="mcp-footnote" data-anim data-anim-delay="250">Every MCP server across the fleet · sample shown above</p>
-    </div>
-  </section>
+      <div class="cap-layout">
+        <div class="cap-panels">
 
-  <!-- Fleet Dashboard -->
-  <section class="block">
-    <div class="page">
-      <div class="section-head" data-anim>
-        <h2 class="section-title">The security picture. <em style="font-style:normal;color:var(--svalin-muted)">At a glance.</em></h2>
-        <p class="section-sub">Active agent clients, MCP coverage, session volumes, governance gaps — one screen. Security concerns surface as incidents, not as noise in a log file.</p>
-      </div>
-      <div class="dashboard-grid" data-anim data-anim-delay="100">
-        <div class="dashboard-card">
-          <div class="dashboard-card-title">Caller agents across the fleet</div>
-          <div class="dashboard-card-sub">8 device-tool pairings active in window.</div>
-          <div class="donut-chart">
-            <div class="donut"></div>
-            <div class="donut-legend">
-              <div class="legend-item">
-                <span class="legend-dot" style="background:#4F46E5"></span>
-                <span class="legend-label">Claude Code</span>
-                <span class="legend-count">4</span>
-              </div>
-              <div class="legend-item">
-                <span class="legend-dot" style="background:#60A5FA"></span>
-                <span class="legend-label">Claude Desktop</span>
-                <span class="legend-count">3</span>
-              </div>
-              <div class="legend-item">
-                <span class="legend-dot" style="background:#34D399"></span>
-                <span class="legend-label">Gemini CLI</span>
-                <span class="legend-count">1</span>
+          <article class="cap-panel" id="cap-01" data-cap="01">
+            <h3 class="cap-title">Shadow AI</h3>
+            <p class="cap-hook">Repository-level governance. <em>Unaffected by personal accounts.</em></p>
+            <button class="cap-detail-btn" data-cap-title="Shadow AI" data-cap-num="01">View details <span class="arrow">→</span></button>
+            <div class="cap-detail" hidden>
+              <p>Vendor compliance APIs only track sessions authenticated through corporate SSO. When developers use personal accounts, free-tier tools, or unapproved CLI agents, your security stack sees complete silence.</p>
+              <p>Svalin intercepts activity at the device level whenever code in a company repository is touched. It automatically detects agents, skill files, custom MCP servers, and slash commands — surfacing ungoverned tools the moment they execute, regardless of account or license type.</p>
+              <div class="cap-highlights">
+                <div>Fleet-wide auto-detection of Claude Code, Cursor, Gemini CLI, OpenCode, and local LLMs</div>
+                <div>Complete inventory of global and project-scoped MCP servers</div>
+                <div>Full index of active skill files and custom commands per session</div>
+                <div>Account-agnostic capture: triggers on any repository activity, eliminating account-based blind spots</div>
               </div>
             </div>
-          </div>
+          </article>
+
+          <article class="cap-panel" id="cap-02" data-cap="02">
+            <h3 class="cap-title">Accountability</h3>
+            <p class="cap-hook">Root-cause accountability. <em>Not just raw activity logs.</em></p>
+            <button class="cap-detail-btn" data-cap-title="Accountability" data-cap-num="02">View details <span class="arrow">→</span></button>
+            <div class="cap-detail" hidden>
+              <p>When a security event occurs, traditional logs record <em>what</em> happened, but fail to explain <em>why</em> or <em>who</em> initiated it. An unauthorized network call caused by an autonomous skill file requires updating your skill library; the same call triggered by a manual prompt requires targeted developer training.</p>
+              <p>Svalin builds a complete causal chain for every action — attributing events to human prompts, skill files, slash commands, or autonomous agent decisions. Security teams get clear, human-readable narrative timelines and auditor-ready evidence.</p>
+              <div class="cap-highlights">
+                <div>Precise causal attribution: Developer Prompt · Skill File · Slash Command · Autonomous AI</div>
+                <div>Reconstructs complex agent interactions into readable linear session flows</div>
+                <div>Identifies high-risk behavioral patterns for proactive engineering guidance</div>
+                <div>Audit-ready evidence export tailored for DORA (Art. 12) and EU AI Act (Art. 4)</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="cap-panel" id="cap-03" data-cap="03">
+            <h3 class="cap-title">Guardrails</h3>
+            <p class="cap-hook">Active prevention on-device. <em>Not post-mortem auditing.</em></p>
+            <button class="cap-detail-btn" data-cap-title="Guardrails" data-cap-num="03">View details <span class="arrow">→</span></button>
+            <div class="cap-detail" hidden>
+              <p>Enterprise compliance tools operate in observe-only mode. By the time an event lands in your SIEM or DLP, data has already left the machine or a proxy has already opened.</p>
+              <p>Svalin executes policy checks directly on the endpoint prior to tool-call execution. Credential exposure is blocked, file-path restrictions are enforced, and untrusted MCP servers are quarantined in real time without network round-trips. If policy verification fails, Svalin fails closed.</p>
+              <div class="cap-highlights">
+                <div>On-device secret scanning and PII detection before outbound calls</div>
+                <div>Strict file-path restrictions and MCP server allowlisting at the execution layer</div>
+                <div>Fail-closed architecture: unverified actions are blocked automatically</div>
+                <div>Uniform enforcement across all tools, including free tiers and unmanaged utilities</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="cap-panel" id="cap-04" data-cap="04">
+            <h3 class="cap-title">Forensic Speed</h3>
+            <p class="cap-hook">Instant incident mapping. <em>By repository and session flow.</em></p>
+            <button class="cap-detail-btn" data-cap-title="Forensic Speed" data-cap-num="04">View details <span class="arrow">→</span></button>
+            <div class="cap-detail" hidden>
+              <p>Investigating an incident using raw logs forces security teams to manually assemble scattered IP addresses, temporary working-folder names, and cryptic session keys.</p>
+              <p>Svalin binds every AI session directly to the git repository remote URL. CISOs and incident-response teams can query events by repository, affected file, or developer, instantly reviewing the exact prompt-to-execution narrative in a single view.</p>
+              <div class="cap-highlights">
+                <div>Binding by git repository remote URL instead of ephemeral folder paths</div>
+                <div>Direct filtering by repository, file path, developer, tool, and severity</div>
+                <div>Tamper-evident cryptographic hash chains ensuring audit-log integrity</div>
+                <div>Reduces incident root-cause analysis time from hours to minutes</div>
+              </div>
+            </div>
+          </article>
+
         </div>
-        <div class="dashboard-aside">
-          <div class="dashboard-kpi" data-anim data-anim-delay="150">
-            <div class="kpi-num"><span data-count="7">7</span></div>
-            <div class="kpi-label">AI coding agent types detected across the fleet</div>
+        <nav class="cap-index" aria-label="Capabilities">
+          <a class="cap-index-item active" href="#cap-01"><span class="cap-index-num">01</span><span class="cap-index-label">Shadow AI</span></a>
+          <a class="cap-index-item" href="#cap-02"><span class="cap-index-num">02</span><span class="cap-index-label">Accountability</span></a>
+          <a class="cap-index-item" href="#cap-03"><span class="cap-index-num">03</span><span class="cap-index-label">Guardrails</span></a>
+          <a class="cap-index-item" href="#cap-04"><span class="cap-index-num">04</span><span class="cap-index-label">Forensic Speed</span></a>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4 — Real-World Proof -->
+  <section class="block ice proof">
+    <div class="page">
+      <div class="proof-grid">
+        <div class="proof-context" data-anim>
+          <div class="eyebrow"><span>Real-world proof · Live pilot</span></div>
+          <h2>Cloud infrastructure access traced to a skill file.</h2>
+          <p>During week two of a pilot at an ISO-certified enterprise, Claude Code autonomously obtained a GCP identity token and opened a Cloud SQL proxy bound to all network interfaces (<code>0.0.0.0:22333</code>).</p>
+          <p>Svalin attributed the action directly to a third-party skill file (<code>db-debug-skill.md</code>) rather than a developer prompt. This let the InfoSec team immediately remediate the skill repository rather than penalizing the engineer.</p>
+        </div>
+        <div class="telemetry-card" data-anim data-anim-delay="120">
+          <div class="tel-head">
+            <span class="tel-severity">High severity</span>
+            <span class="tel-event">Unauthorized Network Exposure</span>
           </div>
-          <div class="dashboard-kpi" data-anim data-anim-delay="200">
-            <div class="kpi-num"><span data-count="16">16</span></div>
-            <div class="kpi-label">MCP servers mapped — remote and stdio</div>
+          <div class="tel-group">
+            <div class="tel-row"><span class="tel-k">Repository</span><span class="tel-v">payment-service</span></div>
+            <div class="tel-row"><span class="tel-k">Tool</span><span class="tel-v">Claude Code v2.1</span></div>
+            <div class="tel-row"><span class="tel-k">Device</span><span class="tel-v">MacBookPro.company</span></div>
           </div>
-          <div class="dashboard-kpi" data-anim data-anim-delay="250">
-            <div class="kpi-num"><span data-count="3">3</span></div>
-            <div class="kpi-label">ungoverned agent types flagged for review</div>
+          <div class="tel-group">
+            <div class="tel-row"><span class="tel-k">Trigger source</span><span class="tel-v">db-debug-skill.md</span></div>
+            <div class="tel-row"><span class="tel-k">Action</span><span class="tel-v">Cloud SQL proxy → 0.0.0.0:22333</span></div>
+            <div class="tel-row"><span class="tel-k">Attribution</span><span class="tel-v tel-flag">Autonomous skill instruction<br><span class="tel-v-sub">Not developer prompt</span></span></div>
+          </div>
+          <div class="tel-group tel-group--last">
+            <div class="tel-row"><span class="tel-k">Chain status</span><span class="tel-v tel-ok">Verified &amp; intact ✓</span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Principles -->
-  <section class="block ice">
+  <!-- Section 5 — Deployment & Trust Signals -->
+  <section class="block trust">
     <div class="page">
       <div class="section-head" data-anim>
-        <h2 class="section-title">Built around one idea: <em style="font-style:normal;color:var(--svalin-muted)">observe without getting in the way.</em></h2>
+        <h2 class="section-title">Built to deploy. <em style="font-style:normal;color:var(--svalin-muted)">Built to prove.</em></h2>
       </div>
-      <div class="principles">
-        <div class="principle-list">
-          <div class="principle" data-anim>
-            <span class="num">01</span>
-            <h3>Engineers don't change a thing.</h3>
-            <p>Deployed through your MDM in the same wave as any other endpoint. The agent watches Cursor, Claude Code, Gemini CLI and the MCP servers they connect to — invisibly, on the device. No proxy, no new IDE settings, no tickets in the engineering backlog.</p>
+      <div class="trust-grid">
+        <div class="trust-card" data-anim>
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
           </div>
-          <div class="principle" data-anim data-anim-delay="100">
-            <span class="num">02</span>
-            <h3>One registry, every surface.</h3>
-            <p>Governed devices, supported AI coding agents, connected MCP servers — all in one place. The CISO surface answers "who is using what, where" without an email thread.</p>
+          <div class="trust-title">Zero developer friction</div>
+          <p>Completely transparent, with no added latency. A small binary that listens to only what it needs to — nothing more.</p>
+        </div>
+        <div class="trust-card" data-anim data-anim-delay="100">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
           </div>
-          <div class="principle" data-anim data-anim-delay="200">
-            <span class="num">03</span>
-            <h3>Incidents, not log floods.</h3>
-            <p>Secrets, credentials, PII and policy violations surface as incidents — triaged, owned, resolved. Everything else stays in the timeline where it belongs.</p>
+          <div class="trust-title">Privacy first</div>
+          <p>Prompts are captured only when opted in, and always fully encrypted. Employees are notified whenever content is decrypted.</p>
+        </div>
+        <div class="trust-card" data-anim data-anim-delay="200">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
           </div>
-          <div class="principle" data-anim data-anim-delay="300">
-            <span class="num">04</span>
-            <h3>Compliance, as a side effect.</h3>
-            <p>A signed, append-only audit trail of every call by every AI agent on every device. SOC 2, ISO 27001 and EU AI Act evidence falls out of the system you were going to deploy anyway.</p>
-          </div>
+          <div class="trust-title">Stored in the EU</div>
+          <p>All data stays under full EU residency — end to end, with no exceptions.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Prose -->
-  <section class="block">
+  <!-- Section 6 — Final CTA -->
+  <section class="final-cta">
     <div class="page">
-      <div class="section-head" data-anim>
-        <h2 class="section-title">You have an AI policy. <em style="color:var(--svalin-muted);font-style:normal">You don't have proof anyone follows it.</em></h2>
-      </div>
-      <div class="prose-grid">
-        <div>
-          <p>Every InfoSec lead we talk to has the same answer: "we have a document registry." A Notion page, a Confluence space, a PDF that lists the AI coding tools they sanction and how they should be used. None of them can tell you, today, which engineer is actually running which agent against which MCP server.</p>
-          <p class="muted">The gap between the document and reality is where audit findings come from. It is also where credential leaks and unsanctioned MCP servers slip in.</p>
-          <p class="muted">Svalin closes the gap. The platform tells you which AI coding agents are in use across the fleet, which MCP servers they are connected to, and whether each device matches the policy you wrote — without asking engineers to log a thing.</p>
-        </div>
-        <aside class="prose-aside">
-          <dl>
-            <div>
-              <dt>Data residency</dt>
-              <dd>European servers (eu-central-1, Frankfurt). Encrypted at rest. Customer-managed key held outside any US cloud.</dd>
-            </div>
-            <div>
-              <dt>Transparency</dt>
-              <dd>The agent is inspectable on the device. Any engineer can see, at any moment, exactly what is going through it — a GDPR baseline, and a feature.</dd>
-            </div>
-            <div>
-              <dt>Posture</dt>
-              <dd>Observability first. Enforcement when you choose. The agent and the local policy cache are tamper-checked — manual edits don't hold.</dd>
-            </div>
-            <div>
-              <dt>Footprint</dt>
-              <dd>Single signed binary, &lt; 18 MB. Deployed through Jamf, Kandji, Intune.</dd>
-            </div>
-          </dl>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- Feature pair -->
-  <section class="block ice">
-    <div class="page">
-      <div class="section-head" data-anim>
-        <h2 class="section-title">Two surfaces. <em style="font-style:normal;color:var(--svalin-muted)">One source of truth.</em></h2>
-      </div>
-      <div class="feature-pair">
-        <div class="feature-body">
-          <div class="feature-block" data-anim>
-            <h3><span class="idx">A · Local agent</span></h3>
-            <p>Lives on the device, deployed by your MDM in the same wave as any other endpoint tool. Watches every AI coding session in the background — and applies policy locally, with no network round-trip.</p>
-            <div class="keylines">
-              <div>MDM deployment (Jamf, Kandji, Intune)</div>
-              <div>Local policy engine — zero decision latency</div>
-              <div>Captures tool calls, file access, MCP traffic</div>
-              <div>PII and credential detection on-device</div>
-            </div>
-          </div>
-          <div class="feature-block" data-anim data-anim-delay="150">
-            <h3><span class="idx">B · Governance platform</span></h3>
-            <p>The CISO and CTO surface. Registry of every governed device, every supported AI coding agent, every connected MCP server. Central policy management and the full audit trail in one place.</p>
-            <div class="keylines">
-              <div>Device, agent and MCP server registry</div>
-              <div>Central policy management, pushed to every agent</div>
-              <div>Incident queue and audit log exploration</div>
-              <div>SOC 2 / ISO 27001 / AI Act evidence export</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Strip -->
-  <section class="cta-strip">
-    <div class="page">
-      <div class="cta-inner">
-        <h2>See what AI coding agents <em>accessed yesterday</em>.<br>Without asking a single engineer.</h2>
+      <h2 data-anim>See what your AI agents did yesterday.<br><em>Without asking a single engineer.</em></h2>
+      <div data-anim data-anim-delay="100">
         <a class="demo-btn" href="/demo">Book a demo <span class="arrow">→</span></a>
       </div>
+      <p class="final-note" data-anim data-anim-delay="150">Design Partner Pricing Available · Built in Berlin</p>
     </div>
   </section>
 </main>
