@@ -2572,6 +2572,28 @@
     line-height: 1.16;
   }
 
+  /* ── How it works · fail-closed statement band ──────────────── */
+  .fails-closed-band {
+    background: var(--svalin-navy);
+    color: var(--svalin-ice);
+    padding: 76px 0;
+    border-bottom: 1px solid var(--svalin-navy);
+    text-align: center;
+  }
+  .fails-closed-band p {
+    margin: 0 auto;
+    max-width: 24ch;
+    font-size: 38px;
+    font-weight: 500;
+    letter-spacing: -0.018em;
+    line-height: 1.14;
+  }
+  .fails-closed-band em { font-style: normal; color: var(--svalin-amber); }
+  @media (max-width: 720px) {
+    .fails-closed-band { padding: 56px 0; }
+    .fails-closed-band p { font-size: 28px; }
+  }
+
   /* ── How it works · product mockups ─────────────────────────── */
   .mock {
     border: 1px solid var(--svalin-border);

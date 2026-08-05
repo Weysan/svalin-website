@@ -108,11 +108,11 @@
             </div>
             <div class="arch-point">
               <h4>Account-agnostic governance</h4>
-              <p>Developers switch between personal and corporate AI accounts constantly. Svalin governs at the process and device layer — capturing corporate code touched by AI regardless of which account or API key is active.</p>
+              <p>Developers switch between personal and corporate AI accounts constantly. Svalin governs at the process and device layer: regardless of which account or API key is active, it sees corporate code touched by AI on the device — whether or not the developer is signed into a corporate account.</p>
             </div>
             <div class="arch-point">
               <h4>5-minute MDM deployment</h4>
-              <p>Deploys silently across macOS and Windows via Jamf, Kandji, or Intune. An ultra-light daemon with near-zero CPU and memory overhead.</p>
+              <p>Deploys silently: macOS via Jamf, Kandji, or Intune; Linux via Intune or your existing configuration management. An ultra-light daemon with near-zero CPU and memory overhead.</p>
             </div>
           </div>
           <div class="arch-visual">
@@ -145,7 +145,7 @@
 
         <div class="arch-step" data-anim>
           <div class="arch-head">
-            <h3>Forensic speed</h3>
+            <h3>Forensic Speed</h3>
           </div>
           <div class="arch-points">
             <div class="arch-point">
@@ -154,7 +154,7 @@
             </div>
             <div class="arch-point">
               <h4>Process-tree reconstruction</h4>
-              <p>Svalin uses process lineage and PID tracking to automatically reconstruct the full conversation chain — no endless manual log stitching, giving your security team time back for developer coaching and high-value work.</p>
+              <p>Svalin uses process lineage and PID tracking to automatically reconstruct the full conversation chain — no endless manual log stitching.</p>
             </div>
           </div>
           <div class="arch-visual">
@@ -182,7 +182,7 @@
 
         <div class="arch-step" data-anim>
           <div class="arch-head">
-            <h3>In-flight telemetry</h3>
+            <h3>Real-time analysis</h3>
           </div>
           <div class="arch-points">
             <div class="arch-point">
@@ -230,7 +230,7 @@
             </div>
             <div class="arch-point">
               <h4>Skill &amp; prompt provenance</h4>
-              <p>Tracks the exact chain of execution — from prompt input to tool output — giving security teams an unquestionable, audit-ready trail.</p>
+              <p>Tracks the exact chain of execution — from prompt input to tool output — giving security teams a verifiable, audit-ready trail.</p>
             </div>
           </div>
           <div class="arch-visual">
@@ -240,7 +240,7 @@
               <div class="mock-inc-badges">
                 <span class="mock-badge">High</span>
                 <span class="mock-badge">Open</span>
-                <span class="mock-inc-device">Device: Raphaels-MacBook-Pro-3.local</span>
+                <span class="mock-inc-device">Device: priya-mbp</span>
               </div>
               <div class="mock-inc-label">2 conversations impacted</div>
               <div class="mock-inc-convs">
@@ -269,11 +269,11 @@
           <div class="arch-points">
             <div class="arch-point">
               <h4>Automatic discovery</h4>
-              <p>Instantly inventories every AI CLI agent, IDE extension, and MCP server running across your developer fleet.</p>
+              <p>Inventories every AI CLI agent, IDE extension, and MCP server running across your developer fleet.</p>
             </div>
             <div class="arch-point">
               <h4>Inline guardrails</h4>
-              <p>Block unapproved tool calls, prevent credential leakage, and enforce local boundaries before destructive commands or unauthorized API requests hit the network. If policy verification fails, Svalin fails closed.</p>
+              <p>Block unapproved tool calls, prevent credential leakage, and enforce local boundaries before destructive commands or unauthorized API requests hit the network.</p>
             </div>
           </div>
           <div class="arch-visual">
@@ -329,12 +329,19 @@
     </div>
   </section>
 
+  <!-- Statement — fail closed -->
+  <section class="fails-closed-band">
+    <div class="page">
+      <p data-anim>If policy verification fails, <em>Svalin fails closed.</em></p>
+    </div>
+  </section>
+
   <!-- Section 3 — The Svalin Data Flow -->
   <section class="block ice">
     <div class="page">
       <div class="section-head" data-anim>
         <h2 class="section-title">The Svalin data flow.</h2>
-        <p class="section-sub">How raw endpoint actions become CISO intelligence.</p>
+        <p class="section-sub">How raw endpoint actions become evidence.</p>
       </div>
 
       <div class="flow-diagram" data-anim>
@@ -356,7 +363,7 @@
         </div>
         <div class="flow-arrow" aria-hidden="true">→</div>
         <div class="flow-node">
-          <div class="flow-node-label">CISO dashboard</div>
+          <div class="flow-node-label">Dashboard</div>
           <div class="flow-node-lines">
             <span>Real-time risk alerts</span>
             <span>Incident forensics &amp; audits</span>
@@ -376,6 +383,35 @@
         <div class="flow-step">
           <div class="flow-step-num">Govern &amp; investigate</div>
           <p>Block violations inline, query repository-level incidents in seconds, and automatically export audit-ready evidence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section — Boundaries / data handling -->
+  <section class="block">
+    <div class="page">
+      <div class="section-head" data-anim>
+        <h2 class="section-title">What Svalin doesn't touch.</h2>
+        <p class="section-sub">The part a security review — or a works council — checks first: what the agent reads, what leaves the device, and what happens to a prompt when capture is off.</p>
+      </div>
+      <div class="principles">
+        <div class="principle-list">
+          <div class="principle" data-anim>
+            <span class="num">01</span>
+            <h3>Detects everything, reads only what it governs</h3>
+            <p>Svalin inventories which AI tools are installed and running, and reads configuration and activity only from the agents it governs. Never your source code, personal files, or any other file on the machine.</p>
+          </div>
+          <div class="principle" data-anim data-anim-delay="100">
+            <span class="num">02</span>
+            <h3>Prompt capture is opt-in</h3>
+            <p>Prompt content is captured only when your policy turns it on. With it off, the words in a prompt never leave the device — Svalin still records what a session did (tool calls, files touched, timing), just not what was typed.</p>
+          </div>
+          <div class="principle" data-anim data-anim-delay="200">
+            <span class="num">03</span>
+            <h3>Encrypted, with controlled decryption</h3>
+            <p>When capture is on, prompt content is encrypted at rest. Decryption is gated by policy and reason-logged, with employee notification — no one reads a prompt silently.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -403,7 +439,7 @@
             <span class="subtitle">AI Governance Platform</span>
           </div>
         </div>
-        <p>AI productivity, with the observability your CISO needs. Built in Berlin.</p>
+        <p>AI productivity, with the observability your security and engineering leads need. Built in Berlin.</p>
       </div>
       <div class="footer-col">
         <h5>Company</h5>
