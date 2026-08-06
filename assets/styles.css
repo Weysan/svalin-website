@@ -2572,6 +2572,168 @@
     line-height: 1.16;
   }
 
+  /* ============================================================
+     COVERAGE PAGE
+     ============================================================ */
+  .cov-head p { margin-top: 18px; }
+
+  .cov-section { padding: 64px 0; border-bottom: 1px solid var(--svalin-border); }
+  .cov-section.ice { background: var(--svalin-ice); }
+
+  /* legend */
+  .cov-legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 48px;
+    border: 1px solid var(--svalin-border);
+    border-radius: var(--radius-lg);
+    padding: 30px 34px;
+    background: var(--svalin-surface);
+  }
+  .cov-legend-item { display: grid; grid-template-columns: 84px 1fr; gap: 14px; align-items: baseline; }
+  .cov-term { font-weight: 600; font-size: 14px; color: var(--svalin-navy); }
+  .cov-legend-item span:last-child { font-size: 14px; color: var(--svalin-muted); line-height: 1.5; }
+
+  /* block heading */
+  .cov-block-head { margin-bottom: 28px; }
+  .cov-block-head h2 {
+    font-size: 28px; font-weight: 500; letter-spacing: -0.015em;
+    line-height: 1.1; margin: 0 0 8px;
+  }
+  .cov-block-head p { margin: 0; color: var(--svalin-muted); font-size: 15px; }
+
+  /* tables */
+  .cov-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .cov-table {
+    border: 1px solid var(--svalin-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--svalin-surface);
+    min-width: 820px;
+  }
+  .cov-table.two { min-width: 0; }
+  .cov-thead, .cov-row {
+    display: grid;
+    grid-template-columns: 1.7fr 1.1fr 0.7fr 1.6fr 0.9fr 1.2fr;
+    gap: 16px;
+    padding: 14px 24px;
+    align-items: center;
+  }
+  .cov-thead.two, .cov-row.two { grid-template-columns: 1fr 2fr; }
+  .cov-thead {
+    background: var(--svalin-ice);
+    border-bottom: 1px solid var(--svalin-border);
+  }
+  .cov-thead span {
+    font-family: var(--mono); font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--svalin-muted); font-weight: 600;
+  }
+  .cov-row {
+    border-bottom: 1px solid var(--svalin-border);
+    font-size: 14px; color: var(--svalin-navy);
+    transition: background 0.15s ease;
+  }
+  .cov-row:last-child { border-bottom: none; }
+  .cov-row:hover { background: var(--svalin-ice); }
+  .cov-table.two .cov-row:hover { background: var(--svalin-surface); }
+  .cov-tool { font-weight: 600; }
+  .cov-partial { color: var(--svalin-muted); }
+  .cov-status-roadmap { color: var(--env-accent); font-weight: 500; }
+  .cov-status-roadmap em {
+    display: block;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12.5px;
+    color: var(--svalin-muted);
+    margin-top: 4px;
+  }
+  .cov-status-detect { color: var(--svalin-muted); }
+
+  /* platform support */
+  .cov-platform { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .cov-plat {
+    border: 1px solid var(--svalin-border);
+    border-radius: var(--radius-lg);
+    background: var(--svalin-surface);
+    padding: 26px 28px;
+  }
+  .cov-plat-os { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 12px; }
+  .cov-plat-status {
+    display: inline-block;
+    font-family: var(--mono); font-size: 10px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    padding: 3px 10px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .cov-plat-status.ok { background: var(--color-success-bg); color: var(--color-success); }
+  .cov-plat-status.pending { background: #FEF3C7; color: #92400E; }
+  .cov-plat p { margin: 0; font-size: 13.5px; color: var(--svalin-muted); line-height: 1.55; }
+
+  /* notes */
+  .cov-notes { margin-top: 22px; display: grid; gap: 12px; max-width: 92ch; }
+  .cov-notes p { margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--svalin-muted); }
+  .cov-notes b { color: var(--svalin-navy); font-weight: 600; }
+
+  /* cowork callout — collapsible, same visual weight as the rows */
+  .cov-cowork {
+    margin-top: 32px;
+    border: 1px solid #FDE68A;
+    border-left: 3px solid var(--svalin-amber);
+    border-radius: var(--radius-lg);
+    background: var(--svalin-amber-tint);
+    overflow: hidden;
+  }
+  .cov-cowork-summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 26px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .cov-cowork-summary::-webkit-details-marker { display: none; }
+  .cov-cowork-summary:hover .cov-cowork-chevron { color: var(--svalin-amber); }
+  .cov-cowork-tag {
+    font-family: var(--mono); font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: #92400E; margin-bottom: 10px;
+  }
+  .cov-cowork-summary h3 {
+    font-size: 20px; font-weight: 600; letter-spacing: -0.01em;
+    line-height: 1.2; margin: 0;
+  }
+  .cov-cowork-chevron {
+    width: 22px; height: 22px; flex-shrink: 0;
+    color: #92400E; transition: transform 0.25s ease;
+  }
+  .cov-cowork[open] .cov-cowork-chevron { transform: rotate(180deg); }
+  .cov-cowork-body { padding: 0 32px 30px; }
+  .cov-cowork-body p { margin: 0 0 14px; font-size: 15px; line-height: 1.62; color: var(--svalin-navy); max-width: 92ch; }
+  .cov-cowork-kicker {
+    font-weight: 600;
+    margin: 20px 0 0 !important;
+    padding-top: 16px;
+    border-top: 1px solid rgba(146,64,14,0.18);
+  }
+
+  /* closing */
+  .cov-closing h2 { margin-bottom: 14px; }
+  .cov-closing > p { color: var(--svalin-muted); font-size: 16px; max-width: 56ch; margin: 0 0 20px; }
+  .cov-closing-cta { margin: 24px 0 28px; }
+  .cov-verified {
+    font-family: var(--mono); font-size: 12px; text-transform: uppercase;
+    letter-spacing: var(--tracking-overline); color: var(--svalin-muted); margin: 0 !important;
+  }
+
+  @media (max-width: 720px) {
+    .cov-section { padding: 48px 0; }
+    .cov-legend { grid-template-columns: 1fr; gap: 14px; padding: 24px; }
+    .cov-platform { grid-template-columns: 1fr; }
+    .cov-thead.two, .cov-row.two { grid-template-columns: 1fr 1.3fr; }
+    .cov-cowork-summary { padding: 22px 24px; }
+    .cov-cowork-body { padding: 0 24px 26px; }
+    .cov-cowork-summary h3 { font-size: 18px; }
+  }
+
   /* ── How it works · fail-closed statement band ──────────────── */
   .fails-closed-band {
     background: var(--svalin-navy);
