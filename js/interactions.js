@@ -176,6 +176,95 @@
     });
   }
 
+  /* ── Capabilities section index (scrollspy) ──────────────────── */
+  function initCapIndex() {
+    var panels = document.querySelectorAll('.cap-panel');
+    var items  = document.querySelectorAll('.cap-index-item');
+    if (!panels.length || !items.length || !window.IntersectionObserver) return;
+
+    function setActive(id) {
+      items.forEach(function (a) {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) setActive(e.target.id);
+      });
+    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+
+    panels.forEach(function (p) { io.observe(p); });
+
+    /* smooth-scroll on index click */
+    items.forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var target = document.querySelector(a.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+
+  /* ── Capability detail modal (+ GA event on open) ────────────── */
+  function initCapModal() {
+    var btns = document.querySelectorAll('.cap-detail-btn');
+    if (!btns.length) return;
+
+    function openModal(panel, title, num) {
+      var detail = panel.querySelector('.cap-detail');
+      var hook   = panel.querySelector('.cap-hook');
+      if (!detail) return;
+
+      /* Google Analytics event */
+      if (typeof gtag === 'function') {
+        gtag('event', 'capability_detail_open', {
+          capability: title,
+          panel: num
+        });
+      }
+
+      var overlay = document.createElement('div');
+      overlay.className = 'cap-modal-overlay';
+      overlay.setAttribute('role', 'dialog');
+      overlay.setAttribute('aria-modal', 'true');
+      overlay.setAttribute('aria-label', title);
+      overlay.innerHTML =
+        '<div class="cap-modal">' +
+          '<button class="cap-modal-close" aria-label="Close">' +
+            '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">' +
+              '<line x1="2" y1="2" x2="14" y2="14"/><line x1="14" y1="2" x2="2" y2="14"/>' +
+            '</svg>' +
+          '</button>' +
+          '<h3 class="cap-modal-title">' + title + '</h3>' +
+          '<p class="cap-modal-hook">' + hook.innerHTML + '</p>' +
+          '<div class="cap-detail">' + detail.innerHTML + '</div>' +
+        '</div>';
+      document.body.appendChild(overlay);
+      document.body.style.overflow = 'hidden';
+
+      function close() {
+        overlay.remove();
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', onKey);
+      }
+      function onKey(e) { if (e.key === 'Escape') close(); }
+
+      overlay.querySelector('.cap-modal-close').addEventListener('click', close);
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+      document.addEventListener('keydown', onKey);
+    }
+
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var panel = btn.closest('.cap-panel');
+        if (!panel) return;
+        openModal(panel, btn.getAttribute('data-cap-title'), btn.getAttribute('data-cap-num'));
+      });
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initCookies();
     initBurger();
@@ -183,5 +272,7 @@
     initScrollAnimations();
     initCounters();
     initBookingWidget();
+    initCapIndex();
+    initCapModal();
   });
 })();

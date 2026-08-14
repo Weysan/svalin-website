@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>How it works — Svalin</title>
-  <meta name="description" content="From MDM rollout to audit evidence in four moves. Svalin deploys silently, fills the registry automatically, surfaces incidents, and generates compliance exports." />
+  <meta name="description" content="Svalin deploys as an ultra-light local daemon via your MDM — zero developer friction, real-time analysis, forensic speed, and inline guardrails across every AI coding agent." />
   <link rel="canonical" href="https://www.svalinhq.com/how-it-works" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#0D1B2A" />
@@ -13,7 +13,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Svalin" />
   <meta property="og:title" content="How it works — Svalin" />
-  <meta property="og:description" content="From MDM rollout to audit evidence in four moves. Svalin deploys silently, fills the registry automatically, surfaces incidents, and generates compliance exports." />
+  <meta property="og:description" content="Svalin deploys as an ultra-light local daemon via your MDM — zero developer friction, real-time analysis, forensic speed, and inline guardrails across every AI coding agent." />
   <meta property="og:url" content="https://www.svalinhq.com/how-it-works" />
   <meta property="og:image" content="https://www.svalinhq.com/assets/logo.svg" />
   <meta property="og:locale" content="en_US" />
@@ -22,7 +22,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@svalinHQ" />
   <meta name="twitter:title" content="How it works — Svalin" />
-  <meta name="twitter:description" content="From MDM rollout to audit evidence in four moves. Svalin deploys silently, fills the registry automatically, surfaces incidents, and generates compliance exports." />
+  <meta name="twitter:description" content="Svalin deploys as an ultra-light local daemon via your MDM — zero developer friction, real-time analysis, forensic speed, and inline guardrails across every AI coding agent." />
   <meta name="twitter:image" content="https://www.svalinhq.com/assets/logo.svg" />
 
   <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
@@ -64,6 +64,7 @@
     <nav class="nav-links">
       <a class="nav-link" data-active="false" href="/">Home</a>
       <a class="nav-link" data-active="true" href="/how-it-works">How it works</a>
+      <a class="nav-link" data-active="false" href="/coverage">Coverage</a>
       <a class="nav-link" data-active="false" href="/pricing">Pricing</a>
       <a class="nav-link" data-active="false" href="/team">Team</a>
     </nav>
@@ -83,191 +84,347 @@
 <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation">
   <a class="mobile-nav-link" href="/">Home</a>
   <a class="mobile-nav-link active" href="/how-it-works">How it works</a>
+  <a class="mobile-nav-link" href="/coverage">Coverage</a>
   <a class="mobile-nav-link" href="/pricing">Pricing</a>
   <a class="mobile-nav-link" href="/team">Team</a>
   <a class="demo-btn" href="/demo" style="margin-top:16px;justify-content:center">Request a demo <span class="arrow">→</span></a>
 </nav>
 
 <main>
-  <!-- Anatomy of an Audit -->
-  <section class="audit-section">
+  <!-- Section 1 — Core Technical Architecture -->
+  <section class="block">
     <div class="page">
-      <div class="audit-head">
-        <div class="overline">Anatomy of an audit</div>
-        <h2>The four layers underneath every event you'll show your auditor.</h2>
-        <p>What happens between the moment a developer asks Cursor a question and the moment a compliance officer signs off on the quarter — captured, in order, in your tenant.</p>
+      <div class="section-head" data-anim>
+        <h2 class="section-title">How Svalin works under the hood.</h2>
       </div>
 
-      <div class="audit-step">
-        <div class="step-row">
-          <div class="step-num">Phase 01</div>
-          <div>
-            <h3>Local context interception.</h3>
-            <p>Svalin deploys silently via corporate MDM. The lightweight background daemon hooks process execution loops at the system layer, identifying active LLM tools without adding millisecond performance overhead or interrupting engineering speed.</p>
+      <div class="arch-list">
+        <div class="arch-step" data-anim>
+          <div class="arch-head">
+            <h3>Ultra-light endpoint engine</h3>
+          </div>
+          <div class="arch-points">
+            <div class="arch-point">
+              <h4>Zero workflow alteration</h4>
+              <p>Engineers keep using Cursor, Claude Code, Gemini CLI, or custom MCP servers without switching tools or changing their terminal habits.</p>
+            </div>
+            <div class="arch-point">
+              <h4>Account-agnostic governance</h4>
+              <p>Developers switch between personal and corporate AI accounts constantly. Svalin governs at the process and device layer: regardless of which account or API key is active, it sees corporate code touched by AI on the device — whether or not the developer is signed into a corporate account.</p>
+            </div>
+            <div class="arch-point">
+              <h4>5-minute MDM deployment</h4>
+              <p>Deploys silently: macOS via Jamf, Kandji, or Intune; Linux via Intune or your existing configuration management. An ultra-light daemon with near-zero CPU and memory overhead.</p>
+            </div>
+          </div>
+          <div class="arch-visual">
+            <div class="audit-shot-label">local agent · org policy</div>
+            <div class="mock mock-agent">
+              <div class="mock-agent-side">
+                <div class="mock-agent-brand"><b>SVALIN</b><span>Local Agent</span></div>
+                <div class="mock-agent-nav">
+                  <div>Overview</div>
+                  <div>Servers</div>
+                  <div>Skills</div>
+                  <div class="active">Policy</div>
+                  <div>Logs</div>
+                </div>
+              </div>
+              <div class="mock-agent-main">
+                <div class="mock-agent-btn">⟳ Refresh from Platform</div>
+                <div class="mock-policy">
+                  <div class="mock-policy-title">Org policy</div>
+                  <div class="mock-kv">
+                    <span class="k">Org ID</span><span class="v">ec68712c-ff36-…</span>
+                    <span class="k">Version</span><span class="v">f7e85384938fe…</span>
+                    <span class="k">Updated</span><span class="v">04/08/2026, 15:22</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="audit-shot-label">local agent · overview</div>
-        <div class="audit-shot"><img src="/assets/shot-agent-overview.png" alt="Local agent overview — running, v0.5.0-prod, detected Claude Desktop, Claude CLI, Gemini CLI and Cursor" /></div>
-      </div>
 
-      <div class="audit-step">
-        <div class="step-row">
-          <div class="step-num">Phase 02</div>
-          <div>
-            <h3>Cryptographic execution reconstruction.</h3>
-            <p>Every tool use, spawned sub-agent and terminal mutation is reconstructed sequentially. Svalin creates a real-time, chronological trace ledger of precisely what actions an agent requested and exactly what it touched.</p>
+        <div class="arch-step" data-anim>
+          <div class="arch-head">
+            <h3>Forensic Speed</h3>
+          </div>
+          <div class="arch-points">
+            <div class="arch-point">
+              <h4>Repository &amp; file-bound filtering</h4>
+              <p>Instantly filter sessions that touched a specific Git repository, branch, or critical file path. Pinpoint the exact AI conversation, tool call, or prompt that introduced a security flaw or caused a production outage.</p>
+            </div>
+            <div class="arch-point">
+              <h4>Process-tree reconstruction</h4>
+              <p>Svalin uses process lineage and PID tracking to automatically reconstruct the full conversation chain — no endless manual log stitching.</p>
+            </div>
+          </div>
+          <div class="arch-visual">
+            <div class="audit-shot-label">platform · log explorer</div>
+            <div class="mock mock-explorer">
+              <div class="mock-filters">
+                <div class="mock-field"><label>Repository</label><div class="mock-input active">acme/crm-sync <span>▾</span></div></div>
+                <div class="mock-field"><label>Accessed file</label><div class="mock-input ph">e.g. .env or *.csv</div></div>
+                <div class="mock-field"><label>Time range</label><div class="mock-input">Last 30d <span>▾</span></div></div>
+              </div>
+              <div class="mock-legend">
+                <span><i class="lg-governed"></i>Governed</span>
+                <span><i class="lg-degraded"></i>Degraded</span>
+                <span><i class="lg-ungoverned"></i>Ungoverned</span>
+                <span><i class="lg-vendor"></i>Vendor-limited</span>
+              </div>
+              <div class="mock-conv">
+                <div class="mock-conv-count">1 conversation</div>
+                <div class="mock-conv-head"><span>Conversation</span><span>Agent</span><span>Device</span><span>OS user</span></div>
+                <div class="mock-conv-row"><span class="mono">aca734f5-2521-4c…</span><span>Claude Code</span><span>priya-mbp</span><span>priya</span></div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="audit-shot-label">platform · conversation timeline</div>
-        <div class="audit-shot"><img src="/assets/shot-timeline.png" alt="Conversation timeline with session starts, LLM token usages and shell exec blocks across milliseconds" /></div>
-      </div>
 
-      <div class="audit-step">
-        <div class="step-row">
-          <div class="step-num">Phase 03</div>
-          <div>
-            <h3>Automatic incident creation.</h3>
-            <p>When the trace ledger detects a policy break — profile tampering, an unsanctioned MCP server, a credential read — Svalin opens an incident, links the triggering telemetry event, and assigns an owner. If the device self-heals (a tampered shell profile reverts, an unknown MCP server disconnects) the incident closes itself with the resolution trail intact. No false-positive triage queues.</p>
+        <div class="arch-step" data-anim>
+          <div class="arch-head">
+            <h3>Real-time analysis</h3>
+          </div>
+          <div class="arch-points">
+            <div class="arch-point">
+              <h4>Beyond passive log dumps</h4>
+              <p>Logs aren't stored just for an end-of-year security audit. Svalin analyzes tool calls, terminal commands, and file access in real time to highlight risky agent behavior as it happens.</p>
+            </div>
+            <div class="arch-point">
+              <h4>Causal session reconstruction</h4>
+              <p>Automatically links raw file reads, bash execution, and HTTP requests back to the specific session, prompt, and skill file that initiated them.</p>
+            </div>
+          </div>
+          <div class="arch-visual">
+            <div class="audit-shot-label">platform · conversation timeline</div>
+            <div class="mock">
+              <div class="mock-tl">
+                <div class="mock-tl-row">
+                  <span class="mock-tl-ic ic-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5l12 7-12 7z"/></svg></span>
+                  <b>Session start</b><code>filesystem · initialize</code>
+                </div>
+                <div class="mock-tl-row">
+                  <span class="mock-tl-ic ic-user"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span>
+                  <b>LLM</b><code>claude-opus-4-20250514 — 7.1K tokens, tool_use</code>
+                </div>
+                <div class="mock-tl-row">
+                  <span class="mock-tl-ic ic-tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg></span>
+                  <b>Tool call</b><code>filesystem/write_file</code>
+                </div>
+                <div class="mock-tl-row">
+                  <span class="mock-tl-ic ic-llm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.9 5.6L19.5 9l-5.6 1.9L12 16l-1.9-5.1L4.5 9l5.6-1.4z"/></svg></span>
+                  <b>LLM</b><code>claude-opus-4-20250514 — 6.6K tokens, end_turn</code>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="audit-shot-label">platform · incident detail</div>
-        <div class="audit-shot"><img src="/assets/shot-incident-detail.png" alt="Profile tampering incident — severity high, dismissed status, with the triggering profile_tampered telemetry event linked and the full JSON payload showing the affected governed variable" /></div>
-      </div>
 
-      <div class="audit-step">
-        <div class="step-row">
-          <div class="step-num">Phase 04</div>
-          <div>
-            <h3>Centralized security log analysis.</h3>
-            <p>Telemetry data structures map instantly to a centralized ledger. Every process lifecycle event is structured as a cryptographically validated JSON payload, providing the raw foundational evidence your GRC and security engineering teams need to satisfy DORA and ISO risk tracking mandates on demand.</p>
+        <div class="arch-step" data-anim>
+          <div class="arch-head">
+            <h3>Accountability</h3>
+          </div>
+          <div class="arch-points">
+            <div class="arch-point">
+              <h4>Who made the call?</h4>
+              <p>A clear separation between human developer actions, explicit slash commands, background agent loops, and auto-invoked MCP skills.</p>
+            </div>
+            <div class="arch-point">
+              <h4>Skill &amp; prompt provenance</h4>
+              <p>Tracks the exact chain of execution — from prompt input to tool output — giving security teams a verifiable, audit-ready trail.</p>
+            </div>
+          </div>
+          <div class="arch-visual">
+            <div class="audit-shot-label">platform · incident detail</div>
+            <div class="mock mock-incident">
+              <div class="mock-inc-title">Risky activity detected on b16ee71f…</div>
+              <div class="mock-inc-badges">
+                <span class="mock-badge">High</span>
+                <span class="mock-badge">Open</span>
+                <span class="mock-inc-device">Device: priya-mbp</span>
+              </div>
+              <div class="mock-inc-label">2 conversations impacted</div>
+              <div class="mock-inc-convs">
+                <div class="mock-inc-conv">cvn_0c6a9586-927a-4437-a848-69530180c295<em>1 event · 03/08/2026, 14:39:46</em></div>
+                <div class="mock-inc-conv">cvn_d3331372-4325-4c29-a99a-218df8da2d96<em>1 event · 02/08/2026, 18:06:21</em></div>
+              </div>
+              <div class="mock-inc-label">2 events</div>
+              <div class="mock-inc-events">
+                <div class="mock-tl-row">
+                  <span class="mock-tl-ic ic-tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg></span>
+                  <b>Tool call</b><code>built-in-filesystem/edit_file · index.html</code>
+                </div>
+                <div class="mock-tl-row">
+                  <span class="mock-tl-ic ic-tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg></span>
+                  <b>Tool call</b><code>built-in-shell/shell_exec</code>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="audit-shot-label">platform · agent events</div>
-        <div class="audit-shot"><img src="/assets/shot-agent-events.png" alt="Log explorer — agent events with event volume bar chart and validation chain marked valid" /></div>
+
+        <div class="arch-step" data-anim>
+          <div class="arch-head">
+            <h3>Shadow AI &amp; tool registry</h3>
+          </div>
+          <div class="arch-points">
+            <div class="arch-point">
+              <h4>Automatic discovery</h4>
+              <p>Inventories every AI CLI agent, IDE extension, and MCP server running across your developer fleet.</p>
+            </div>
+            <div class="arch-point">
+              <h4>Inline guardrails</h4>
+              <p>Block unapproved tool calls, prevent credential leakage, and enforce local boundaries before destructive commands or unauthorized API requests hit the network.</p>
+            </div>
+          </div>
+          <div class="arch-visual">
+            <div class="audit-shot-label">AI coding agents across the fleet · 8 clients</div>
+            <div class="registry-ui">
+              <div class="registry-thead">
+                <span>CLIENT</span><span>VERSIONS</span><span>DEVICES</span>
+              </div>
+              <div class="registry-row">
+                <div><span class="client-name">Claude Code</span><span class="client-id">claude-cli</span></div>
+                <div class="registry-versions">(v2.1.119, v2.1.139, v2.1.140, v2.1.185, v2.1.187, v2.1.221)</div>
+                <div class="registry-devices">6</div>
+              </div>
+              <div class="registry-row">
+                <div><span class="client-name">Claude Desktop</span><span class="client-id">claude-desktop</span></div>
+                <div class="registry-versions">(v1.22209.3, v1.24012.9)</div>
+                <div class="registry-devices">5</div>
+              </div>
+              <div class="registry-row">
+                <div><span class="client-name">Gemini CLI</span><span class="client-id">gemini-cli</span></div>
+                <div class="registry-versions">(v0.26.0, v0.50.0)</div>
+                <div class="registry-devices">5</div>
+              </div>
+              <div class="registry-row">
+                <div><span class="client-name">Codex CLI</span><span class="client-id">codex</span><span class="badge-ungoverned">NOT GOVERNED</span></div>
+                <div class="registry-versions">—</div>
+                <div class="registry-devices">2</div>
+              </div>
+              <div class="registry-row">
+                <div><span class="client-name">GitHub Copilot</span><span class="client-id">copilot</span><span class="badge-ungoverned">NOT GOVERNED</span></div>
+                <div class="registry-versions">—</div>
+                <div class="registry-devices">2</div>
+              </div>
+              <div class="registry-row">
+                <div><span class="client-name">JetBrains Junie</span><span class="client-id">junie</span><span class="badge-ungoverned">NOT GOVERNED</span></div>
+                <div class="registry-versions">—</div>
+                <div class="registry-devices">2</div>
+              </div>
+              <div class="registry-row">
+                <div><span class="client-name">OpenCode</span><span class="client-id">opencode</span></div>
+                <div class="registry-versions">(v1.14.48, v1.18.11)</div>
+                <div class="registry-devices">2</div>
+              </div>
+              <div class="registry-row">
+                <div><span class="client-name">Google Antigravity</span><span class="client-id">antigravity</span><span class="badge-ungoverned">NOT GOVERNED</span></div>
+                <div class="registry-versions">—</div>
+                <div class="registry-devices">1</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Steps -->
-  <section class="hiw-head">
+  <!-- Statement — fail closed -->
+  <section class="fails-closed-band">
     <div class="page">
-      <div class="row">
-        <div class="section-num">How it works</div>
-        <div>
-          <h1>From MDM rollout to audit, in four moves.</h1>
-          <p style="margin-top:18px">Most security teams have the registry populated within their first week. Most cut their first compliance evidence pack inside the first quarter — without ever touching an engineer's laptop.</p>
+      <p data-anim>If policy verification fails, <em>Svalin fails closed.</em></p>
+    </div>
+  </section>
+
+  <!-- Section 3 — The Svalin Data Flow -->
+  <section class="block ice">
+    <div class="page">
+      <div class="section-head" data-anim>
+        <h2 class="section-title">The Svalin data flow.</h2>
+        <p class="section-sub">How raw endpoint actions become evidence.</p>
+      </div>
+
+      <div class="flow-diagram" data-anim>
+        <div class="flow-node">
+          <div class="flow-node-label">Developer device</div>
+          <div class="flow-node-lines">
+            <span>Cursor / Claude Code</span>
+            <span>Local MCP servers</span>
+            <span>Local policy engine · 0 latency</span>
+          </div>
+        </div>
+        <div class="flow-arrow" aria-hidden="true">→</div>
+        <div class="flow-node engine">
+          <div class="flow-node-label">Svalin engine</div>
+          <div class="flow-node-lines">
+            <span>In-flight causal telemetry</span>
+            <span>PID-based session reconstruction</span>
+          </div>
+        </div>
+        <div class="flow-arrow" aria-hidden="true">→</div>
+        <div class="flow-node">
+          <div class="flow-node-label">Dashboard</div>
+          <div class="flow-node-lines">
+            <span>Real-time risk alerts</span>
+            <span>Incident forensics &amp; audits</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-steps" data-anim data-anim-delay="120">
+        <div class="flow-step">
+          <div class="flow-step-num">Capture</div>
+          <p>The ultra-light local daemon captures tool invocations and file modifications directly on the device — independently of developer account context.</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-num">Analyze</div>
+          <p>Telemetry is correlated into causal session graphs and process hierarchies, identifying intent, repository impact, and risk scores.</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-num">Govern &amp; investigate</div>
+          <p>Block violations inline, query repository-level incidents in seconds, and automatically export audit-ready evidence.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="page">
-    <div class="hiw-step">
-      <div class="num">Step 01</div>
-      <div>
-        <h2>Ship the agent through MDM.</h2>
-        <p>Push the Svalin agent to every developer device in the same wave as your other endpoint software — Jamf, Kandji, Intune, or any tool that can drop a signed pkg. Engineers see nothing. The agent enrolls itself, identifies the AI coding tools on the machine, and starts capturing.</p>
-        <div class="keyline">▸ MDM · svalin-agent-2.4.1.pkg</div>
+  <!-- Section — Boundaries / data handling -->
+  <section class="block">
+    <div class="page">
+      <div class="section-head" data-anim>
+        <h2 class="section-title">What Svalin doesn't touch.</h2>
+        <p class="section-sub">The part a security review — or a works council — checks first: what the agent reads, what leaves the device, and what happens to a prompt when capture is off.</p>
       </div>
-      <div>
-        <div class="visual-frame">
-          <div class="frame-label">deployment · Jamf Pro</div>
-          <div style="margin-top:10px;line-height:1.8">
-            <div><span class="muted">policy</span> Svalin / All-Macs</div>
-            <div class="muted">scope: 247 devices</div>
-            <div class="muted">package: svalin-agent-2.4.1.pkg</div>
-            <div class="muted">deploying… 233 / 247 enrolled</div>
-            <div><span style="color:var(--color-success)">✓</span> active · reporting to eu-central-1</div>
+      <div class="principles">
+        <div class="principle-list">
+          <div class="principle" data-anim>
+            <span class="num">01</span>
+            <h3>Detects everything, reads only what it governs</h3>
+            <p>Svalin inventories which AI tools are installed and running, and reads configuration and activity only from the agents it governs. Never your source code, personal files, or any other file on the machine.</p>
+          </div>
+          <div class="principle" data-anim data-anim-delay="100">
+            <span class="num">02</span>
+            <h3>Prompt capture is opt-in</h3>
+            <p>Prompt content is captured only when your policy turns it on. With it off, the words in a prompt never leave the device — Svalin still records what a session did (tool calls, files touched, timing), just not what was typed.</p>
+          </div>
+          <div class="principle" data-anim data-anim-delay="200">
+            <span class="num">03</span>
+            <h3>Encrypted, with controlled decryption</h3>
+            <p>When capture is on, prompt content is encrypted at rest. Decryption is gated by policy and reason-logged, with employee notification — no one reads a prompt silently.</p>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="hiw-step">
-      <div class="num">Step 02</div>
-      <div>
-        <h2>The registry fills itself.</h2>
-        <p>Within hours, the platform knows every governed device, every AI coding agent installed on it, and every MCP server those agents reach for. No survey. No questionnaire. No engineer told to log anything.</p>
-        <div class="keyline">▸ Registry · devices · agents · MCP servers</div>
-      </div>
-      <div>
-        <div class="visual-frame">
-          <div class="frame-label">registry · live</div>
-          <div class="kvs" style="margin-top:14px">
-            <span class="k">Governed devices</span><span class="v">233 / 247</span>
-            <span class="k">Cursor</span><span class="v">181 devices</span>
-            <span class="k">Claude Code</span><span class="v">142 devices</span>
-            <span class="k">GitHub Copilot</span><span class="v">198 devices</span>
-            <span class="k">Windsurf</span><span class="v">24 devices</span>
-            <span class="k">MCP servers seen</span><span class="v">31 unique</span>
-            <span class="k">Coverage</span><span class="v" style="color:var(--color-success)">● 94.3%</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hiw-step">
-      <div class="num">Step 03</div>
-      <div>
-        <h2>Incidents, not log floods.</h2>
-        <p>PII reads, credential leaks, policy violations and unknown MCP servers all surface as incidents — triaged, assigned, and resolved in the platform. The rest of the firehose stays in the timeline, searchable when you need it.</p>
-        <div class="keyline">▸ Incidents · PII · credentials · policy</div>
-      </div>
-      <div>
-        <div class="visual-frame">
-          <div class="frame-label">incidents · last 7d</div>
-          <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
-            <div style="display:grid;grid-template-columns:60px 90px 1fr 80px;gap:8px;font-size:11.5px">
-              <span class="muted">SVL-118</span><span style="color:var(--env-accent)">credential.read</span><span style="color:var(--svalin-navy)">claude on MBP-A1742</span><span style="color:var(--color-danger);text-align:right">● open</span>
-            </div>
-            <div style="display:grid;grid-template-columns:60px 90px 1fr 80px;gap:8px;font-size:11.5px">
-              <span class="muted">SVL-117</span><span style="color:var(--env-accent)">pii.email</span><span style="color:var(--svalin-navy)">cursor on MBP-3318</span><span style="color:var(--color-warning);text-align:right">● review</span>
-            </div>
-            <div style="display:grid;grid-template-columns:60px 90px 1fr 80px;gap:8px;font-size:11.5px">
-              <span class="muted">SVL-116</span><span style="color:var(--env-accent)">mcp.unknown</span><span style="color:var(--svalin-navy)">claude on MBP-Q221</span><span style="color:var(--color-warning);text-align:right">● review</span>
-            </div>
-            <div style="display:grid;grid-template-columns:60px 90px 1fr 80px;gap:8px;font-size:11.5px">
-              <span class="muted">SVL-115</span><span style="color:var(--env-accent)">credential.read</span><span style="color:var(--svalin-navy)">copilot on MBP-0048</span><span style="color:var(--color-success);text-align:right">● resolved</span>
-            </div>
-            <div style="display:grid;grid-template-columns:60px 90px 1fr 80px;gap:8px;font-size:11.5px">
-              <span class="muted">SVL-114</span><span style="color:var(--env-accent)">pii.address</span><span style="color:var(--svalin-navy)">cursor on MBP-7711</span><span style="color:var(--color-success);text-align:right">● resolved</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hiw-step">
-      <div class="num">Step 04</div>
-      <div>
-        <h2>Audit — already done.</h2>
-        <p>When the auditor asks, hand them a signed, timestamped report mapping every relevant event to your SOC 2 / ISO 27001 / EU AI Act controls. Generated in seconds. Delivered as a PDF, a JSONL bundle, or both. The compliance work was a side effect of running the platform.</p>
-        <div class="keyline">▸ Evidence pack · SOC 2 · CC7.2</div>
-      </div>
-      <div>
-        <div class="visual-frame">
-          <div class="frame-label">evidence pack · 2026-Q1</div>
-          <div class="kvs" style="margin-top:14px">
-            <span class="k">Framework</span><span class="v">SOC 2 Type II</span>
-            <span class="k">Period</span><span class="v">2026-01-01 → 2026-03-31</span>
-            <span class="k">Devices in scope</span><span class="v">233</span>
-            <span class="k">Tool calls captured</span><span class="v">52,634,118</span>
-            <span class="k">Incidents resolved</span><span class="v" style="color:var(--color-danger)">14 (all closed)</span>
-            <span class="k">Signed by</span><span class="v">svalin.evidence.v2</span>
-            <span class="k">Hash</span><span class="v" style="font-size:11px">0xa1c8…f24e</span>
-            <span class="k">Status</span><span class="v" style="color:var(--color-success)">● ready to export</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CTA Strip -->
-  <section class="cta-strip">
+  <!-- Section 4 — Call to Action -->
+  <section class="cta-strip dp-cta">
     <div class="page">
       <div class="cta-inner">
-        <h2>See what AI coding agents <em>accessed yesterday</em>.<br>Without asking a single engineer.</h2>
-        <a class="demo-btn" href="/demo">Request a demo <span class="arrow">→</span></a>
+        <h2>See Svalin running on your local stack.<br><em>Test our 5-minute deployment in a risk-free 3-month design partner pilot.</em></h2>
+        <a class="demo-btn" href="/demo">Apply for Design Partner Program <span class="arrow">→</span></a>
       </div>
     </div>
   </section>
@@ -284,7 +441,7 @@
             <span class="subtitle">AI Governance Platform</span>
           </div>
         </div>
-        <p>AI productivity, with the observability your CISO needs. Built in Berlin.</p>
+        <p>AI productivity, with the observability your security and engineering leads need. Built in Berlin.</p>
       </div>
       <div class="footer-col">
         <h5>Company</h5>
@@ -299,6 +456,7 @@
         <h5>Product</h5>
         <ul>
           <li><a href="/how-it-works">How it works</a></li>
+          <li><a href="/coverage">Coverage</a></li>
           <li><a href="/pricing">Pricing</a></li>
           <li><a href="/demo">Request a demo</a></li>
         </ul>
